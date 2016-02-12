@@ -8,7 +8,8 @@ import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.expressions.IEvaluationContext;
-
+import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
+import org.eclipse.emf.edit.domain.EditingDomain;
 
 import yeah.petrinet.*;
 
@@ -115,7 +116,7 @@ public class SimulatorCommandHandler extends AbstractHandler {
 			Place b = (Place)transition.getIn().get(i).getSource();
 			
 			b.getTokens().remove(0);
-		    transition.getIn().get(i).setSource(b);
+//		    transition.getIn().get(i).setSource(b);
 		}
 		
 		// adding tokens
@@ -123,9 +124,15 @@ public class SimulatorCommandHandler extends AbstractHandler {
 		for(int i = 0; i<transition.getOut().size();i++){
 			Place b = (Place)transition.getOut().get(i).getTarget();
 			b.getTokens().add(PetrinetFactory.eINSTANCE.createToken());
-			transition.getIn().get(i).setSource(b);
-		}
+//			transition.getIn().get(i).setSource(b);
 			
+		
+		}
+		
+		  EditingDomain domain = AdapterFactoryEditingDomain.getEditingDomainFor(transition);
+		  if (domain != null)
+		    domain.getCommandStack().execute( new FireTransitionCommand(domain, transition));
+//			
 	}
 	
 
