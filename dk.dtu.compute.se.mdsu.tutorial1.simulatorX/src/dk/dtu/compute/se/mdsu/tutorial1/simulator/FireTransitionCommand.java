@@ -5,6 +5,7 @@ import org.eclipse.emf.edit.command.CreateChildCommand;
 import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 
+import yeah.petrinet.PetrinetFactory;
 import yeah.petrinet.PetrinetPackage;
 import yeah.petrinet.Place;
 import yeah.petrinet.Token;
@@ -15,17 +16,21 @@ public class FireTransitionCommand extends CompoundCommand {
 	FireTransitionCommand(EditingDomain domain, Transition transition){
 		
 	
-		
 		for(int i = 0; i<transition.getIn().size();i++){
 			Place place = (Place)transition.getIn().get(i).getSource();
-			Token token = place.getTokens().get(i);
-			
+			Token token = place.getTokens().get(0);
 			RemoveCommand A = new RemoveCommand(domain, place, PetrinetPackage.eINSTANCE.getPlace_Tokens(), token);
-			CreateChildCommand C = new CreateChildCommand(domain, place, PetrinetPackage.eINSTANCE.getPlace_Tokens(), token, null);
-			this.append(A);
-			this.append(C);
+			this.append(A);	
+		}
+		
+		for(int i = 0; i<transition.getOut().size();i++){
+			Place place = (Place)transition.getOut().get(i).getTarget();
+			CreateChildCommand C = new CreateChildCommand(domain, place, PetrinetPackage.eINSTANCE.getPlace_Tokens(), PetrinetFactory.eINSTANCE.createToken(), null);
+		this.append(C);
 		}
 	}
+}
+
 	
 
-}
+

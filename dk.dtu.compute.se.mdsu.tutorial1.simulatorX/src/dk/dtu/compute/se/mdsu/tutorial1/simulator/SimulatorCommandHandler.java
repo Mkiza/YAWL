@@ -24,6 +24,7 @@ public class SimulatorCommandHandler extends AbstractHandler {
 		Transition transition = getTransition(event.getApplicationContext());
 		if (isEnabled(transition)) {
 			fire(transition);
+			
 		}
 		return null;
 	}
@@ -78,23 +79,6 @@ public class SimulatorCommandHandler extends AbstractHandler {
 		System.out.println("false");
 		return false;
 	}
-//		if(transition != null){
-//		
-//		for (Arc arc : transition.getIn()){
-//			Node node = arc.getSource();
-//			if (node instanceof Place) {
-//				Place source = (Place) node;
-//				if (needed.containsKey(source)){
-//					needed.put(source, needed.get(source)+1); 
-//					
-//				}
-//				else {
-//					needed.put(source, 1);
-//				}
-//			}
-//		}
-//	}
-//	}
 
 	static private void fire(Transition transition) {
 		
@@ -111,28 +95,30 @@ public class SimulatorCommandHandler extends AbstractHandler {
 		// Token token = PetrinetFactory.eINSTANCE.createToken();
 				
 		// removing in tokens
-		System.out.println(transition.toString());
-		for(int i = 0; i<transition.getIn().size();i++){
-			Place b = (Place)transition.getIn().get(i).getSource();
-			
-			b.getTokens().remove(0);
-//		    transition.getIn().get(i).setSource(b);
-		}
+//		System.out.println(transition.toString());
+//		for(int i = 0; i<transition.getIn().size();i++){
+//			Place b = (Place)transition.getIn().get(i).getSource();
+//			
+//			b.getTokens().remove(0);
+////		    transition.getIn().get(i).setSource(b);
+//		}
+//		
+//		// adding tokens
+//		
+//		for(int i = 0; i<transition.getOut().size();i++){
+//			Place b = (Place)transition.getOut().get(i).getTarget();
+//			b.getTokens().add(PetrinetFactory.eINSTANCE.createToken());
+////			transition.getIn().get(i).setSource(b);
+//			
+//		
+//		}
 		
-		// adding tokens
-		
-		for(int i = 0; i<transition.getOut().size();i++){
-			Place b = (Place)transition.getOut().get(i).getTarget();
-			b.getTokens().add(PetrinetFactory.eINSTANCE.createToken());
-//			transition.getIn().get(i).setSource(b);
-			
-		
-		}
-		
-		  EditingDomain domain = AdapterFactoryEditingDomain.getEditingDomainFor(transition);
+		EditingDomain domain = AdapterFactoryEditingDomain.getEditingDomainFor(transition);
 		  if (domain != null)
 		    domain.getCommandStack().execute( new FireTransitionCommand(domain, transition));
-//			
+		
+		
+			
 	}
 	
 
