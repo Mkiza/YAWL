@@ -3,7 +3,7 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/PetriNet/src" modelPluginID="PetriNet" modelName="Petrinet"
     rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
     complianceLevel="6.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
-  <foreignModel>Petrinet.ecore</foreignModel>
+  <foreignModel>model/Petrinet.ecore</foreignModel>
   <genPackages prefix="Petrinet" disposableProviderFactory="true" ecorePackage="Petrinet.ecore#/">
     <genClasses ecoreClass="Petrinet.ecore#//petrinet">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Petrinet.ecore#//petrinet/arcs"/>

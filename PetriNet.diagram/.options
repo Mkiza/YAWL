@@ -1,0 +1,7 @@
+# Tracing options for the PetriNet.diagram plug-in
+
+# Common issues
+PetriNet.diagram/debug=false
+
+# Visual IDs
+PetriNet.diagram/debug/visualID=false
