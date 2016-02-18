@@ -7,7 +7,7 @@ import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.structure.DiagramStructure;
 
-import petrinet.PetrinetPackage;
+import yeah.petrinet.PetrinetPackage;
 import petrinet.diagram.edit.parts.ArcEditPart;
 import petrinet.diagram.edit.parts.PetrinetEditPart;
 import petrinet.diagram.edit.parts.PlaceEditPart;
@@ -89,7 +89,7 @@ public class PetrinetVisualIDRegistry {
 			return -1;
 		}
 		if (PetrinetPackage.eINSTANCE.getpetrinet().isSuperTypeOf(domainElement.eClass())
-				&& isDiagram((petrinet.petrinet) domainElement)) {
+				&& isDiagram((yeah.petrinet.petrinet) domainElement)) {
 			return PetrinetEditPart.VISUAL_ID;
 		}
 		return -1;
@@ -197,7 +197,7 @@ public class PetrinetVisualIDRegistry {
 	* 
 	* @generated
 	*/
-	private static boolean isDiagram(petrinet.petrinet element) {
+	private static boolean isDiagram(yeah.petrinet.petrinet element) {
 		return true;
 	}
 

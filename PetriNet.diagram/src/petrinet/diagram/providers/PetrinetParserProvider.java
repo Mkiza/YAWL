@@ -13,7 +13,7 @@ import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.ui.services.parser.ParserHintAdapter;
 import org.eclipse.gmf.runtime.notation.View;
 
-import petrinet.PetrinetPackage;
+import yeah.petrinet.PetrinetPackage;
 import petrinet.diagram.edit.parts.PlaceNameEditPart;
 import petrinet.diagram.edit.parts.TransitionNameEditPart;
 import petrinet.diagram.parsers.MessageFormatParser;

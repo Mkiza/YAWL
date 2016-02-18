@@ -50,7 +50,7 @@ import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.FileEditorInput;
 
-import petrinet.PetrinetFactory;
+import yeah.petrinet.PetrinetFactory;
 import petrinet.diagram.edit.parts.PetrinetEditPart;
 
 /**
@@ -136,7 +136,7 @@ public class PetrinetDiagramEditorUtil {
 				Messages.PetrinetDiagramEditorUtil_CreateDiagramCommandLabel, Collections.EMPTY_LIST) {
 			protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info)
 					throws ExecutionException {
-				petrinet.petrinet model = createInitialModel();
+				yeah.petrinet.petrinet model = createInitialModel();
 				attachModelToResource(model, modelResource);
 
 				Diagram diagram = ViewService.createDiagram(model, PetrinetEditPart.MODEL_ID,
@@ -175,7 +175,7 @@ public class PetrinetDiagramEditorUtil {
 	* <!-- end-user-doc -->
 	* @generated
 	*/
-	private static petrinet.petrinet createInitialModel() {
+	private static yeah.petrinet.petrinet createInitialModel() {
 		return PetrinetFactory.eINSTANCE.createpetrinet();
 	}
 
@@ -185,7 +185,7 @@ public class PetrinetDiagramEditorUtil {
 	* <!-- end-user-doc -->
 	* @generated
 	*/
-	private static void attachModelToResource(petrinet.petrinet model, Resource resource) {
+	private static void attachModelToResource(yeah.petrinet.petrinet model, Resource resource) {
 		resource.getContents().add(model);
 	}
 

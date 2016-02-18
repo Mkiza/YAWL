@@ -21,7 +21,7 @@ import org.osgi.framework.BundleContext;
 
 import petrinet.diagram.edit.policies.PetrinetBaseItemSemanticEditPolicy;
 import petrinet.diagram.providers.ElementInitializers;
-import petrinet.provider.PetrinetItemProviderAdapterFactory;
+import yeah.petrinet.provider.PetrinetItemProviderAdapterFactory;
 
 /**
  * @generated

@@ -13,12 +13,12 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.update.DiagramUpdater;
 
-import petrinet.Arc;
-import petrinet.Node;
-import petrinet.PetrinetPackage;
-import petrinet.Place;
-import petrinet.Token;
-import petrinet.Transition;
+import yeah.petrinet.Arc;
+import yeah.petrinet.Node;
+import yeah.petrinet.PetrinetPackage;
+import yeah.petrinet.Place;
+import yeah.petrinet.Token;
+import yeah.petrinet.Transition;
 import petrinet.diagram.edit.parts.ArcEditPart;
 import petrinet.diagram.edit.parts.PetrinetEditPart;
 import petrinet.diagram.edit.parts.PlaceEditPart;
@@ -51,7 +51,7 @@ public class PetrinetDiagramUpdater {
 		if (!view.isSetElement()) {
 			return Collections.emptyList();
 		}
-		petrinet.petrinet modelElement = (petrinet.petrinet) view.getElement();
+		yeah.petrinet.petrinet modelElement = (yeah.petrinet.petrinet) view.getElement();
 		LinkedList<PetrinetNodeDescriptor> result = new LinkedList<PetrinetNodeDescriptor>();
 		for (Iterator<?> it = modelElement.getNodes().iterator(); it.hasNext();) {
 			Node childElement = (Node) it.next();
@@ -145,7 +145,7 @@ public class PetrinetDiagramUpdater {
 	 * @generated
 	 */
 	public static List<PetrinetLinkDescriptor> getPetrinet_1000ContainedLinks(View view) {
-		petrinet.petrinet modelElement = (petrinet.petrinet) view.getElement();
+		yeah.petrinet.petrinet modelElement = (yeah.petrinet.petrinet) view.getElement();
 		LinkedList<PetrinetLinkDescriptor> result = new LinkedList<PetrinetLinkDescriptor>();
 		result.addAll(getContainedTypeModelFacetLinks_Arc_4010(modelElement));
 		return result;
@@ -255,7 +255,7 @@ public class PetrinetDiagramUpdater {
 	* @generated
 	*/
 	private static Collection<PetrinetLinkDescriptor> getContainedTypeModelFacetLinks_Arc_4010(
-			petrinet.petrinet container) {
+			yeah.petrinet.petrinet container) {
 		LinkedList<PetrinetLinkDescriptor> result = new LinkedList<PetrinetLinkDescriptor>();
 		for (Iterator<?> links = container.getArcs().iterator(); links.hasNext();) {
 			EObject linkObject = (EObject) links.next();
@@ -301,13 +301,13 @@ public class PetrinetDiagramUpdater {
 	* @generated
 	*/
 	private static Collection<PetrinetLinkDescriptor> getOutgoingTypeModelFacetLinks_Arc_4010(Node source) {
-		petrinet.petrinet container = null;
+		yeah.petrinet.petrinet container = null;
 		// Find container element for the link.
 		// Climb up by containment hierarchy starting from the source
 		// and return the first element that is instance of the container class.
 		for (EObject element = source; element != null && container == null; element = element.eContainer()) {
-			if (element instanceof petrinet.petrinet) {
-				container = (petrinet.petrinet) element;
+			if (element instanceof yeah.petrinet.petrinet) {
+				container = (yeah.petrinet.petrinet) element;
 			}
 		}
 		if (container == null) {

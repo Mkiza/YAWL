@@ -12,10 +12,11 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateRelationshipRequest;
 
-import petrinet.Arc;
-import petrinet.Node;
-import petrinet.PetrinetFactory;
+
 import petrinet.diagram.edit.policies.PetrinetBaseItemSemanticEditPolicy;
+import yeah.petrinet.Arc;
+import yeah.petrinet.Node;
+import yeah.petrinet.PetrinetFactory;
 
 /**
  * @generated
@@ -35,7 +36,7 @@ public class ArcCreateCommand extends EditElementCommand {
 	/**
 	* @generated
 	*/
-	private final petrinet.petrinet container;
+	private final yeah.petrinet.petrinet container;
 
 	/**
 	* @generated
@@ -129,7 +130,7 @@ public class ArcCreateCommand extends EditElementCommand {
 	/**
 	* @generated
 	*/
-	public petrinet.petrinet getContainer() {
+	public yeah.petrinet.petrinet getContainer() {
 		return container;
 	}
 
@@ -138,13 +139,13 @@ public class ArcCreateCommand extends EditElementCommand {
 	* Modify with appropriate logic.
 	* @generated
 	*/
-	private static petrinet.petrinet deduceContainer(EObject source, EObject target) {
+	private static yeah.petrinet.petrinet deduceContainer(EObject source, EObject target) {
 		// Find container element for the new link.
 		// Climb up by containment hierarchy starting from the source
 		// and return the first element that is instance of the container class.
 		for (EObject element = source; element != null; element = element.eContainer()) {
-			if (element instanceof petrinet.petrinet) {
-				return (petrinet.petrinet) element;
+			if (element instanceof yeah.petrinet.petrinet) {
+				return (yeah.petrinet.petrinet) element;
 			}
 		}
 		return null;

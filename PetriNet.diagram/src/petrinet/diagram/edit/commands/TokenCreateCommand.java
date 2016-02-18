@@ -12,9 +12,9 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
-import petrinet.PetrinetFactory;
-import petrinet.Place;
-import petrinet.Token;
+import yeah.petrinet.PetrinetFactory;
+import yeah.petrinet.Place;
+import yeah.petrinet.Token;
 
 /**
  * @generated

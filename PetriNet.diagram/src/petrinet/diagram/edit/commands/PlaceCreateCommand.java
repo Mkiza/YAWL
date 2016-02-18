@@ -12,8 +12,10 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
-import petrinet.PetrinetFactory;
-import petrinet.Place;
+import yeah.petrinet.PetrinetFactory;
+import yeah.petrinet.Place;
+
+
 
 /**
  * @generated
@@ -53,7 +55,7 @@ public class PlaceCreateCommand extends EditElementCommand {
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
 		Place newElement = PetrinetFactory.eINSTANCE.createPlace();
 
-		petrinet.petrinet owner = (petrinet.petrinet) getElementToEdit();
+		yeah.petrinet.petrinet owner = (yeah.petrinet.petrinet) getElementToEdit();
 		owner.getNodes().add(newElement);
 
 		doConfigure(newElement, monitor, info);

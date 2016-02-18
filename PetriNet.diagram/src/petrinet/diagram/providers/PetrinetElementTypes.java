@@ -14,13 +14,14 @@ import org.eclipse.gmf.tooling.runtime.providers.DiagramElementTypes;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.graphics.Image;
 
-import petrinet.PetrinetPackage;
+
 import petrinet.diagram.edit.parts.ArcEditPart;
 import petrinet.diagram.edit.parts.PetrinetEditPart;
 import petrinet.diagram.edit.parts.PlaceEditPart;
 import petrinet.diagram.edit.parts.TokenEditPart;
 import petrinet.diagram.edit.parts.TransitionEditPart;
 import petrinet.diagram.part.PetrinetDiagramEditorPlugin;
+import yeah.petrinet.PetrinetPackage;
 
 /**
  * @generated

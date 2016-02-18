@@ -21,7 +21,7 @@ import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
-import petrinet.PetrinetPackage;
+import yeah.petrinet.PetrinetPackage;
 import petrinet.diagram.edit.parts.TokenEditPart;
 import petrinet.diagram.part.PetrinetDiagramUpdater;
 import petrinet.diagram.part.PetrinetNodeDescriptor;

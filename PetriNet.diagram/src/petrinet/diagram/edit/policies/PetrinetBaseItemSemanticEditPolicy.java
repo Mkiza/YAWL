@@ -32,8 +32,8 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.edit.helpers.GeneratedEditHelperBase;
 
-import petrinet.Arc;
-import petrinet.Node;
+import yeah.petrinet.Arc;
+import yeah.petrinet.Node;
 import petrinet.diagram.part.PetrinetDiagramEditorPlugin;
 import petrinet.diagram.part.PetrinetVisualIDRegistry;
 import petrinet.diagram.providers.PetrinetElementTypes;
@@ -307,14 +307,14 @@ public class PetrinetBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		/**
 		 * @generated
 		 */
-		public boolean canCreateArc_4010(petrinet.petrinet container, Node source, Node target) {
+		public boolean canCreateArc_4010(yeah.petrinet.petrinet container, Node source, Node target) {
 			return canExistArc_4010(container, null, source, target);
 		}
 
 		/**
 		* @generated
 		*/
-		public boolean canExistArc_4010(petrinet.petrinet container, Arc linkInstance, Node source, Node target) {
+		public boolean canExistArc_4010(yeah.petrinet.petrinet container, Arc linkInstance, Node source, Node target) {
 			return true;
 		}
 	}

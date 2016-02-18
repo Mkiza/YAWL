@@ -29,7 +29,7 @@ import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.update.UpdaterLinkDescriptor;
 
-import petrinet.PetrinetPackage;
+import yeah.petrinet.PetrinetPackage;
 import petrinet.diagram.edit.parts.ArcEditPart;
 import petrinet.diagram.edit.parts.PetrinetEditPart;
 import petrinet.diagram.edit.parts.PlaceEditPart;

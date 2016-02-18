@@ -12,8 +12,8 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
-import petrinet.PetrinetFactory;
-import petrinet.Transition;
+import yeah.petrinet.PetrinetFactory;
+import yeah.petrinet.Transition;
 
 /**
  * @generated
@@ -53,7 +53,7 @@ public class TransitionCreateCommand extends EditElementCommand {
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
 		Transition newElement = PetrinetFactory.eINSTANCE.createTransition();
 
-		petrinet.petrinet owner = (petrinet.petrinet) getElementToEdit();
+		yeah.petrinet.petrinet owner = (yeah.petrinet.petrinet) getElementToEdit();
 		owner.getNodes().add(newElement);
 
 		doConfigure(newElement, monitor, info);

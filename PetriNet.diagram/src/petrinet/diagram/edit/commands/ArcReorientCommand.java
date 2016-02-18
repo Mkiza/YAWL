@@ -8,8 +8,8 @@ import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.emf.type.core.commands.EditElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipRequest;
 
-import petrinet.Arc;
-import petrinet.Node;
+import yeah.petrinet.Arc;
+import yeah.petrinet.Node;
 import petrinet.diagram.edit.policies.PetrinetBaseItemSemanticEditPolicy;
 
 /**
@@ -66,10 +66,10 @@ public class ArcReorientCommand extends EditElementCommand {
 			return false;
 		}
 		Node target = getLink().getTarget();
-		if (!(getLink().eContainer() instanceof petrinet.petrinet)) {
+		if (!(getLink().eContainer() instanceof yeah.petrinet.petrinet)) {
 			return false;
 		}
-		petrinet.petrinet container = (petrinet.petrinet) getLink().eContainer();
+		yeah.petrinet.petrinet container = (yeah.petrinet.petrinet) getLink().eContainer();
 		return PetrinetBaseItemSemanticEditPolicy.getLinkConstraints().canExistArc_4010(container, getLink(),
 				getNewSource(), target);
 	}
@@ -82,10 +82,10 @@ public class ArcReorientCommand extends EditElementCommand {
 			return false;
 		}
 		Node source = getLink().getSource();
-		if (!(getLink().eContainer() instanceof petrinet.petrinet)) {
+		if (!(getLink().eContainer() instanceof yeah.petrinet.petrinet)) {
 			return false;
 		}
-		petrinet.petrinet container = (petrinet.petrinet) getLink().eContainer();
+		yeah.petrinet.petrinet container = (yeah.petrinet.petrinet) getLink().eContainer();
 		return PetrinetBaseItemSemanticEditPolicy.getLinkConstraints().canExistArc_4010(container, getLink(), source,
 				getNewTarget());
 	}

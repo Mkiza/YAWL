@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.0"?>
 <plugin>
-   <requires>
-      <import plugin="dk.dtu.compute.se.mdsu.tutorial1.simulator" version="1.0.0"/>
-      <import plugin="PetriNet" version="1.0.0"/>
-   </requires>
 
    <extension point="org.eclipse.team.core.fileTypes" id="repo-ftype">
       <?gmfgen generated="true"?>

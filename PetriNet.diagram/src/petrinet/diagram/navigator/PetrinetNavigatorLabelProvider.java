@@ -159,7 +159,7 @@ public class PetrinetNavigatorLabelProvider extends LabelProvider
 	* @generated
 	*/
 	private String getPetrinet_1000Text(View view) {
-		petrinet.petrinet domainModelElement = (petrinet.petrinet) view.getElement();
+		yeah.petrinet.petrinet domainModelElement = (yeah.petrinet.petrinet) view.getElement();
 		if (domainModelElement != null) {
 			return domainModelElement.getNume();
 		} else {
