@@ -51,6 +51,9 @@
         <ownedChild>
           <domainMetaElement
               href="Petrinet.ecore#//Token"/>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="Petrinet.gmftool#//@palette/@tools.0/@tools.0"/>
           <diagramNode
               href="Petrinet.gmfgraph#Token"/>
         </ownedChild>

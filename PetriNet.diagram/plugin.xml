@@ -18,14 +18,14 @@
    <extension point="org.eclipse.ui.editors" id="gmf-editor">
       <?gmfgen generated="true"?>
       <editor
-         id="petrinet.diagram.part.PetrinetDiagramEditorID"
+         id="yeah.petrinet.diagram.part.PetrinetDiagramEditorID"
          name="%editorName"
          icon="icons/obj16/PetrinetDiagramFile.gif"
          extensions="petrinet_diagram"
          default="true"
-         class="petrinet.diagram.part.PetrinetDiagramEditor"
-         matchingStrategy="petrinet.diagram.part.PetrinetMatchingStrategy"
-         contributorClass="petrinet.diagram.part.PetrinetDiagramActionBarContributor">
+         class="yeah.petrinet.diagram.part.PetrinetDiagramEditor"
+         matchingStrategy="yeah.petrinet.diagram.part.PetrinetMatchingStrategy"
+         contributorClass="yeah.petrinet.diagram.part.PetrinetDiagramActionBarContributor">
       </editor>
    </extension>
    
@@ -33,7 +33,7 @@
       <?gmfgen generated="true"?>
       <context
          description="%context.description"
-         id="petrinet.diagram.ui.diagramContext"
+         id="yeah.petrinet.diagram.ui.diagramContext"
          name="%context.name"
          parentId="org.eclipse.gmf.runtime.diagram.ui.diagramContext">
       </context>
@@ -45,8 +45,8 @@
   	     name="%newWizardName"
   	     icon="icons/obj16/PetrinetDiagramFile.gif"
   	     category="org.eclipse.ui.Examples"
-  	     class="petrinet.diagram.part.PetrinetCreationWizard"
-  	     id="petrinet.diagram.part.PetrinetCreationWizardID">
+  	     class="yeah.petrinet.diagram.part.PetrinetCreationWizard"
+  	     id="yeah.petrinet.diagram.part.PetrinetCreationWizardID">
   	  	 <description>%newWizardDesc</description>  
       </wizard>
    </extension>
@@ -59,7 +59,7 @@
             objectClass="org.eclipse.core.resources.IFile">
          <action
                label="%initDiagramActionLabel"
-               class="petrinet.diagram.part.PetrinetInitDiagramFileAction"
+               class="yeah.petrinet.diagram.part.PetrinetInitDiagramFileAction"
                menubarPath="additions"
                enablesFor="1"
                id="PetriNet.diagram.InitDiagramAction">
@@ -73,7 +73,7 @@
          class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramGlobalActionHandlerProvider"
          id="PetrinetPresentation">
          <Priority name="Lowest"/>
-         <ViewId id="petrinet.diagram.part.PetrinetDiagramEditorID">
+         <ViewId id="yeah.petrinet.diagram.part.PetrinetDiagramEditorID">
             <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
                <GlobalActionId actionId="delete"/>
             </ElementType>
@@ -90,7 +90,7 @@
          class="org.eclipse.gmf.runtime.diagram.ui.providers.ide.providers.DiagramIDEGlobalActionHandlerProvider"
          id="PetrinetPresentationIDE">
          <Priority name="Lowest"/>
-         <ViewId id="petrinet.diagram.part.PetrinetDiagramEditorID">
+         <ViewId id="yeah.petrinet.diagram.part.PetrinetDiagramEditorID">
             <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
                <GlobalActionId actionId="bookmark"/>
             </ElementType>
@@ -100,7 +100,7 @@
             class="org.eclipse.gmf.runtime.diagram.ui.render.providers.DiagramUIRenderGlobalActionHandlerProvider"
             id="PetrinetRender">
          <Priority name="Lowest"/>
-         <ViewId id="petrinet.diagram.part.PetrinetDiagramEditorID">
+         <ViewId id="yeah.petrinet.diagram.part.PetrinetDiagramEditorID">
             <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
                <GlobalActionId actionId="cut"/>
                <GlobalActionId actionId="copy"/>
@@ -113,7 +113,7 @@
 
    <extension point="org.eclipse.core.runtime.preferences" id="prefs">
       <?gmfgen generated="true"?>
-      <initializer class="petrinet.diagram.preferences.DiagramPreferenceInitializer"/>
+      <initializer class="yeah.petrinet.diagram.preferences.DiagramPreferenceInitializer"/>
    </extension>
 
    <extension point="org.eclipse.ui.preferencePages" id="prefpages">
@@ -121,31 +121,31 @@
       <page
             id="PetriNet.diagram.general"
             name="%prefpage.PetriNet.diagram.general"
-            class="petrinet.diagram.preferences.DiagramGeneralPreferencePage">
+            class="yeah.petrinet.diagram.preferences.DiagramGeneralPreferencePage">
       </page>
       <page
             id="PetriNet.diagram.appearance"
             name="%prefpage.PetriNet.diagram.appearance"
             category="PetriNet.diagram.general"
-            class="petrinet.diagram.preferences.DiagramAppearancePreferencePage">
+            class="yeah.petrinet.diagram.preferences.DiagramAppearancePreferencePage">
       </page>
       <page
             id="PetriNet.diagram.connections"
             name="%prefpage.PetriNet.diagram.connections"
             category="PetriNet.diagram.general"
-            class="petrinet.diagram.preferences.DiagramConnectionsPreferencePage">
+            class="yeah.petrinet.diagram.preferences.DiagramConnectionsPreferencePage">
       </page>
       <page
             id="PetriNet.diagram.printing"
             name="%prefpage.PetriNet.diagram.printing"
             category="PetriNet.diagram.general"
-            class="petrinet.diagram.preferences.DiagramPrintingPreferencePage">
+            class="yeah.petrinet.diagram.preferences.DiagramPrintingPreferencePage">
       </page>
       <page
             id="PetriNet.diagram.rulersAndGrid"
             name="%prefpage.PetriNet.diagram.rulersAndGrid"
             category="PetriNet.diagram.general"
-            class="petrinet.diagram.preferences.DiagramRulersAndGridPreferencePage">
+            class="yeah.petrinet.diagram.preferences.DiagramRulersAndGridPreferencePage">
       </page>
    </extension>
 
@@ -153,7 +153,7 @@
       <?gmfgen generated="true"?>
       <propertyContributor
             contributorId="PetriNet.diagram"
-            labelProvider="petrinet.diagram.sheet.PetrinetSheetLabelProvider">
+            labelProvider="yeah.petrinet.diagram.sheet.PetrinetSheetLabelProvider">
          <propertyCategory category="domain"/>
          <propertyCategory category="visual"/>
          <propertyCategory category="extra"/>
@@ -204,17 +204,17 @@
          <propertySection
             id="property.section.domain" 
             tab="property.tab.domain"
-            class="petrinet.diagram.sheet.PetrinetPropertySection">
+            class="yeah.petrinet.diagram.sheet.PetrinetPropertySection">
             <input type="org.eclipse.gmf.runtime.notation.View"/>
             <input type="org.eclipse.gef.EditPart"/>
-            <input type="petrinet.diagram.navigator.PetrinetAbstractNavigatorItem"/>
+            <input type="yeah.petrinet.diagram.navigator.PetrinetAbstractNavigatorItem"/>
          </propertySection>
       </propertySections>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.diagram.core.viewProviders" id="view-provider">
       <?gmfgen generated="true"?>
-      <viewProvider class="petrinet.diagram.providers.PetrinetViewProvider">
+      <viewProvider class="yeah.petrinet.diagram.providers.PetrinetViewProvider">
          <Priority name="Lowest"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Petrinet"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2002,2003,3001"/>
@@ -224,7 +224,7 @@
 
    <extension point="org.eclipse.gmf.runtime.diagram.ui.editpartProviders" id="ep-provider">
       <?gmfgen generated="true"?>
-      <editpartProvider class="petrinet.diagram.providers.PetrinetEditPartProvider">
+      <editpartProvider class="yeah.petrinet.diagram.providers.PetrinetEditPartProvider">
          <Priority name="Lowest"/>
          <object class="org.eclipse.gmf.runtime.notation.Diagram" id="generated-diagram">
             <method name="getType()" value="Petrinet"/>
@@ -248,24 +248,24 @@
    
    <extension point="org.eclipse.gmf.runtime.emf.ui.modelingAssistantProviders" id="modelassist-provider">
       <?gmfgen generated="true"?>
-      <modelingAssistantProvider class="petrinet.diagram.providers.assistants.PetrinetModelingAssistantProviderOfPetrinetEditPart">
+      <modelingAssistantProvider class="yeah.petrinet.diagram.providers.assistants.PetrinetModelingAssistantProviderOfPetrinetEditPart">
          <Priority name="Lowest"/>
-         <object class="petrinet.diagram.edit.parts.PetrinetEditPart" id="Petrinet_1000"/>
+         <object class="yeah.petrinet.diagram.edit.parts.PetrinetEditPart" id="Petrinet_1000"/>
          <context elements="Petrinet_1000"/>
       </modelingAssistantProvider>
-            <modelingAssistantProvider class="petrinet.diagram.providers.assistants.PetrinetModelingAssistantProviderOfTransitionEditPart">
+            <modelingAssistantProvider class="yeah.petrinet.diagram.providers.assistants.PetrinetModelingAssistantProviderOfTransitionEditPart">
          <Priority name="Lowest"/>
-         <object class="petrinet.diagram.edit.parts.TransitionEditPart" id="Transition_2002"/>
+         <object class="yeah.petrinet.diagram.edit.parts.TransitionEditPart" id="Transition_2002"/>
          <context elements="Transition_2002"/>
       </modelingAssistantProvider>
-            <modelingAssistantProvider class="petrinet.diagram.providers.assistants.PetrinetModelingAssistantProviderOfPlaceEditPart">
+            <modelingAssistantProvider class="yeah.petrinet.diagram.providers.assistants.PetrinetModelingAssistantProviderOfPlaceEditPart">
          <Priority name="Lowest"/>
-         <object class="petrinet.diagram.edit.parts.PlaceEditPart" id="Place_2003"/>
+         <object class="yeah.petrinet.diagram.edit.parts.PlaceEditPart" id="Place_2003"/>
          <context elements="Place_2003"/>
       </modelingAssistantProvider>
-            <modelingAssistantProvider class="petrinet.diagram.providers.assistants.PetrinetModelingAssistantProviderOfTokenEditPart">
+            <modelingAssistantProvider class="yeah.petrinet.diagram.providers.assistants.PetrinetModelingAssistantProviderOfTokenEditPart">
          <Priority name="Lowest"/>
-         <object class="petrinet.diagram.edit.parts.TokenEditPart" id="Token_3001"/>
+         <object class="yeah.petrinet.diagram.edit.parts.TokenEditPart" id="Token_3001"/>
          <context elements="Token_3001"/>
       </modelingAssistantProvider>
       
@@ -274,14 +274,14 @@
 
    <extension point="org.eclipse.gmf.runtime.common.ui.services.iconProviders" id="icon-provider">
       <?gmfgen generated="true"?>
-      <IconProvider class="petrinet.diagram.providers.PetrinetIconProvider">
+      <IconProvider class="yeah.petrinet.diagram.providers.PetrinetIconProvider">
          <Priority name="Low"/>
       </IconProvider>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.common.ui.services.parserProviders" id="parser-provider">
       <?gmfgen generated="true"?>
-      <ParserProvider class="petrinet.diagram.providers.PetrinetParserProvider">
+      <ParserProvider class="yeah.petrinet.diagram.providers.PetrinetParserProvider">
          <Priority name="Lowest"/>
       </ParserProvider>
    </extension>
@@ -294,7 +294,7 @@
                name="%metatype.name.Petrinet_1000"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="petrinet"
-               edithelper="petrinet.diagram.edit.helpers.PetrinetEditHelper">
+               edithelper="yeah.petrinet.diagram.edit.helpers.PetrinetEditHelper">
             <param name="semanticHint" value="1000"/>
          </metamodelType>
       </metamodel>
@@ -304,7 +304,7 @@
                name="%metatype.name.Transition_2002"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="Transition"
-               edithelper="petrinet.diagram.edit.helpers.TransitionEditHelper">
+               edithelper="yeah.petrinet.diagram.edit.helpers.TransitionEditHelper">
             <param name="semanticHint" value="2002"/>
          </metamodelType>
       </metamodel>
@@ -314,7 +314,7 @@
                name="%metatype.name.Place_2003"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="Place"
-               edithelper="petrinet.diagram.edit.helpers.PlaceEditHelper">
+               edithelper="yeah.petrinet.diagram.edit.helpers.PlaceEditHelper">
             <param name="semanticHint" value="2003"/>
          </metamodelType>
       </metamodel>
@@ -324,7 +324,7 @@
                name="%metatype.name.Token_3001"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="Token"
-               edithelper="petrinet.diagram.edit.helpers.TokenEditHelper">
+               edithelper="yeah.petrinet.diagram.edit.helpers.TokenEditHelper">
             <param name="semanticHint" value="3001"/>
          </metamodelType>
       </metamodel>
@@ -334,7 +334,7 @@
                name="%metatype.name.Arc_4010"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="Arc"
-               edithelper="petrinet.diagram.edit.helpers.ArcEditHelper">
+               edithelper="yeah.petrinet.diagram.edit.helpers.ArcEditHelper">
             <param name="semanticHint" value="4010"/>
          </metamodelType>
       </metamodel>
@@ -365,7 +365,7 @@
            type="org.eclipse.emf.common.ui.URIEditorInput"
            namespace="PetriNet.diagram"
            properties="isURIEditorInput"
-           class="petrinet.diagram.part.PetrinetUriEditorInputTester">
+           class="yeah.petrinet.diagram.part.PetrinetUriEditorInputTester">
        </propertyTester>
    </extension>
 
@@ -391,8 +391,8 @@
             id="PetriNet.diagram.resourceContent" 
             name="%navigatorContentName" 
             priority="normal" 
-            contentProvider="petrinet.diagram.navigator.PetrinetNavigatorContentProvider" 
-            labelProvider="petrinet.diagram.navigator.PetrinetNavigatorLabelProvider"
+            contentProvider="yeah.petrinet.diagram.navigator.PetrinetNavigatorContentProvider" 
+            labelProvider="yeah.petrinet.diagram.navigator.PetrinetNavigatorLabelProvider"
             icon="icons/obj16/PetrinetDiagramFile.gif"
             activeByDefault="true">
          <triggerPoints>
@@ -401,24 +401,24 @@
     	          <instanceof value="org.eclipse.core.resources.IFile"/>
         	      <test property="org.eclipse.core.resources.extension" value="petrinet_diagram"/>
                </and>
-               <instanceof value="petrinet.diagram.navigator.PetrinetAbstractNavigatorItem"/>
+               <instanceof value="yeah.petrinet.diagram.navigator.PetrinetAbstractNavigatorItem"/>
             </or>
          </triggerPoints>
          <possibleChildren>
             <or>
-         	   <instanceof value="petrinet.diagram.navigator.PetrinetAbstractNavigatorItem"/>
+         	   <instanceof value="yeah.petrinet.diagram.navigator.PetrinetAbstractNavigatorItem"/>
             </or>
          </possibleChildren>
          <commonSorter 
                id="PetriNet.diagram.navigatorSorter" 
-               class="petrinet.diagram.navigator.PetrinetNavigatorSorter">
+               class="yeah.petrinet.diagram.navigator.PetrinetNavigatorSorter">
             <parentExpression>
                <or>
 	              <and>
     	             <instanceof value="org.eclipse.core.resources.IFile"/>
         	         <test property="org.eclipse.core.resources.extension" value="petrinet_diagram"/>
                   </and>
-                  <instanceof value="petrinet.diagram.navigator.PetrinetAbstractNavigatorItem"/>
+                  <instanceof value="yeah.petrinet.diagram.navigator.PetrinetAbstractNavigatorItem"/>
                </or>
             </parentExpression>
          </commonSorter>
@@ -427,8 +427,8 @@
             id="PetriNet.diagram.domainResourceContent" 
             name="%domainNavigatorContentName" 
             priority="normal" 
-            contentProvider="petrinet.diagram.navigator.PetrinetDomainNavigatorContentProvider" 
-            labelProvider="petrinet.diagram.navigator.PetrinetDomainNavigatorLabelProvider"
+            contentProvider="yeah.petrinet.diagram.navigator.PetrinetDomainNavigatorContentProvider" 
+            labelProvider="yeah.petrinet.diagram.navigator.PetrinetDomainNavigatorLabelProvider"
             icon="icons/obj16/PetrinetDiagramFile.gif"
             activeByDefault="true">
          <triggerPoints>
@@ -437,19 +437,19 @@
     	          <instanceof value="org.eclipse.core.resources.IFile"/>
         	      <test property="org.eclipse.core.resources.extension" value="petrinet"/>
                </and>
-               <instanceof value="petrinet.diagram.navigator.PetrinetDomainNavigatorItem"/>
+               <instanceof value="yeah.petrinet.diagram.navigator.PetrinetDomainNavigatorItem"/>
             </or>
          </triggerPoints>
          <possibleChildren>
-            <instanceof value="petrinet.diagram.navigator.PetrinetDomainNavigatorItem"/>
+            <instanceof value="yeah.petrinet.diagram.navigator.PetrinetDomainNavigatorItem"/>
          </possibleChildren>
       </navigatorContent>
       <actionProvider
             id="PetriNet.diagram.navigatorActionProvider"
-            class="petrinet.diagram.navigator.PetrinetNavigatorActionProvider">
+            class="yeah.petrinet.diagram.navigator.PetrinetNavigatorActionProvider">
          <enablement>
             <or>
-               <instanceof value="petrinet.diagram.navigator.PetrinetAbstractNavigatorItem"/>
+               <instanceof value="yeah.petrinet.diagram.navigator.PetrinetAbstractNavigatorItem"/>
             </or>
          </enablement>
       </actionProvider>
@@ -459,7 +459,7 @@
       <?gmfgen generated="true"?>
       <linkHelper
             id="PetriNet.diagram.navigatorLinkHelper"
-            class="petrinet.diagram.navigator.PetrinetNavigatorLinkHelper">
+            class="yeah.petrinet.diagram.navigator.PetrinetNavigatorLinkHelper">
          <editorInputEnablement>
             <and>
                <instanceof value="org.eclipse.emf.common.ui.URIEditorInput"/>
@@ -467,7 +467,7 @@
             </and>
          </editorInputEnablement>
          <selectionEnablement>
-            <instanceof value="petrinet.diagram.navigator.PetrinetAbstractNavigatorItem"/>
+            <instanceof value="yeah.petrinet.diagram.navigator.PetrinetAbstractNavigatorItem"/>
          </selectionEnablement>
       </linkHelper>
    </extension>
@@ -475,17 +475,17 @@
       <?gmfgen generated="true"?>
       <command
          categoryId="org.eclipse.ui.category.edit"
-         defaultHandler="petrinet.diagram.part.PetrinetDiagramUpdateCommand"
+         defaultHandler="yeah.petrinet.diagram.part.PetrinetDiagramUpdateCommand"
          description="%update.diagram.description"
-         id="petrinet.diagram.updateDiagram"
+         id="yeah.petrinet.diagram.updateDiagram"
          name="%update.diagram.name"/>
    </extension>
    
    <extension point="org.eclipse.ui.bindings" id="update-cmd-binding">
       <?gmfgen generated="true"?>
       <key 
-         commandId="petrinet.diagram.updateDiagram"
-         contextId="petrinet.diagram.ui.diagramContext"
+         commandId="yeah.petrinet.diagram.updateDiagram"
+         contextId="yeah.petrinet.diagram.ui.diagramContext"
          schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
          sequence="F5"/>
    </extension>
@@ -500,9 +500,9 @@
          <command commandId="PetriNet.diagram.LoadResourceAction">
             <visibleWhen>
                <and>
-                  <with variable="activePartId"><equals value="petrinet.diagram.part.PetrinetDiagramEditorID"/></with>
+                  <with variable="activePartId"><equals value="yeah.petrinet.diagram.part.PetrinetDiagramEditorID"/></with>
                   <with variable="selection"><iterate ifEmpty="false"> 
-                     <instanceof value="petrinet.diagram.edit.parts.PetrinetEditPart"/>
+                     <instanceof value="yeah.petrinet.diagram.edit.parts.PetrinetEditPart"/>
                   </iterate></with>
                </and>
             </visibleWhen>
@@ -512,11 +512,11 @@
 
    <extension point="org.eclipse.ui.commands" id="menu-commands">
       <?gmfgen generated="true"?>
-      <category id="petrinet.diagram.part.PetrinetDiagramEditorID" name="%cmdcategory.name" description="%cmdcategory.desc"/>
+      <category id="yeah.petrinet.diagram.part.PetrinetDiagramEditorID" name="%cmdcategory.name" description="%cmdcategory.desc"/>
       <command id="PetriNet.diagram.LoadResourceAction"
          name="Load Resource"
-         categoryId="petrinet.diagram.part.PetrinetDiagramEditorID"
-         defaultHandler="petrinet.diagram.part.LoadResourceAction"/>
+         categoryId="yeah.petrinet.diagram.part.PetrinetDiagramEditorID"
+         defaultHandler="yeah.petrinet.diagram.part.LoadResourceAction"/>
    </extension>
 
    <extension point="org.eclipse.ui.handlers" id="menu-handlers">

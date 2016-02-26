@@ -42,10 +42,11 @@ public class PetrinetPaletteFactory {
 	* @generated
 	*/
 	private ToolEntry createToken1CreationTool() {
-		ToolEntry entry = new ToolEntry(Messages.Token1CreationTool_title, Messages.Token1CreationTool_desc, null,
-				null) {
-		};
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.Token1CreationTool_title,
+				Messages.Token1CreationTool_desc, Collections.singletonList(PetrinetElementTypes.Token_3001));
 		entry.setId("createToken1CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(PetrinetElementTypes.getImageDescriptor(PetrinetElementTypes.Token_3001));
+		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
 

@@ -1,4 +1,5 @@
 package petrinet.diagram.edit.commands;
+
 import yeah.*;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.runtime.IAdaptable;

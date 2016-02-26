@@ -4,12 +4,15 @@ Bundle-Name: %pluginName
 Bundle-SymbolicName: PetriNet.diagram; singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
-Bundle-Activator: petrinet.diagram.part.PetrinetDiagramEditorPlugin
+Bundle-Activator: yeah.petrinet.diagram.part.PetrinetDiagramEditorPlugin
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Export-Package: petrinet.diagram.edit.parts,
  petrinet.diagram.part,
- petrinet.diagram.providers
+ petrinet.diagram.providers,
+ yeah.petrinet.diagram.edit.parts,
+ yeah.petrinet.diagram.part,
+ yeah.petrinet.diagram.providers
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources,
  org.eclipse.core.expressions,

@@ -45,7 +45,7 @@ public class PlaceCanonicalEditPolicy extends CanonicalEditPolicy {
 	}
 
 	/**
-	* @generated
+	* @generated NOT
 	*/
 	protected EStructuralFeature getFeatureToSynchronize() {
 		return yeah.petrinet.PetrinetPackage.eINSTANCE.getPlace_Tokens();

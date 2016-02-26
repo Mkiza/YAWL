@@ -19,8 +19,6 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
-
-import org.eclipse.emf.edit.provider.ViewerNotification;
 import yeah.petrinet.Arc;
 import yeah.petrinet.PetrinetPackage;
 
@@ -146,13 +144,6 @@ public class ArcItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(Arc.class)) {
-			case PetrinetPackage.ARC__SOURCE:
-			case PetrinetPackage.ARC__TARGET:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 

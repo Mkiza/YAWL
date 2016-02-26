@@ -318,6 +318,9 @@ public class PetrinetBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 				yeah.petrinet.Node target) {
 			return true;
 		}
+
+		
+
 	}
 
 }

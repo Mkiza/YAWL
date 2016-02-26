@@ -68,7 +68,7 @@
       </actualFigure>
       <accessors
           accessor="getFigureName"
-          figure="//@figures.0/@descriptors.3/@actualFigure"/>
+          figure="//@figures.0/@descriptors.3/@actualFigure/@children.0"/>
     </descriptors>
   </figures>
   <nodes

@@ -60,14 +60,14 @@ public class ArcReorientCommand extends EditElementCommand {
 	}
 
 	/**
-	* @generated
+	* @generated NOT
 	*/
 	protected boolean canReorientSource() {
-		if (!(oldEnd instanceof Node && newEnd instanceof Node)) {
+		if (!(oldEnd instanceof yeah.petrinet.Node && newEnd instanceof yeah.petrinet.Node)) {
 			return false;
 		}
-		Node target = getLink().getTarget();
-		if (!(getLink().eContainer() instanceof petrinet)) {
+		yeah.petrinet.Node target = getLink().getTarget();
+		if (!(getLink().eContainer() instanceof yeah.petrinet.petrinet)) {
 			return false;
 		}
 		yeah.petrinet.petrinet container = (yeah.petrinet.petrinet) getLink().eContainer();
