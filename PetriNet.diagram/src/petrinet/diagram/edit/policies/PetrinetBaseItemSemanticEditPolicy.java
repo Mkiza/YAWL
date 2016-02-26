@@ -305,16 +305,17 @@ public class PetrinetBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		}
 
 		/**
-		 * @generated
-		 */
-		public boolean canCreateArc_4010(yeah.petrinet.petrinet container, Node source, Node target) {
+		* @generated
+		*/
+		public boolean canCreateArc_4010(yeah.petrinet.petrinet container, yeah.petrinet.Node source, yeah.petrinet.Node target) {
 			return canExistArc_4010(container, null, source, target);
 		}
 
 		/**
 		* @generated
 		*/
-		public boolean canExistArc_4010(yeah.petrinet.petrinet container, Arc linkInstance, Node source, Node target) {
+		public boolean canExistArc_4010(yeah.petrinet.petrinet container, yeah.petrinet.Arc linkInstance, yeah.petrinet.Node source,
+				yeah.petrinet.Node target) {
 			return true;
 		}
 	}

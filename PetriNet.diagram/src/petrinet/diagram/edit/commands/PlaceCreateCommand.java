@@ -15,15 +15,13 @@ import org.eclipse.gmf.runtime.notation.View;
 import yeah.petrinet.PetrinetFactory;
 import yeah.petrinet.Place;
 
-
-
 /**
- * @generated
+ * @generated NOT
  */
 public class PlaceCreateCommand extends EditElementCommand {
 
 	/**
-	* @generated
+	* @generated NOT
 	*/
 	public PlaceCreateCommand(CreateElementRequest req) {
 		super(req.getLabel(), null, req);
@@ -31,7 +29,7 @@ public class PlaceCreateCommand extends EditElementCommand {
 
 	/**
 	* FIXME: replace with setElementToEdit()
-	* @generated
+	* @generated NOT
 	*/
 	protected EObject getElementToEdit() {
 		EObject container = ((CreateElementRequest) getRequest()).getContainer();
@@ -42,7 +40,7 @@ public class PlaceCreateCommand extends EditElementCommand {
 	}
 
 	/**
-	* @generated
+	* @generated NOT
 	*/
 	public boolean canExecute() {
 		return true;
@@ -50,10 +48,10 @@ public class PlaceCreateCommand extends EditElementCommand {
 	}
 
 	/**
-	* @generated
+	* @generated NOT
 	*/
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
-		Place newElement = PetrinetFactory.eINSTANCE.createPlace();
+		yeah.petrinet.Place newElement = yeah.petrinet.PetrinetFactory.eINSTANCE.createPlace();
 
 		yeah.petrinet.petrinet owner = (yeah.petrinet.petrinet) getElementToEdit();
 		owner.getNodes().add(newElement);
@@ -65,9 +63,10 @@ public class PlaceCreateCommand extends EditElementCommand {
 	}
 
 	/**
-	* @generated
+	* @generated NOT
 	*/
-	protected void doConfigure(Place newElement, IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
+	protected void doConfigure(yeah.petrinet.Place newElement, IProgressMonitor monitor, IAdaptable info)
+			throws ExecutionException {
 		IElementType elementType = ((CreateElementRequest) getRequest()).getElementType();
 		ConfigureRequest configureRequest = new ConfigureRequest(getEditingDomain(), newElement, elementType);
 		configureRequest.setClientContext(((CreateElementRequest) getRequest()).getClientContext());

@@ -17,12 +17,12 @@ import yeah.petrinet.Place;
 import yeah.petrinet.Token;
 
 /**
- * @generated
+ * @generated NOT
  */
 public class TokenCreateCommand extends EditElementCommand {
 
 	/**
-	* @generated
+	* @generated NOT
 	*/
 	public TokenCreateCommand(CreateElementRequest req) {
 		super(req.getLabel(), null, req);
@@ -30,7 +30,7 @@ public class TokenCreateCommand extends EditElementCommand {
 
 	/**
 	* FIXME: replace with setElementToEdit()
-	* @generated
+	* @generated NOT
 	*/
 	protected EObject getElementToEdit() {
 		EObject container = ((CreateElementRequest) getRequest()).getContainer();
@@ -41,7 +41,7 @@ public class TokenCreateCommand extends EditElementCommand {
 	}
 
 	/**
-	* @generated
+	* @generated NOT
 	*/
 	public boolean canExecute() {
 		return true;
@@ -49,12 +49,12 @@ public class TokenCreateCommand extends EditElementCommand {
 	}
 
 	/**
-	* @generated
+	* @generated NOT
 	*/
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
-		Token newElement = PetrinetFactory.eINSTANCE.createToken();
+		yeah.petrinet.Token newElement = yeah.petrinet.PetrinetFactory.eINSTANCE.createToken();
 
-		Place owner = (Place) getElementToEdit();
+		yeah.petrinet.Place owner = (yeah.petrinet.Place) getElementToEdit();
 		owner.getTokens().add(newElement);
 
 		doConfigure(newElement, monitor, info);
@@ -64,9 +64,10 @@ public class TokenCreateCommand extends EditElementCommand {
 	}
 
 	/**
-	* @generated
+	* @generated NOT
 	*/
-	protected void doConfigure(Token newElement, IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
+	protected void doConfigure(yeah.petrinet.Token newElement, IProgressMonitor monitor, IAdaptable info)
+			throws ExecutionException {
 		IElementType elementType = ((CreateElementRequest) getRequest()).getElementType();
 		ConfigureRequest configureRequest = new ConfigureRequest(getEditingDomain(), newElement, elementType);
 		configureRequest.setClientContext(((CreateElementRequest) getRequest()).getClientContext());

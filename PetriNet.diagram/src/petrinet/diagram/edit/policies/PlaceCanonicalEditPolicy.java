@@ -48,7 +48,7 @@ public class PlaceCanonicalEditPolicy extends CanonicalEditPolicy {
 	* @generated
 	*/
 	protected EStructuralFeature getFeatureToSynchronize() {
-		return PetrinetPackage.eINSTANCE.getPlace_Tokens();
+		return yeah.petrinet.PetrinetPackage.eINSTANCE.getPlace_Tokens();
 	}
 
 	/**

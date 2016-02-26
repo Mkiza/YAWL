@@ -51,7 +51,7 @@ public class TransitionCreateCommand extends EditElementCommand {
 	* @generated
 	*/
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
-		Transition newElement = PetrinetFactory.eINSTANCE.createTransition();
+		yeah.petrinet.Transition newElement = yeah.petrinet.PetrinetFactory.eINSTANCE.createTransition();
 
 		yeah.petrinet.petrinet owner = (yeah.petrinet.petrinet) getElementToEdit();
 		owner.getNodes().add(newElement);
@@ -65,7 +65,7 @@ public class TransitionCreateCommand extends EditElementCommand {
 	/**
 	* @generated
 	*/
-	protected void doConfigure(Transition newElement, IProgressMonitor monitor, IAdaptable info)
+	protected void doConfigure(yeah.petrinet.Transition newElement, IProgressMonitor monitor, IAdaptable info)
 			throws ExecutionException {
 		IElementType elementType = ((CreateElementRequest) getRequest()).getElementType();
 		ConfigureRequest configureRequest = new ConfigureRequest(getEditingDomain(), newElement, elementType);

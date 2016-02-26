@@ -275,7 +275,7 @@ public class TransitionEditPart extends ShapeNodeEditPart {
 
 			fFigureTransitionNameFigure = new WrappingLabel();
 
-			fFigureTransitionNameFigure.setText("<...>");
+			fFigureTransitionNameFigure.setText("Tra");
 
 			this.add(fFigureTransitionNameFigure);
 

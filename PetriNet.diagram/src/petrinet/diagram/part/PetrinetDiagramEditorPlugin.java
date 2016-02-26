@@ -117,7 +117,7 @@ public class PetrinetDiagramEditorPlugin extends AbstractUIPlugin {
 	* @generated
 	*/
 	protected void fillItemProviderFactories(List<AdapterFactory> factories) {
-		factories.add(new PetrinetItemProviderAdapterFactory());
+		factories.add(new yeah.petrinet.provider.PetrinetItemProviderAdapterFactory());
 		factories.add(new ResourceItemProviderAdapterFactory());
 		factories.add(new ReflectiveItemProviderAdapterFactory());
 	}

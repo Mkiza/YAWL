@@ -34,7 +34,7 @@ public class PetrinetParserProvider extends AbstractProvider implements IParserP
 	*/
 	private IParser getTransitionName_5001Parser() {
 		if (transitionName_5001Parser == null) {
-			EAttribute[] features = new EAttribute[] { PetrinetPackage.eINSTANCE.getNode_Name() };
+			EAttribute[] features = new EAttribute[] { yeah.petrinet.PetrinetPackage.eINSTANCE.getNode_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			transitionName_5001Parser = parser;
 		}
@@ -51,7 +51,7 @@ public class PetrinetParserProvider extends AbstractProvider implements IParserP
 	*/
 	private IParser getPlaceName_5002Parser() {
 		if (placeName_5002Parser == null) {
-			EAttribute[] features = new EAttribute[] { PetrinetPackage.eINSTANCE.getNode_Name() };
+			EAttribute[] features = new EAttribute[] { yeah.petrinet.PetrinetPackage.eINSTANCE.getNode_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			placeName_5002Parser = parser;
 		}

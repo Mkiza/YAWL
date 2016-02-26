@@ -10,9 +10,18 @@
     <descriptors
         name="TokenFigure">
       <actualFigure
-          xsi:type="gmfgraph:Ellipse">
-        <backgroundColor
+          xsi:type="gmfgraph:Ellipse"
+          name="TokenFigure">
+        <foregroundColor
             xsi:type="gmfgraph:RGBColor"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="100"
+            green="12"
+            blue="230"/>
+        <preferredSize
+            dx="10"
+            dy="10"/>
       </actualFigure>
     </descriptors>
     <descriptors
@@ -21,7 +30,8 @@
           xsi:type="gmfgraph:PolylineConnection"
           name="ArcFigure">
         <children
-            xsi:type="gmfgraph:PolylineDecoration">
+            xsi:type="gmfgraph:PolylineDecoration"
+            name="ArcFigure">
           <foregroundColor
               xsi:type="gmfgraph:RGBColor"/>
         </children>
@@ -37,7 +47,7 @@
         <children
             xsi:type="gmfgraph:Label"
             name="TransitionNameFigure"
-            text="&lt;...>"/>
+            text="Tra"/>
       </actualFigure>
       <accessors
           figure="//@figures.0/@descriptors.2/@actualFigure/@children.0"/>
@@ -45,13 +55,20 @@
     <descriptors
         name="PlaceFigure">
       <actualFigure
-          xsi:type="gmfgraph:Ellipse">
+          xsi:type="gmfgraph:Ellipse"
+          name="PlaceFigure">
         <layout
             xsi:type="gmfgraph:XYLayout"/>
+        <foregroundColor
+            xsi:type="gmfgraph:RGBColor"/>
         <children
-            xsi:type="gmfgraph:Label"/>
+            xsi:type="gmfgraph:Label"
+            name="PlaceNameFigure"
+            text="Pl"/>
       </actualFigure>
-      <accessors/>
+      <accessors
+          accessor="getFigureName"
+          figure="//@figures.0/@descriptors.3/@actualFigure"/>
     </descriptors>
   </figures>
   <nodes

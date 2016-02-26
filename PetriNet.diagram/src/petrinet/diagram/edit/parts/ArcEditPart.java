@@ -1,12 +1,14 @@
 package petrinet.diagram.edit.parts;
 
 import org.eclipse.draw2d.Connection;
+import org.eclipse.draw2d.PolylineDecoration;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ConnectionNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ITreeBranchEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx;
 import org.eclipse.gmf.runtime.notation.View;
 
+import org.eclipse.swt.graphics.Color;
 import petrinet.diagram.edit.policies.ArcItemSemanticEditPolicy;
 
 /**
@@ -43,14 +45,47 @@ public class ArcEditPart extends ConnectionNodeEditPart implements ITreeBranchEd
 	* @generated
 	*/
 	protected Connection createConnectionFigure() {
-		return new PolylineConnectionEx();
+		return new ArcFigure();
 	}
 
 	/**
 	* @generated
 	*/
-	public PolylineConnectionEx getPrimaryShape() {
-		return (PolylineConnectionEx) getFigure();
+	public ArcFigure getPrimaryShape() {
+		return (ArcFigure) getFigure();
 	}
+
+	/**
+	* @generated
+	*/
+	public class ArcFigure extends PolylineConnectionEx {
+
+		/**
+		 * @generated
+		 */
+		public ArcFigure() {
+
+			createContents();
+		}
+
+		/**
+		 * @generated
+		 */
+		private void createContents() {
+
+			PolylineDecoration arcFigure0 = new PolylineDecoration();
+
+			arcFigure0.setForegroundColor(ARCFIGURE0_FORE);
+
+			this.add(arcFigure0);
+
+		}
+
+	}
+
+	/**
+	* @generated
+	*/
+	static final Color ARCFIGURE0_FORE = new Color(null, 0, 0, 0);
 
 }

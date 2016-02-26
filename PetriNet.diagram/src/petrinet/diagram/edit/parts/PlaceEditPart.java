@@ -1,10 +1,14 @@
 package petrinet.diagram.edit.parts;
 
+import org.eclipse.draw2d.Ellipse;
 import org.eclipse.draw2d.FlowLayout;
+import org.eclipse.draw2d.FreeformLayout;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
+import org.eclipse.draw2d.XYLayout;
+import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.commands.Command;
@@ -15,6 +19,8 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.FlowLayoutEditPolicy;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ResizableShapeEditPolicy;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.XYLayoutEditPolicy;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
@@ -73,19 +79,14 @@ public class PlaceEditPart extends ShapeNodeEditPart {
 	* @generated
 	*/
 	protected LayoutEditPolicy createLayoutEditPolicy() {
+		XYLayoutEditPolicy lep = new XYLayoutEditPolicy() {
 
-		FlowLayoutEditPolicy lep = new FlowLayoutEditPolicy() {
-
-			protected Command createAddCommand(EditPart child, EditPart after) {
-				return null;
-			}
-
-			protected Command createMoveChildCommand(EditPart child, EditPart after) {
-				return null;
-			}
-
-			protected Command getCreateCommand(CreateRequest request) {
-				return null;
+			protected EditPolicy createChildEditPolicy(EditPart child) {
+				EditPolicy result = super.createChildEditPolicy(child);
+				if (result == null) {
+					return new ResizableShapeEditPolicy();
+				}
+				return result;
 			}
 		};
 		return lep;
@@ -95,7 +96,11 @@ public class PlaceEditPart extends ShapeNodeEditPart {
 	* @generated
 	*/
 	protected IFigure createNodeShape() {
-		return primaryShape = new PlaceFigure();
+		return primaryShape = new PlaceFigure() {
+			protected boolean useLocalCoordinates() {
+				return true;
+			}
+		};
 	}
 
 	/**
@@ -110,7 +115,7 @@ public class PlaceEditPart extends ShapeNodeEditPart {
 	*/
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof PlaceNameEditPart) {
-			((PlaceNameEditPart) childEditPart).setLabel(getPrimaryShape().getFigurePlaceNameFigure());
+			((PlaceNameEditPart) childEditPart).setLabel(getPrimaryShape().getFigureName());
 			return true;
 		}
 		return false;
@@ -186,9 +191,16 @@ public class PlaceEditPart extends ShapeNodeEditPart {
 	*/
 	protected IFigure setupContentPane(IFigure nodeShape) {
 		if (nodeShape.getLayoutManager() == null) {
-			ConstrainedToolbarLayout layout = new ConstrainedToolbarLayout();
-			layout.setSpacing(5);
-			nodeShape.setLayoutManager(layout);
+			nodeShape.setLayoutManager(new FreeformLayout() {
+
+				public Object getConstraint(IFigure figure) {
+					Object result = constraints.get(figure);
+					if (result == null) {
+						result = new Rectangle(0, 0, -1, -1);
+					}
+					return result;
+				}
+			});
 		}
 		return nodeShape; // use nodeShape itself as contentPane
 	}
@@ -249,29 +261,19 @@ public class PlaceEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public class PlaceFigure extends RectangleFigure {
+	public class PlaceFigure extends Ellipse {
 
 		/**
-		 * @generated
-		 */
-		private WrappingLabel fFigurePlaceNameFigure;
+		* @generated
+		*/
+		private Ellipse fFigureName;
 
 		/**
-		 * @generated
-		 */
+			 * @generated
+			 */
 		public PlaceFigure() {
-
-			FlowLayout layoutThis = new FlowLayout();
-			layoutThis.setStretchMinorAxis(false);
-			layoutThis.setMinorAlignment(FlowLayout.ALIGN_LEFTTOP);
-
-			layoutThis.setMajorAlignment(FlowLayout.ALIGN_LEFTTOP);
-			layoutThis.setMajorSpacing(5);
-			layoutThis.setMinorSpacing(5);
-			layoutThis.setHorizontal(true);
-
-			this.setLayoutManager(layoutThis);
-
+			this.setLayoutManager(new XYLayout());
+			this.setForegroundColor(THIS_FORE);
 			createContents();
 		}
 
@@ -280,21 +282,26 @@ public class PlaceEditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			fFigurePlaceNameFigure = new WrappingLabel();
+			WrappingLabel placeNameFigure0 = new WrappingLabel();
 
-			fFigurePlaceNameFigure.setText("<...>");
+			placeNameFigure0.setText("Pl");
 
-			this.add(fFigurePlaceNameFigure);
+			this.add(placeNameFigure0);
 
 		}
 
 		/**
-		 * @generated
-		 */
-		public WrappingLabel getFigurePlaceNameFigure() {
-			return fFigurePlaceNameFigure;
+		* @generated
+		*/
+		public Ellipse getFigureName() {
+			return fFigureName;
 		}
 
 	}
+
+	/**
+	* @generated
+	*/
+	static final Color THIS_FORE = new Color(null, 0, 0, 0);
 
 }

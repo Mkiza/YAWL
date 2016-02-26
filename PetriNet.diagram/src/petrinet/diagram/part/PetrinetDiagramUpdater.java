@@ -54,7 +54,7 @@ public class PetrinetDiagramUpdater {
 		yeah.petrinet.petrinet modelElement = (yeah.petrinet.petrinet) view.getElement();
 		LinkedList<PetrinetNodeDescriptor> result = new LinkedList<PetrinetNodeDescriptor>();
 		for (Iterator<?> it = modelElement.getNodes().iterator(); it.hasNext();) {
-			Node childElement = (Node) it.next();
+			yeah.petrinet.Node childElement = (yeah.petrinet.Node) it.next();
 			int visualID = PetrinetVisualIDRegistry.getNodeVisualID(view, childElement);
 			if (visualID == TransitionEditPart.VISUAL_ID) {
 				result.add(new PetrinetNodeDescriptor(childElement, visualID));
@@ -75,10 +75,10 @@ public class PetrinetDiagramUpdater {
 		if (!view.isSetElement()) {
 			return Collections.emptyList();
 		}
-		Place modelElement = (Place) view.getElement();
+		yeah.petrinet.Place modelElement = (yeah.petrinet.Place) view.getElement();
 		LinkedList<PetrinetNodeDescriptor> result = new LinkedList<PetrinetNodeDescriptor>();
 		for (Iterator<?> it = modelElement.getTokens().iterator(); it.hasNext();) {
-			Token childElement = (Token) it.next();
+			yeah.petrinet.Token childElement = (yeah.petrinet.Token) it.next();
 			int visualID = PetrinetVisualIDRegistry.getNodeVisualID(view, childElement);
 			if (visualID == TokenEditPart.VISUAL_ID) {
 				result.add(new PetrinetNodeDescriptor(childElement, visualID));
@@ -183,7 +183,7 @@ public class PetrinetDiagramUpdater {
 	 * @generated
 	 */
 	public static List<PetrinetLinkDescriptor> getTransition_2002IncomingLinks(View view) {
-		Transition modelElement = (Transition) view.getElement();
+		yeah.petrinet.Transition modelElement = (yeah.petrinet.Transition) view.getElement();
 		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
 		LinkedList<PetrinetLinkDescriptor> result = new LinkedList<PetrinetLinkDescriptor>();
@@ -195,7 +195,7 @@ public class PetrinetDiagramUpdater {
 	 * @generated
 	 */
 	public static List<PetrinetLinkDescriptor> getPlace_2003IncomingLinks(View view) {
-		Place modelElement = (Place) view.getElement();
+		yeah.petrinet.Place modelElement = (yeah.petrinet.Place) view.getElement();
 		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
 		LinkedList<PetrinetLinkDescriptor> result = new LinkedList<PetrinetLinkDescriptor>();
@@ -221,7 +221,7 @@ public class PetrinetDiagramUpdater {
 	 * @generated
 	 */
 	public static List<PetrinetLinkDescriptor> getTransition_2002OutgoingLinks(View view) {
-		Transition modelElement = (Transition) view.getElement();
+		yeah.petrinet.Transition modelElement = (yeah.petrinet.Transition) view.getElement();
 		LinkedList<PetrinetLinkDescriptor> result = new LinkedList<PetrinetLinkDescriptor>();
 		result.addAll(getOutgoingTypeModelFacetLinks_Arc_4010(modelElement));
 		return result;
@@ -231,7 +231,7 @@ public class PetrinetDiagramUpdater {
 	 * @generated
 	 */
 	public static List<PetrinetLinkDescriptor> getPlace_2003OutgoingLinks(View view) {
-		Place modelElement = (Place) view.getElement();
+		yeah.petrinet.Place modelElement = (yeah.petrinet.Place) view.getElement();
 		LinkedList<PetrinetLinkDescriptor> result = new LinkedList<PetrinetLinkDescriptor>();
 		result.addAll(getOutgoingTypeModelFacetLinks_Arc_4010(modelElement));
 		return result;
@@ -259,15 +259,15 @@ public class PetrinetDiagramUpdater {
 		LinkedList<PetrinetLinkDescriptor> result = new LinkedList<PetrinetLinkDescriptor>();
 		for (Iterator<?> links = container.getArcs().iterator(); links.hasNext();) {
 			EObject linkObject = (EObject) links.next();
-			if (false == linkObject instanceof Arc) {
+			if (false == linkObject instanceof yeah.petrinet.Arc) {
 				continue;
 			}
-			Arc link = (Arc) linkObject;
+			yeah.petrinet.Arc link = (yeah.petrinet.Arc) linkObject;
 			if (ArcEditPart.VISUAL_ID != PetrinetVisualIDRegistry.getLinkWithClassVisualID(link)) {
 				continue;
 			}
-			Node dst = link.getTarget();
-			Node src = link.getSource();
+			yeah.petrinet.Node dst = link.getTarget();
+			yeah.petrinet.Node src = link.getSource();
 			result.add(
 					new PetrinetLinkDescriptor(src, dst, link, PetrinetElementTypes.Arc_4010, ArcEditPart.VISUAL_ID));
 		}
@@ -275,22 +275,22 @@ public class PetrinetDiagramUpdater {
 	}
 
 	/**
-	 * @generated
-	 */
-	private static Collection<PetrinetLinkDescriptor> getIncomingTypeModelFacetLinks_Arc_4010(Node target,
+	* @generated
+	*/
+	private static Collection<PetrinetLinkDescriptor> getIncomingTypeModelFacetLinks_Arc_4010(yeah.petrinet.Node target,
 			Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
 		LinkedList<PetrinetLinkDescriptor> result = new LinkedList<PetrinetLinkDescriptor>();
 		Collection<EStructuralFeature.Setting> settings = crossReferences.get(target);
 		for (EStructuralFeature.Setting setting : settings) {
-			if (setting.getEStructuralFeature() != PetrinetPackage.eINSTANCE.getArc_Target()
-					|| false == setting.getEObject() instanceof Arc) {
+			if (setting.getEStructuralFeature() != yeah.petrinet.PetrinetPackage.eINSTANCE.getArc_Target()
+					|| false == setting.getEObject() instanceof yeah.petrinet.Arc) {
 				continue;
 			}
-			Arc link = (Arc) setting.getEObject();
+			yeah.petrinet.Arc link = (yeah.petrinet.Arc) setting.getEObject();
 			if (ArcEditPart.VISUAL_ID != PetrinetVisualIDRegistry.getLinkWithClassVisualID(link)) {
 				continue;
 			}
-			Node src = link.getSource();
+			yeah.petrinet.Node src = link.getSource();
 			result.add(new PetrinetLinkDescriptor(src, target, link, PetrinetElementTypes.Arc_4010,
 					ArcEditPart.VISUAL_ID));
 		}
@@ -300,7 +300,7 @@ public class PetrinetDiagramUpdater {
 	/**
 	* @generated
 	*/
-	private static Collection<PetrinetLinkDescriptor> getOutgoingTypeModelFacetLinks_Arc_4010(Node source) {
+	private static Collection<PetrinetLinkDescriptor> getOutgoingTypeModelFacetLinks_Arc_4010(yeah.petrinet.Node source) {
 		yeah.petrinet.petrinet container = null;
 		// Find container element for the link.
 		// Climb up by containment hierarchy starting from the source
@@ -316,15 +316,15 @@ public class PetrinetDiagramUpdater {
 		LinkedList<PetrinetLinkDescriptor> result = new LinkedList<PetrinetLinkDescriptor>();
 		for (Iterator<?> links = container.getArcs().iterator(); links.hasNext();) {
 			EObject linkObject = (EObject) links.next();
-			if (false == linkObject instanceof Arc) {
+			if (false == linkObject instanceof yeah.petrinet.Arc) {
 				continue;
 			}
-			Arc link = (Arc) linkObject;
+			yeah.petrinet.Arc link = (yeah.petrinet.Arc) linkObject;
 			if (ArcEditPart.VISUAL_ID != PetrinetVisualIDRegistry.getLinkWithClassVisualID(link)) {
 				continue;
 			}
-			Node dst = link.getTarget();
-			Node src = link.getSource();
+			yeah.petrinet.Node dst = link.getTarget();
+			yeah.petrinet.Node src = link.getSource();
 			if (src != source) {
 				continue;
 			}

@@ -7,7 +7,7 @@ Bundle-ClassPath: .
 Bundle-Activator: petrinet.diagram.part.PetrinetDiagramEditorPlugin
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Export-Package: petrinet.diagram.edit.parts, 
+Export-Package: petrinet.diagram.edit.parts,
  petrinet.diagram.part,
  petrinet.diagram.providers
 Require-Bundle: org.eclipse.core.runtime,

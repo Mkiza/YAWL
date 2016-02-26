@@ -14,7 +14,6 @@ import org.eclipse.gmf.tooling.runtime.providers.DiagramElementTypes;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.graphics.Image;
 
-
 import petrinet.diagram.edit.parts.ArcEditPart;
 import petrinet.diagram.edit.parts.PetrinetEditPart;
 import petrinet.diagram.edit.parts.PlaceEditPart;
@@ -109,15 +108,15 @@ public class PetrinetElementTypes {
 		if (elements == null) {
 			elements = new IdentityHashMap<IElementType, ENamedElement>();
 
-			elements.put(Petrinet_1000, PetrinetPackage.eINSTANCE.getpetrinet());
+			elements.put(Petrinet_1000, yeah.petrinet.PetrinetPackage.eINSTANCE.getpetrinet());
 
-			elements.put(Transition_2002, PetrinetPackage.eINSTANCE.getTransition());
+			elements.put(Transition_2002, yeah.petrinet.PetrinetPackage.eINSTANCE.getTransition());
 
-			elements.put(Place_2003, PetrinetPackage.eINSTANCE.getPlace());
+			elements.put(Place_2003, yeah.petrinet.PetrinetPackage.eINSTANCE.getPlace());
 
-			elements.put(Token_3001, PetrinetPackage.eINSTANCE.getToken());
+			elements.put(Token_3001, yeah.petrinet.PetrinetPackage.eINSTANCE.getToken());
 
-			elements.put(Arc_4010, PetrinetPackage.eINSTANCE.getArc());
+			elements.put(Arc_4010, yeah.petrinet.PetrinetPackage.eINSTANCE.getArc());
 		}
 		return (ENamedElement) elements.get(type);
 	}

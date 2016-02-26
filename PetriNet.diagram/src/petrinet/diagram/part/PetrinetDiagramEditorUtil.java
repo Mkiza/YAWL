@@ -176,7 +176,7 @@ public class PetrinetDiagramEditorUtil {
 	* @generated
 	*/
 	private static yeah.petrinet.petrinet createInitialModel() {
-		return PetrinetFactory.eINSTANCE.createpetrinet();
+		return yeah.petrinet.PetrinetFactory.eINSTANCE.createpetrinet();
 	}
 
 	/**

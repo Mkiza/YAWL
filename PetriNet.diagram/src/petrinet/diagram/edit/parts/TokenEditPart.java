@@ -1,9 +1,11 @@
 package petrinet.diagram.edit.parts;
 
+import org.eclipse.draw2d.Ellipse;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
+import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
@@ -87,21 +89,21 @@ public class TokenEditPart extends ShapeNodeEditPart {
 	* @generated
 	*/
 	protected IFigure createNodeShape() {
-		return primaryShape = new RectangleFigure();
+		return primaryShape = new TokenFigure();
 	}
 
 	/**
 	* @generated
 	*/
-	public RectangleFigure getPrimaryShape() {
-		return (RectangleFigure) primaryShape;
+	public TokenFigure getPrimaryShape() {
+		return (TokenFigure) primaryShape;
 	}
 
 	/**
 	* @generated
 	*/
 	protected NodeFigure createNodePlate() {
-		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
+		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(10, 10);
 		return result;
 	}
 
@@ -177,5 +179,31 @@ public class TokenEditPart extends ShapeNodeEditPart {
 			((Shape) primaryShape).setLineStyle(style);
 		}
 	}
+
+	/**
+	* @generated
+	*/
+	public class TokenFigure extends Ellipse {
+
+		/**
+		 * @generated
+		 */
+		public TokenFigure() {
+			this.setForegroundColor(THIS_FORE);
+			this.setBackgroundColor(THIS_BACK);
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(10), getMapMode().DPtoLP(10)));
+		}
+
+	}
+
+	/**
+	* @generated
+	*/
+	static final Color THIS_FORE = new Color(null, 0, 0, 0);
+
+	/**
+	* @generated
+	*/
+	static final Color THIS_BACK = new Color(null, 100, 12, 230);
 
 }

@@ -7,9 +7,10 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.emf.type.core.commands.EditElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipRequest;
-
+import yeah.*;
 import yeah.petrinet.Arc;
 import yeah.petrinet.Node;
+import yeah.petrinet.petrinet;
 import petrinet.diagram.edit.policies.PetrinetBaseItemSemanticEditPolicy;
 
 /**
@@ -46,7 +47,7 @@ public class ArcReorientCommand extends EditElementCommand {
 	* @generated
 	*/
 	public boolean canExecute() {
-		if (false == getElementToEdit() instanceof Arc) {
+		if (false == getElementToEdit() instanceof yeah.petrinet.Arc) {
 			return false;
 		}
 		if (reorientDirection == ReorientRelationshipRequest.REORIENT_SOURCE) {
@@ -66,7 +67,7 @@ public class ArcReorientCommand extends EditElementCommand {
 			return false;
 		}
 		Node target = getLink().getTarget();
-		if (!(getLink().eContainer() instanceof yeah.petrinet.petrinet)) {
+		if (!(getLink().eContainer() instanceof petrinet)) {
 			return false;
 		}
 		yeah.petrinet.petrinet container = (yeah.petrinet.petrinet) getLink().eContainer();
@@ -78,10 +79,10 @@ public class ArcReorientCommand extends EditElementCommand {
 	* @generated
 	*/
 	protected boolean canReorientTarget() {
-		if (!(oldEnd instanceof Node && newEnd instanceof Node)) {
+		if (!(oldEnd instanceof yeah.petrinet.Node && newEnd instanceof yeah.petrinet.Node)) {
 			return false;
 		}
-		Node source = getLink().getSource();
+		yeah.petrinet.Node source = getLink().getSource();
 		if (!(getLink().eContainer() instanceof yeah.petrinet.petrinet)) {
 			return false;
 		}
@@ -123,37 +124,37 @@ public class ArcReorientCommand extends EditElementCommand {
 	}
 
 	/**
-	* @generated
+	* @generated NOT
 	*/
-	protected Arc getLink() {
-		return (Arc) getElementToEdit();
+	protected yeah.petrinet.Arc getLink() {
+		return (yeah.petrinet.Arc) getElementToEdit();
+	}
+
+	/**
+	* @generated NOT
+	*/
+	protected yeah.petrinet.Node getOldSource() {
+		return (yeah.petrinet.Node) oldEnd;
+	}
+
+	/**
+	* @generated NOT
+	*/
+	protected yeah.petrinet.Node getNewSource() {
+		return (yeah.petrinet.Node) newEnd;
 	}
 
 	/**
 	* @generated
 	*/
-	protected Node getOldSource() {
-		return (Node) oldEnd;
+	protected yeah.petrinet.Node getOldTarget() {
+		return (yeah.petrinet.Node) oldEnd;
 	}
 
 	/**
 	* @generated
 	*/
-	protected Node getNewSource() {
-		return (Node) newEnd;
-	}
-
-	/**
-	* @generated
-	*/
-	protected Node getOldTarget() {
-		return (Node) oldEnd;
-	}
-
-	/**
-	* @generated
-	*/
-	protected Node getNewTarget() {
-		return (Node) newEnd;
+	protected yeah.petrinet.Node getNewTarget() {
+		return (yeah.petrinet.Node) newEnd;
 	}
 }

@@ -88,7 +88,7 @@ public class PetrinetVisualIDRegistry {
 		if (domainElement == null) {
 			return -1;
 		}
-		if (PetrinetPackage.eINSTANCE.getpetrinet().isSuperTypeOf(domainElement.eClass())
+		if (yeah.petrinet.PetrinetPackage.eINSTANCE.getpetrinet().isSuperTypeOf(domainElement.eClass())
 				&& isDiagram((yeah.petrinet.petrinet) domainElement)) {
 			return PetrinetEditPart.VISUAL_ID;
 		}
@@ -118,15 +118,15 @@ public class PetrinetVisualIDRegistry {
 		}
 		switch (containerVisualID) {
 		case PetrinetEditPart.VISUAL_ID:
-			if (PetrinetPackage.eINSTANCE.getTransition().isSuperTypeOf(domainElement.eClass())) {
+			if (yeah.petrinet.PetrinetPackage.eINSTANCE.getTransition().isSuperTypeOf(domainElement.eClass())) {
 				return TransitionEditPart.VISUAL_ID;
 			}
-			if (PetrinetPackage.eINSTANCE.getPlace().isSuperTypeOf(domainElement.eClass())) {
+			if (yeah.petrinet.PetrinetPackage.eINSTANCE.getPlace().isSuperTypeOf(domainElement.eClass())) {
 				return PlaceEditPart.VISUAL_ID;
 			}
 			break;
 		case PlaceEditPart.VISUAL_ID:
-			if (PetrinetPackage.eINSTANCE.getToken().isSuperTypeOf(domainElement.eClass())) {
+			if (yeah.petrinet.PetrinetPackage.eINSTANCE.getToken().isSuperTypeOf(domainElement.eClass())) {
 				return TokenEditPart.VISUAL_ID;
 			}
 			break;
@@ -185,7 +185,7 @@ public class PetrinetVisualIDRegistry {
 		if (domainElement == null) {
 			return -1;
 		}
-		if (PetrinetPackage.eINSTANCE.getArc().isSuperTypeOf(domainElement.eClass())) {
+		if (yeah.petrinet.PetrinetPackage.eINSTANCE.getArc().isSuperTypeOf(domainElement.eClass())) {
 			return ArcEditPart.VISUAL_ID;
 		}
 		return -1;

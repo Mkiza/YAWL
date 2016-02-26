@@ -61,7 +61,7 @@ public class PetrinetCanonicalEditPolicy extends CanonicalEditPolicy {
 	* @generated
 	*/
 	protected EStructuralFeature getFeatureToSynchronize() {
-		return PetrinetPackage.eINSTANCE.getpetrinet_Nodes();
+		return yeah.petrinet.PetrinetPackage.eINSTANCE.getpetrinet_Nodes();
 	}
 
 	/**
