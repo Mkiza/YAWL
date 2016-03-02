@@ -20,6 +20,7 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
 import yeah.petrinet.diagram.edit.policies.PetrinetBaseItemSemanticEditPolicy;
+import yeah.petrinet.diagram.expressions.PetrinetOCLFactory;
 import yeah.petrinet.diagram.providers.ElementInitializers;
 import yeah.petrinet.provider.PetrinetItemProviderAdapterFactory;
 
@@ -71,6 +72,11 @@ public class PetrinetDiagramEditorPlugin extends AbstractUIPlugin {
 	/**
 	* @generated
 	*/
+	private PetrinetOCLFactory oclFactory;
+
+	/**
+	* @generated
+	*/
 	public PetrinetDiagramEditorPlugin() {
 	}
 
@@ -93,6 +99,7 @@ public class PetrinetDiagramEditorPlugin extends AbstractUIPlugin {
 		adapterFactory = null;
 		linkConstraints = null;
 		initializers = null;
+		oclFactory = null;
 		instance = null;
 		super.stop(context);
 	}
@@ -233,6 +240,20 @@ public class PetrinetDiagramEditorPlugin extends AbstractUIPlugin {
 	*/
 	public void setElementInitializers(ElementInitializers i) {
 		this.initializers = i;
+	}
+
+	/**
+	* @generated
+	*/
+	public PetrinetOCLFactory getPetrinetOCLFactory() {
+		return oclFactory;
+	}
+
+	/**
+	* @generated
+	*/
+	public void setPetrinetOCLFactory(PetrinetOCLFactory f) {
+		this.oclFactory = f;
 	}
 
 	/**

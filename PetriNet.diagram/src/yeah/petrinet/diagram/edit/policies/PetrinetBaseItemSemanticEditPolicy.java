@@ -1,7 +1,10 @@
 package yeah.petrinet.diagram.edit.policies;
 
+import java.util.Collections;
 import java.util.Iterator;
 
+import java.util.Map;
+import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
@@ -34,6 +37,8 @@ import org.eclipse.gmf.tooling.runtime.edit.helpers.GeneratedEditHelperBase;
 
 import yeah.petrinet.Arc;
 import yeah.petrinet.Node;
+import yeah.petrinet.PetrinetPackage;
+import yeah.petrinet.diagram.expressions.PetrinetOCLFactory;
 import yeah.petrinet.diagram.part.PetrinetDiagramEditorPlugin;
 import yeah.petrinet.diagram.part.PetrinetVisualIDRegistry;
 import yeah.petrinet.diagram.providers.PetrinetElementTypes;
@@ -315,7 +320,23 @@ public class PetrinetBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		* @generated
 		*/
 		public boolean canExistArc_4010(yeah.petrinet.petrinet container, Arc linkInstance, Node source, Node target) {
-			return true;
+			try {
+				if (source == null) {
+					return true;
+				} else {
+					Map<String, EClassifier> env = Collections.<String, EClassifier> singletonMap("oppositeEnd", //$NON-NLS-1$
+							PetrinetPackage.eINSTANCE.getNode());
+					Object sourceVal = PetrinetOCLFactory.getExpression(0, PetrinetPackage.eINSTANCE.getNode(), env)
+							.evaluate(source, Collections.singletonMap("oppositeEnd", target)); //$NON-NLS-1$
+					if (false == sourceVal instanceof Boolean || !((Boolean) sourceVal).booleanValue()) {
+						return false;
+					} // else fall-through
+				}
+				return true;
+			} catch (Exception e) {
+				PetrinetDiagramEditorPlugin.getInstance().logError("Link constraint evaluation error", e); //$NON-NLS-1$
+				return false;
+			}
 		}
 	}
 

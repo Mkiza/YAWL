@@ -177,6 +177,8 @@
         <targetMetaFeature
             href="Petrinet.genmodel#//petrinet/Arc/target"/>
       </modelFacet>
+      <creationConstraints
+          sourceEnd="//@expressionProviders/@providers.0/@expressions.0"/>
     </links>
     <palette>
       <groups
@@ -323,6 +325,14 @@
   </propertySheet>
   <domainGenModel
       href="Petrinet.genmodel#/"/>
+  <expressionProviders>
+    <providers
+        xsi:type="gmfgen:GenExpressionInterpreter">
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="(self.oclIsKindOf(Place) and oppositeEnd.oclIsKindOf(Transition) ) or &#xA;(self.oclIsKindOf(Transition) and oppositeEnd.oclIsKindOf(Place) )"/>
+    </providers>
+  </expressionProviders>
   <labelParsers
       extensibleViaService="true">
     <implementations
