@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="epnk" nsURI="HEJ" nsPrefix="epnk">
+  <eClassifiers xsi:type="ecore:EClass" name="YAWL" eSuperTypes="http://org.pnml.tools/epnk/pnmlcoremodel#//PetriNetType">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="place" eType="ecore:EClass http://org.pnml.tools/epnk/pnmlcoremodel#//Place"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="transition" eType="ecore:EClass http://org.pnml.tools/epnk/pnmlcoremodel#//Transition"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="arc" eType="ecore:EClass http://org.pnml.tools/epnk/pnmlcoremodel#//Arc"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Place" eSuperTypes="http://org.pnml.tools/epnk/pnmlcoremodel#//Place">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//PlaceType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Transition" eSuperTypes="http://org.pnml.tools/epnk/pnmlcoremodel#//Transition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TransitionType">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Transition" eType="#//Transition"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="#//TransitionTypes"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Arc" eSuperTypes="http://org.pnml.tools/epnk/pnmlcoremodel#//Arc">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//ArcType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Token">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="place" eType="#//PlaceType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PlaceType">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="place" eType="#//Place"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="#//PlaceTypes"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ArcType">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="#//ArcTypes"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="arc" eType="#//Arc"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ArcTypes">
+    <eLiterals name="reset" value="1" literal="in"/>
+    <eLiterals name="normal" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="PlaceTypes">
+    <eLiterals name="XOR" value="1"/>
+    <eLiterals name="AND" value="2"/>
+    <eLiterals name="OR"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TransitionTypes">
+    <eLiterals name="AND" value="1"/>
+    <eLiterals name="XOR" value="2"/>
+    <eLiterals name="OR"/>
+  </eClassifiers>
+</ecore:EPackage>

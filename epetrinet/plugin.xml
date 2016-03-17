@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated yawl -->
+      <package
+            uri="http://yawl"
+            class="project.yawl.YawlPackage"
+            genModel="model/yawl.genmodel"/>
+   </extension>
+   <extension
+   id="123.456.789.012"
+   name="YAWL Nets"
+   point="org.pnml.tools.epnk.pntd">
+   <type
+      class="project.yawl.impl.YAWLNetImpl"
+      description="Text explaining what this net type is" />
+</extension>
+
+</plugin>
