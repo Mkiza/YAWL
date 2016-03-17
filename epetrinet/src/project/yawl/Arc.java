@@ -2,7 +2,7 @@
  */
 package project.yawl;
 
-
+// ss
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Arc</b></em>'.
