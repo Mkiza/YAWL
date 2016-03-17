@@ -14,7 +14,6 @@ import org.pnml.tools.epnk.pnmlcoremodel.Attribute;
  * </p>
  * <ul>
  *   <li>{@link project.yawl.TransitionType#getText <em>Text</em>}</li>
- *   <li>{@link project.yawl.TransitionType#getType <em>Type</em>}</li>
  * </ul>
  *
  * @see project.yawl.YawlPackage#getTransitionType()
@@ -50,31 +49,5 @@ public interface TransitionType extends Attribute {
 	 * @generated
 	 */
 	void setText(TransitionTypes value);
-
-	/**
-	 * Returns the value of the '<em><b>Type</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Type</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Type</em>' reference.
-	 * @see #setType(TransitionType)
-	 * @see project.yawl.YawlPackage#getTransitionType_Type()
-	 * @model
-	 * @generated
-	 */
-	TransitionType getType();
-
-	/**
-	 * Sets the value of the '{@link project.yawl.TransitionType#getType <em>Type</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Type</em>' reference.
-	 * @see #getType()
-	 * @generated
-	 */
-	void setType(TransitionType value);
 
 } // TransitionType

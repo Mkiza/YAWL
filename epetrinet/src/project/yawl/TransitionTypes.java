@@ -19,52 +19,75 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum TransitionTypes implements Enumerator {
 	/**
-	 * The '<em><b>JOIN</b></em>' literal object.
+	 * The '<em><b>AND</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #JOIN_VALUE
+	 * @see #AND_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	JOIN(0, "JOIN", "JOIN"), /**
-	 * The '<em><b>SPLIT</b></em>' literal object.
+	AND(0, "AND", "AND"), /**
+	 * The '<em><b>XOR</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #SPLIT_VALUE
+	 * @see #XOR_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	SPLIT(1, "SPLIT", "SPLIT");
+	XOR(2, "XOR", "XOR"), /**
+	 * The '<em><b>OR</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #OR_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	OR(1, "OR", "OR");
 
 	/**
-	 * The '<em><b>JOIN</b></em>' literal value.
+	 * The '<em><b>AND</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>JOIN</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>AND</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #JOIN
+	 * @see #AND
 	 * @model
 	 * @generated
 	 * @ordered
 	 */
-	public static final int JOIN_VALUE = 0;
+	public static final int AND_VALUE = 0;
 
 	/**
-	 * The '<em><b>SPLIT</b></em>' literal value.
+	 * The '<em><b>XOR</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>SPLIT</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>XOR</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #SPLIT
+	 * @see #XOR
 	 * @model
 	 * @generated
 	 * @ordered
 	 */
-	public static final int SPLIT_VALUE = 1;
+	public static final int XOR_VALUE = 2;
+
+	/**
+	 * The '<em><b>OR</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>OR</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #OR
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int OR_VALUE = 1;
 
 	/**
 	 * An array of all the '<em><b>Transition Types</b></em>' enumerators.
@@ -74,8 +97,9 @@ public enum TransitionTypes implements Enumerator {
 	 */
 	private static final TransitionTypes[] VALUES_ARRAY =
 		new TransitionTypes[] {
-			JOIN,
-			SPLIT,
+			AND,
+			XOR,
+			OR,
 		};
 
 	/**
@@ -132,8 +156,9 @@ public enum TransitionTypes implements Enumerator {
 	 */
 	public static TransitionTypes get(int value) {
 		switch (value) {
-			case JOIN_VALUE: return JOIN;
-			case SPLIT_VALUE: return SPLIT;
+			case AND_VALUE: return AND;
+			case XOR_VALUE: return XOR;
+			case OR_VALUE: return OR;
 		}
 		return null;
 	}

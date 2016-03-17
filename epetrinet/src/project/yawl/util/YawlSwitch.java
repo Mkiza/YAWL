@@ -136,22 +136,6 @@ public class YawlSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case YawlPackage.SPLIT_A: {
-				SplitA splitA = (SplitA)theEObject;
-				T result = caseSplitA(splitA);
-				if (result == null) result = caseAttribute(splitA);
-				if (result == null) result = caseLabel(splitA);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case YawlPackage.JOIN_A: {
-				JoinA joinA = (JoinA)theEObject;
-				T result = caseJoinA(joinA);
-				if (result == null) result = caseAttribute(joinA);
-				if (result == null) result = caseLabel(joinA);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -258,36 +242,6 @@ public class YawlSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseArcType(ArcType object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Split A</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Split A</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseSplitA(SplitA object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Join A</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Join A</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseJoinA(JoinA object) {
 		return null;
 	}
 

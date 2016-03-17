@@ -8,26 +8,18 @@
   <genPackages prefix="Yawl" basePackage="project" disposableProviderFactory="true"
       ecorePackage="yawl.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="yawl.ecore#//ArcTypes">
-      <genEnumLiterals ecoreEnumLiteral="yawl.ecore#//ArcTypes/reset"/>
-      <genEnumLiterals ecoreEnumLiteral="yawl.ecore#//ArcTypes/normal"/>
-    </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="yawl.ecore#//Split">
-      <genEnumLiterals ecoreEnumLiteral="yawl.ecore#//Split/AND"/>
-      <genEnumLiterals ecoreEnumLiteral="yawl.ecore#//Split/XOR"/>
-      <genEnumLiterals ecoreEnumLiteral="yawl.ecore#//Split/OR"/>
-    </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="yawl.ecore#//Join">
-      <genEnumLiterals ecoreEnumLiteral="yawl.ecore#//Join/AND"/>
-      <genEnumLiterals ecoreEnumLiteral="yawl.ecore#//Join/OR"/>
-      <genEnumLiterals ecoreEnumLiteral="yawl.ecore#//Join/XOR"/>
+      <genEnumLiterals ecoreEnumLiteral="yawl.ecore#//ArcTypes/NORMAL"/>
+      <genEnumLiterals ecoreEnumLiteral="yawl.ecore#//ArcTypes/RESET"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="yawl.ecore#//PlaceTypes">
       <genEnumLiterals ecoreEnumLiteral="yawl.ecore#//PlaceTypes/Start"/>
       <genEnumLiterals ecoreEnumLiteral="yawl.ecore#//PlaceTypes/End"/>
+      <genEnumLiterals ecoreEnumLiteral="yawl.ecore#//PlaceTypes/NORMAL"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="yawl.ecore#//TransitionTypes">
-      <genEnumLiterals ecoreEnumLiteral="yawl.ecore#//TransitionTypes/JOIN"/>
-      <genEnumLiterals ecoreEnumLiteral="yawl.ecore#//TransitionTypes/SPLIT"/>
+      <genEnumLiterals ecoreEnumLiteral="yawl.ecore#//TransitionTypes/AND"/>
+      <genEnumLiterals ecoreEnumLiteral="yawl.ecore#//TransitionTypes/XOR"/>
+      <genEnumLiterals ecoreEnumLiteral="yawl.ecore#//TransitionTypes/OR"/>
     </genEnums>
     <genClasses ecoreClass="yawl.ecore#//YAWLNet"/>
     <genClasses ecoreClass="yawl.ecore#//Place">
@@ -38,7 +30,6 @@
     </genClasses>
     <genClasses ecoreClass="yawl.ecore#//TransitionType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute yawl.ecore#//TransitionType/text"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference yawl.ecore#//TransitionType/type"/>
     </genClasses>
     <genClasses ecoreClass="yawl.ecore#//Arc">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference yawl.ecore#//Arc/type"/>
@@ -48,12 +39,6 @@
     </genClasses>
     <genClasses ecoreClass="yawl.ecore#//ArcType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute yawl.ecore#//ArcType/text"/>
-    </genClasses>
-    <genClasses ecoreClass="yawl.ecore#//SplitA">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference yawl.ecore#//SplitA/type"/>
-    </genClasses>
-    <genClasses ecoreClass="yawl.ecore#//JoinA">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference yawl.ecore#//JoinA/type"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

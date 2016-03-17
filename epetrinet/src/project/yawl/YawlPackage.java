@@ -306,22 +306,13 @@ public interface YawlPackage extends EPackage {
 	int TRANSITION_TYPE__TEXT = PnmlcoremodelPackage.ATTRIBUTE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Type</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRANSITION_TYPE__TYPE = PnmlcoremodelPackage.ATTRIBUTE_FEATURE_COUNT + 1;
-
-	/**
 	 * The number of structural features of the '<em>Transition Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSITION_TYPE_FEATURE_COUNT = PnmlcoremodelPackage.ATTRIBUTE_FEATURE_COUNT + 2;
+	int TRANSITION_TYPE_FEATURE_COUNT = PnmlcoremodelPackage.ATTRIBUTE_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link project.yawl.impl.ArcImpl <em>Arc</em>}' class.
@@ -525,116 +516,6 @@ public interface YawlPackage extends EPackage {
 	int ARC_TYPE_FEATURE_COUNT = PnmlcoremodelPackage.ATTRIBUTE_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link project.yawl.impl.SplitAImpl <em>Split A</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see project.yawl.impl.SplitAImpl
-	 * @see project.yawl.impl.YawlPackageImpl#getSplitA()
-	 * @generated
-	 */
-	int SPLIT_A = 7;
-
-	/**
-	 * The feature id for the '<em><b>Toolspecific</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPLIT_A__TOOLSPECIFIC = PnmlcoremodelPackage.ATTRIBUTE__TOOLSPECIFIC;
-
-	/**
-	 * The feature id for the '<em><b>Graphics</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPLIT_A__GRAPHICS = PnmlcoremodelPackage.ATTRIBUTE__GRAPHICS;
-
-	/**
-	 * The feature id for the '<em><b>Unknown</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPLIT_A__UNKNOWN = PnmlcoremodelPackage.ATTRIBUTE__UNKNOWN;
-
-	/**
-	 * The feature id for the '<em><b>Type</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPLIT_A__TYPE = PnmlcoremodelPackage.ATTRIBUTE_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Split A</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPLIT_A_FEATURE_COUNT = PnmlcoremodelPackage.ATTRIBUTE_FEATURE_COUNT + 1;
-
-	/**
-	 * The meta object id for the '{@link project.yawl.impl.JoinAImpl <em>Join A</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see project.yawl.impl.JoinAImpl
-	 * @see project.yawl.impl.YawlPackageImpl#getJoinA()
-	 * @generated
-	 */
-	int JOIN_A = 8;
-
-	/**
-	 * The feature id for the '<em><b>Toolspecific</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JOIN_A__TOOLSPECIFIC = PnmlcoremodelPackage.ATTRIBUTE__TOOLSPECIFIC;
-
-	/**
-	 * The feature id for the '<em><b>Graphics</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JOIN_A__GRAPHICS = PnmlcoremodelPackage.ATTRIBUTE__GRAPHICS;
-
-	/**
-	 * The feature id for the '<em><b>Unknown</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JOIN_A__UNKNOWN = PnmlcoremodelPackage.ATTRIBUTE__UNKNOWN;
-
-	/**
-	 * The feature id for the '<em><b>Type</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JOIN_A__TYPE = PnmlcoremodelPackage.ATTRIBUTE_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Join A</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JOIN_A_FEATURE_COUNT = PnmlcoremodelPackage.ATTRIBUTE_FEATURE_COUNT + 1;
-
-	/**
 	 * The meta object id for the '{@link project.yawl.ArcTypes <em>Arc Types</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -642,27 +523,7 @@ public interface YawlPackage extends EPackage {
 	 * @see project.yawl.impl.YawlPackageImpl#getArcTypes()
 	 * @generated
 	 */
-	int ARC_TYPES = 9;
-
-	/**
-	 * The meta object id for the '{@link project.yawl.Split <em>Split</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see project.yawl.Split
-	 * @see project.yawl.impl.YawlPackageImpl#getSplit()
-	 * @generated
-	 */
-	int SPLIT = 10;
-
-	/**
-	 * The meta object id for the '{@link project.yawl.Join <em>Join</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see project.yawl.Join
-	 * @see project.yawl.impl.YawlPackageImpl#getJoin()
-	 * @generated
-	 */
-	int JOIN = 11;
+	int ARC_TYPES = 7;
 
 	/**
 	 * The meta object id for the '{@link project.yawl.PlaceTypes <em>Place Types</em>}' enum.
@@ -672,7 +533,7 @@ public interface YawlPackage extends EPackage {
 	 * @see project.yawl.impl.YawlPackageImpl#getPlaceTypes()
 	 * @generated
 	 */
-	int PLACE_TYPES = 12;
+	int PLACE_TYPES = 8;
 
 	/**
 	 * The meta object id for the '{@link project.yawl.TransitionTypes <em>Transition Types</em>}' enum.
@@ -682,7 +543,7 @@ public interface YawlPackage extends EPackage {
 	 * @see project.yawl.impl.YawlPackageImpl#getTransitionTypes()
 	 * @generated
 	 */
-	int TRANSITION_TYPES = 13;
+	int TRANSITION_TYPES = 9;
 
 
 	/**
@@ -759,17 +620,6 @@ public interface YawlPackage extends EPackage {
 	EAttribute getTransitionType_Text();
 
 	/**
-	 * Returns the meta object for the reference '{@link project.yawl.TransitionType#getType <em>Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Type</em>'.
-	 * @see project.yawl.TransitionType#getType()
-	 * @see #getTransitionType()
-	 * @generated
-	 */
-	EReference getTransitionType_Type();
-
-	/**
 	 * Returns the meta object for class '{@link project.yawl.Arc <em>Arc</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -833,48 +683,6 @@ public interface YawlPackage extends EPackage {
 	EAttribute getArcType_Text();
 
 	/**
-	 * Returns the meta object for class '{@link project.yawl.SplitA <em>Split A</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Split A</em>'.
-	 * @see project.yawl.SplitA
-	 * @generated
-	 */
-	EClass getSplitA();
-
-	/**
-	 * Returns the meta object for the reference '{@link project.yawl.SplitA#getType <em>Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Type</em>'.
-	 * @see project.yawl.SplitA#getType()
-	 * @see #getSplitA()
-	 * @generated
-	 */
-	EReference getSplitA_Type();
-
-	/**
-	 * Returns the meta object for class '{@link project.yawl.JoinA <em>Join A</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Join A</em>'.
-	 * @see project.yawl.JoinA
-	 * @generated
-	 */
-	EClass getJoinA();
-
-	/**
-	 * Returns the meta object for the reference '{@link project.yawl.JoinA#getType <em>Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Type</em>'.
-	 * @see project.yawl.JoinA#getType()
-	 * @see #getJoinA()
-	 * @generated
-	 */
-	EReference getJoinA_Type();
-
-	/**
 	 * Returns the meta object for enum '{@link project.yawl.ArcTypes <em>Arc Types</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -883,26 +691,6 @@ public interface YawlPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getArcTypes();
-
-	/**
-	 * Returns the meta object for enum '{@link project.yawl.Split <em>Split</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Split</em>'.
-	 * @see project.yawl.Split
-	 * @generated
-	 */
-	EEnum getSplit();
-
-	/**
-	 * Returns the meta object for enum '{@link project.yawl.Join <em>Join</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Join</em>'.
-	 * @see project.yawl.Join
-	 * @generated
-	 */
-	EEnum getJoin();
 
 	/**
 	 * Returns the meta object for enum '{@link project.yawl.PlaceTypes <em>Place Types</em>}'.
@@ -1011,14 +799,6 @@ public interface YawlPackage extends EPackage {
 		EAttribute TRANSITION_TYPE__TEXT = eINSTANCE.getTransitionType_Text();
 
 		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TRANSITION_TYPE__TYPE = eINSTANCE.getTransitionType_Type();
-
-		/**
 		 * The meta object literal for the '{@link project.yawl.impl.ArcImpl <em>Arc</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1073,42 +853,6 @@ public interface YawlPackage extends EPackage {
 		EAttribute ARC_TYPE__TEXT = eINSTANCE.getArcType_Text();
 
 		/**
-		 * The meta object literal for the '{@link project.yawl.impl.SplitAImpl <em>Split A</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see project.yawl.impl.SplitAImpl
-		 * @see project.yawl.impl.YawlPackageImpl#getSplitA()
-		 * @generated
-		 */
-		EClass SPLIT_A = eINSTANCE.getSplitA();
-
-		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SPLIT_A__TYPE = eINSTANCE.getSplitA_Type();
-
-		/**
-		 * The meta object literal for the '{@link project.yawl.impl.JoinAImpl <em>Join A</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see project.yawl.impl.JoinAImpl
-		 * @see project.yawl.impl.YawlPackageImpl#getJoinA()
-		 * @generated
-		 */
-		EClass JOIN_A = eINSTANCE.getJoinA();
-
-		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference JOIN_A__TYPE = eINSTANCE.getJoinA_Type();
-
-		/**
 		 * The meta object literal for the '{@link project.yawl.ArcTypes <em>Arc Types</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1117,26 +861,6 @@ public interface YawlPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum ARC_TYPES = eINSTANCE.getArcTypes();
-
-		/**
-		 * The meta object literal for the '{@link project.yawl.Split <em>Split</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see project.yawl.Split
-		 * @see project.yawl.impl.YawlPackageImpl#getSplit()
-		 * @generated
-		 */
-		EEnum SPLIT = eINSTANCE.getSplit();
-
-		/**
-		 * The meta object literal for the '{@link project.yawl.Join <em>Join</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see project.yawl.Join
-		 * @see project.yawl.impl.YawlPackageImpl#getJoin()
-		 * @generated
-		 */
-		EEnum JOIN = eINSTANCE.getJoin();
 
 		/**
 		 * The meta object literal for the '{@link project.yawl.PlaceTypes <em>Place Types</em>}' enum.

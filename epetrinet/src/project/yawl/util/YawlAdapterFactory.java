@@ -104,14 +104,6 @@ public class YawlAdapterFactory extends AdapterFactoryImpl {
 				return createArcTypeAdapter();
 			}
 			@Override
-			public Adapter caseSplitA(SplitA object) {
-				return createSplitAAdapter();
-			}
-			@Override
-			public Adapter caseJoinA(JoinA object) {
-				return createJoinAAdapter();
-			}
-			@Override
 			public Adapter casePetriNetType(PetriNetType object) {
 				return createPetriNetTypeAdapter();
 			}
@@ -270,34 +262,6 @@ public class YawlAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createArcTypeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link project.yawl.SplitA <em>Split A</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see project.yawl.SplitA
-	 * @generated
-	 */
-	public Adapter createSplitAAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link project.yawl.JoinA <em>Join A</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see project.yawl.JoinA
-	 * @generated
-	 */
-	public Adapter createJoinAAdapter() {
 		return null;
 	}
 

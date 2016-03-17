@@ -34,7 +34,15 @@ public enum PlaceTypes implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	END(1, "End", "End");
+	END(1, "End", "End"), /**
+	 * The '<em><b>NORMAL</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #NORMAL_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	NORMAL(2, "NORMAL", "NORMAL");
 
 	/**
 	 * The '<em><b>Start</b></em>' literal value.
@@ -67,6 +75,21 @@ public enum PlaceTypes implements Enumerator {
 	public static final int END_VALUE = 1;
 
 	/**
+	 * The '<em><b>NORMAL</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>NORMAL</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #NORMAL
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int NORMAL_VALUE = 2;
+
+	/**
 	 * An array of all the '<em><b>Place Types</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -76,6 +99,7 @@ public enum PlaceTypes implements Enumerator {
 		new PlaceTypes[] {
 			START,
 			END,
+			NORMAL,
 		};
 
 	/**
@@ -134,6 +158,7 @@ public enum PlaceTypes implements Enumerator {
 		switch (value) {
 			case START_VALUE: return START;
 			case END_VALUE: return END;
+			case NORMAL_VALUE: return NORMAL;
 		}
 		return null;
 	}

@@ -19,42 +19,25 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum ArcTypes implements Enumerator {
 	/**
-	 * The '<em><b>Reset</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #RESET_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	RESET(1, "reset", "reset"),
-
-	/**
-	 * The '<em><b>Normal</b></em>' literal object.
+	 * The '<em><b>NORMAL</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #NORMAL_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	NORMAL(2, "normal", "normal");
-
-	/**
-	 * The '<em><b>Reset</b></em>' literal value.
+	NORMAL(0, "NORMAL", "in"), /**
+	 * The '<em><b>RESET</b></em>' literal object.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Reset</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #RESET
-	 * @model name="reset"
+	 * @see #RESET_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	public static final int RESET_VALUE = 1;
+	RESET(1, "RESET", "out");
 
 	/**
-	 * The '<em><b>Normal</b></em>' literal value.
+	 * The '<em><b>NORMAL</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of '<em><b>Normal</b></em>' literal object isn't clear,
@@ -62,11 +45,26 @@ public enum ArcTypes implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #NORMAL
-	 * @model name="normal"
+	 * @model literal="in"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int NORMAL_VALUE = 2;
+	public static final int NORMAL_VALUE = 0;
+
+	/**
+	 * The '<em><b>RESET</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Reset</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #RESET
+	 * @model literal="out"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int RESET_VALUE = 1;
 
 	/**
 	 * An array of all the '<em><b>Arc Types</b></em>' enumerators.
@@ -76,8 +74,8 @@ public enum ArcTypes implements Enumerator {
 	 */
 	private static final ArcTypes[] VALUES_ARRAY =
 		new ArcTypes[] {
-			RESET,
 			NORMAL,
+			RESET,
 		};
 
 	/**
@@ -134,8 +132,8 @@ public enum ArcTypes implements Enumerator {
 	 */
 	public static ArcTypes get(int value) {
 		switch (value) {
-			case RESET_VALUE: return RESET;
 			case NORMAL_VALUE: return NORMAL;
+			case RESET_VALUE: return RESET;
 		}
 		return null;
 	}

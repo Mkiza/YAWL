@@ -12,7 +12,6 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TransitionType" eSuperTypes="../../org.pnml.tools.epnk/model/PNMLCoreModel.ecore#//Attribute">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="#//TransitionTypes"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//TransitionType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Arc" eSuperTypes="../../org.pnml.tools.epnk/model/PNMLCoreModel.ecore#//Arc">
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//ArcType"
@@ -25,8 +24,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="#//ArcTypes"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ArcTypes">
-    <eLiterals name="NORMAL"/>
-    <eLiterals name="RESET" value="1"/>
+    <eLiterals name="NORMAL" literal="in"/>
+    <eLiterals name="RESET" value="1" literal="out"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="PlaceTypes">
     <eLiterals name="Start" literal="Start"/>

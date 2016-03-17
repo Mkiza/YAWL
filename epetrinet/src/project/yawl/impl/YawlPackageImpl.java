@@ -14,13 +14,9 @@ import org.pnml.tools.epnk.pnmlcoremodel.PnmlcoremodelPackage;
 import project.yawl.Arc;
 import project.yawl.ArcType;
 import project.yawl.ArcTypes;
-import project.yawl.Join;
-import project.yawl.JoinA;
 import project.yawl.Place;
 import project.yawl.PlaceType;
 import project.yawl.PlaceTypes;
-import project.yawl.Split;
-import project.yawl.SplitA;
 import project.yawl.Transition;
 import project.yawl.TransitionType;
 import project.yawl.TransitionTypes;
@@ -89,35 +85,7 @@ public class YawlPackageImpl extends EPackageImpl implements YawlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass splitAEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass joinAEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EEnum arcTypesEEnum = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EEnum splitEEnum = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EEnum joinEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -265,15 +233,6 @@ public class YawlPackageImpl extends EPackageImpl implements YawlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTransitionType_Type() {
-		return (EReference)transitionTypeEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getArc() {
 		return arcEClass;
 	}
@@ -328,62 +287,8 @@ public class YawlPackageImpl extends EPackageImpl implements YawlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getSplitA() {
-		return splitAEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSplitA_Type() {
-		return (EReference)splitAEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getJoinA() {
-		return joinAEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getJoinA_Type() {
-		return (EReference)joinAEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EEnum getArcTypes() {
 		return arcTypesEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EEnum getSplit() {
-		return splitEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EEnum getJoin() {
-		return joinEEnum;
 	}
 
 	/**
@@ -442,7 +347,6 @@ public class YawlPackageImpl extends EPackageImpl implements YawlPackage {
 
 		transitionTypeEClass = createEClass(TRANSITION_TYPE);
 		createEAttribute(transitionTypeEClass, TRANSITION_TYPE__TEXT);
-		createEReference(transitionTypeEClass, TRANSITION_TYPE__TYPE);
 
 		arcEClass = createEClass(ARC);
 		createEReference(arcEClass, ARC__TYPE);
@@ -453,16 +357,8 @@ public class YawlPackageImpl extends EPackageImpl implements YawlPackage {
 		arcTypeEClass = createEClass(ARC_TYPE);
 		createEAttribute(arcTypeEClass, ARC_TYPE__TEXT);
 
-		splitAEClass = createEClass(SPLIT_A);
-		createEReference(splitAEClass, SPLIT_A__TYPE);
-
-		joinAEClass = createEClass(JOIN_A);
-		createEReference(joinAEClass, JOIN_A__TYPE);
-
 		// Create enums
 		arcTypesEEnum = createEEnum(ARC_TYPES);
-		splitEEnum = createEEnum(SPLIT);
-		joinEEnum = createEEnum(JOIN);
 		placeTypesEEnum = createEEnum(PLACE_TYPES);
 		transitionTypesEEnum = createEEnum(TRANSITION_TYPES);
 	}
@@ -505,8 +401,6 @@ public class YawlPackageImpl extends EPackageImpl implements YawlPackage {
 		arcEClass.getESuperTypes().add(thePnmlcoremodelPackage.getArc());
 		placeTypeEClass.getESuperTypes().add(thePnmlcoremodelPackage.getAttribute());
 		arcTypeEClass.getESuperTypes().add(thePnmlcoremodelPackage.getAttribute());
-		splitAEClass.getESuperTypes().add(thePnmlcoremodelPackage.getAttribute());
-		joinAEClass.getESuperTypes().add(thePnmlcoremodelPackage.getAttribute());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(yawlNetEClass, YAWLNet.class, "YAWLNet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -519,7 +413,6 @@ public class YawlPackageImpl extends EPackageImpl implements YawlPackage {
 
 		initEClass(transitionTypeEClass, TransitionType.class, "TransitionType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTransitionType_Text(), this.getTransitionTypes(), "text", null, 0, 1, TransitionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTransitionType_Type(), this.getTransitionType(), null, "type", null, 0, 1, TransitionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(arcEClass, Arc.class, "Arc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getArc_Type(), this.getArcType(), null, "type", null, 0, 1, Arc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -530,34 +423,20 @@ public class YawlPackageImpl extends EPackageImpl implements YawlPackage {
 		initEClass(arcTypeEClass, ArcType.class, "ArcType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getArcType_Text(), this.getArcTypes(), "text", null, 0, 1, ArcType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(splitAEClass, SplitA.class, "SplitA", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSplitA_Type(), this.getSplitA(), null, "type", null, 0, 1, SplitA.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(joinAEClass, JoinA.class, "JoinA", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getJoinA_Type(), this.getJoinA(), null, "type", null, 0, 1, JoinA.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		// Initialize enums and add enum literals
 		initEEnum(arcTypesEEnum, ArcTypes.class, "ArcTypes");
-		addEEnumLiteral(arcTypesEEnum, ArcTypes.RESET);
 		addEEnumLiteral(arcTypesEEnum, ArcTypes.NORMAL);
-
-		initEEnum(splitEEnum, Split.class, "Split");
-		addEEnumLiteral(splitEEnum, Split.AND);
-		addEEnumLiteral(splitEEnum, Split.XOR);
-		addEEnumLiteral(splitEEnum, Split.OR);
-
-		initEEnum(joinEEnum, Join.class, "Join");
-		addEEnumLiteral(joinEEnum, Join.AND);
-		addEEnumLiteral(joinEEnum, Join.OR);
-		addEEnumLiteral(joinEEnum, Join.XOR);
+		addEEnumLiteral(arcTypesEEnum, ArcTypes.RESET);
 
 		initEEnum(placeTypesEEnum, PlaceTypes.class, "PlaceTypes");
 		addEEnumLiteral(placeTypesEEnum, PlaceTypes.START);
 		addEEnumLiteral(placeTypesEEnum, PlaceTypes.END);
+		addEEnumLiteral(placeTypesEEnum, PlaceTypes.NORMAL);
 
 		initEEnum(transitionTypesEEnum, TransitionTypes.class, "TransitionTypes");
-		addEEnumLiteral(transitionTypesEEnum, TransitionTypes.JOIN);
-		addEEnumLiteral(transitionTypesEEnum, TransitionTypes.SPLIT);
+		addEEnumLiteral(transitionTypesEEnum, TransitionTypes.AND);
+		addEEnumLiteral(transitionTypesEEnum, TransitionTypes.XOR);
+		addEEnumLiteral(transitionTypesEEnum, TransitionTypes.OR);
 
 		// Create resource
 		createResource(eNS_URI);

@@ -85,24 +85,6 @@ public interface YawlFactory extends EFactory {
 	ArcType createArcType();
 
 	/**
-	 * Returns a new object of class '<em>Split A</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Split A</em>'.
-	 * @generated
-	 */
-	SplitA createSplitA();
-
-	/**
-	 * Returns a new object of class '<em>Join A</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Join A</em>'.
-	 * @generated
-	 */
-	JoinA createJoinA();
-
-	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

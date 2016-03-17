@@ -64,8 +64,6 @@ public class YawlFactoryImpl extends EFactoryImpl implements YawlFactory {
 			case YawlPackage.ARC: return createArc();
 			case YawlPackage.PLACE_TYPE: return createPlaceType();
 			case YawlPackage.ARC_TYPE: return createArcType();
-			case YawlPackage.SPLIT_A: return createSplitA();
-			case YawlPackage.JOIN_A: return createJoinA();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -81,10 +79,6 @@ public class YawlFactoryImpl extends EFactoryImpl implements YawlFactory {
 		switch (eDataType.getClassifierID()) {
 			case YawlPackage.ARC_TYPES:
 				return createArcTypesFromString(eDataType, initialValue);
-			case YawlPackage.SPLIT:
-				return createSplitFromString(eDataType, initialValue);
-			case YawlPackage.JOIN:
-				return createJoinFromString(eDataType, initialValue);
 			case YawlPackage.PLACE_TYPES:
 				return createPlaceTypesFromString(eDataType, initialValue);
 			case YawlPackage.TRANSITION_TYPES:
@@ -104,10 +98,6 @@ public class YawlFactoryImpl extends EFactoryImpl implements YawlFactory {
 		switch (eDataType.getClassifierID()) {
 			case YawlPackage.ARC_TYPES:
 				return convertArcTypesToString(eDataType, instanceValue);
-			case YawlPackage.SPLIT:
-				return convertSplitToString(eDataType, instanceValue);
-			case YawlPackage.JOIN:
-				return convertJoinToString(eDataType, instanceValue);
 			case YawlPackage.PLACE_TYPES:
 				return convertPlaceTypesToString(eDataType, instanceValue);
 			case YawlPackage.TRANSITION_TYPES:
@@ -192,26 +182,6 @@ public class YawlFactoryImpl extends EFactoryImpl implements YawlFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SplitA createSplitA() {
-		SplitAImpl splitA = new SplitAImpl();
-		return splitA;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public JoinA createJoinA() {
-		JoinAImpl joinA = new JoinAImpl();
-		return joinA;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public ArcTypes createArcTypesFromString(EDataType eDataType, String initialValue) {
 		ArcTypes result = ArcTypes.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -224,46 +194,6 @@ public class YawlFactoryImpl extends EFactoryImpl implements YawlFactory {
 	 * @generated
 	 */
 	public String convertArcTypesToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Split createSplitFromString(EDataType eDataType, String initialValue) {
-		Split result = Split.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertSplitToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Join createJoinFromString(EDataType eDataType, String initialValue) {
-		Join result = Join.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertJoinToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
