@@ -4,9 +4,6 @@ import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.pnml.tools.epnk.gmf.extensions.graphics.figures.PlaceFigure;
-
-import com.sun.prism.paint.Color;
-
 import project.yawl.PlaceType;
 import project.yawl.Place;
 import project.yawl.PlaceTypes;
