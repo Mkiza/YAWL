@@ -26,7 +26,7 @@ public enum ArcTypes implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	NORMAL(0, "NORMAL", "in"), /**
+	NORMAL(0, "NORMAL", "NORMAL"), /**
 	 * The '<em><b>RESET</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -34,7 +34,7 @@ public enum ArcTypes implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	RESET(1, "RESET", "out");
+	RESET(1, "RESET", "RESET");
 
 	/**
 	 * The '<em><b>NORMAL</b></em>' literal value.
@@ -45,7 +45,7 @@ public enum ArcTypes implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #NORMAL
-	 * @model literal="in"
+	 * @model
 	 * @generated
 	 * @ordered
 	 */
@@ -60,7 +60,7 @@ public enum ArcTypes implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #RESET
-	 * @model literal="out"
+	 * @model
 	 * @generated
 	 * @ordered
 	 */

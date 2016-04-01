@@ -24,8 +24,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="#//ArcTypes"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ArcTypes">
-    <eLiterals name="NORMAL" literal="in"/>
-    <eLiterals name="RESET" value="1" literal="out"/>
+    <eLiterals name="NORMAL" literal="NORMAL"/>
+    <eLiterals name="RESET" value="1" literal="RESET"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="PlaceTypes">
     <eLiterals name="Start" literal="Start"/>
