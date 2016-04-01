@@ -13,6 +13,8 @@
             class="project.yawl.YawlPackage"
             genModel="model/yawl.genmodel"/>
    </extension>
+   
+   
    <extension
    id="123.456.789.012"
    name="YAWL Nets"
@@ -21,5 +23,7 @@
       class="project.yawl.impl.YAWLNetImpl"
       description="Text explaining what this net type is" />
 </extension>
+
+
 
 </plugin>

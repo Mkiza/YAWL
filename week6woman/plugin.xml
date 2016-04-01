@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   
+   
+
+
+  
+   
+<extension
+    id="week6woman.graphics"
+    name="YAWL net graphical extensions"
+    point="org.pnml.tools.epnk.diagram.graphics">
+  <graphicsextension
+    class="week6woman.graphics.figures.YAWLGraphics"
+    description="Special graphics for ... signal event nets">
+  </graphicsextension>
+</extension>
+
+
+</plugin>
