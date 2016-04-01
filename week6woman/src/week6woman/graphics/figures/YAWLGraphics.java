@@ -6,7 +6,9 @@ import java.util.List;
 import org.eclipse.emf.ecore.EClass;
 import org.pnml.tools.epnk.gmf.extensions.graphics.GraphicalExtension;
 import org.pnml.tools.epnk.gmf.extensions.graphics.figures.ArcFigure;
+import org.pnml.tools.epnk.gmf.extensions.graphics.figures.PlaceFigure;
 import org.pnml.tools.epnk.pnmlcoremodel.Arc;
+import org.pnml.tools.epnk.pnmlcoremodel.Place;
 
 import project.yawl.YawlPackage;
 
@@ -32,6 +34,13 @@ public class YAWLGraphics extends GraphicalExtension {
 	public ArcFigure createArcFigure(Arc arc) {
 		if (arc instanceof project.yawl.Arc) {
 			return new Arcs((project.yawl.Arc) arc);
+		}
+		return null;
+	}
+	@Override
+	public PlaceFigure createPlaceFigure(Place place) {
+		if (place instanceof project.yawl.Place) {
+			return new Places((project.yawl.Place) place);
 		}
 		return null;
 	}
