@@ -12,5 +12,6 @@ Export-Package: project.yawl,
  project.yawl.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
- org.pnml.tools.epnk;visibility:=reexport
+ org.pnml.tools.epnk;visibility:=reexport,
+ org.eclipse.emf.validation;bundle-version="1.8.0"
 Bundle-ActivationPolicy: lazy
