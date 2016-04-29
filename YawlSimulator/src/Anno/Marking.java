@@ -16,7 +16,6 @@ import org.pnml.tools.epnk.annotations.netannotations.TextualAnnotation;
  * </p>
  * <ul>
  *   <li>{@link Anno.Marking#getValue <em>Value</em>}</li>
- *   <li>{@link Anno.Marking#getLabel <em>Label</em>}</li>
  * </ul>
  *
  * @see Anno.AnnoPackage#getMarking()
@@ -51,23 +50,6 @@ public interface Marking extends TextualAnnotation, ObjectAnnotation {
 	 */
 	void setValue(int value);
 
-	/**
-	 * Returns the value of the '<em><b>Label</b></em>' attribute.
-	 * The default value is <code>""</code>.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Label</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Label</em>' attribute.
-	 * @see #setLabel(String)
-	 * @see Anno.AnnoPackage#getMarking_Label()
-	 * @model default=""
-	 * @generated
-	 */
-	String getLabel();
-	
 	EAttribute getAnnotitationAttribute();
 
 	@Override
@@ -75,15 +57,5 @@ public interface Marking extends TextualAnnotation, ObjectAnnotation {
 		// TODO Auto-generated method stub
 	 return AnnoPackage.eINSTANCE.getMarking_Value();	
 	}
-
-	/**
-	 * Sets the value of the '{@link Anno.Marking#getLabel <em>Label</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Label</em>' attribute.
-	 * @see #getLabel()
-	 * @generated
-	 */
-	void setLabel(String value);
 
 } // Marking

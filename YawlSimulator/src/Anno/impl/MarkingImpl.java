@@ -37,7 +37,6 @@ import org.pnml.tools.epnk.annotations.netannotations.impl.TextualAnnotationImpl
  *   <li>{@link Anno.impl.MarkingImpl#getNetAnnotations <em>Net Annotations</em>}</li>
  *   <li>{@link Anno.impl.MarkingImpl#getObject <em>Object</em>}</li>
  *   <li>{@link Anno.impl.MarkingImpl#getValue <em>Value</em>}</li>
- *   <li>{@link Anno.impl.MarkingImpl#getLabel <em>Label</em>}</li>
  * </ul>
  *
  * @generated
@@ -82,26 +81,6 @@ public class MarkingImpl extends TextualAnnotationImpl implements Marking {
 	 * @ordered
 	 */
 	protected int value = VALUE_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLabel()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String LABEL_EDEFAULT = "";
-
-	/**
-	 * The cached value of the '{@link #getLabel() <em>Label</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLabel()
-	 * @generated
-	 * @ordered
-	 */
-	protected String label = LABEL_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -198,27 +177,6 @@ public class MarkingImpl extends TextualAnnotationImpl implements Marking {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getLabel() {
-		return label;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setLabel(String newLabel) {
-		String oldLabel = label;
-		label = newLabel;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AnnoPackage.MARKING__LABEL, oldLabel, label));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String getDescription() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -269,8 +227,6 @@ public class MarkingImpl extends TextualAnnotationImpl implements Marking {
 				return basicGetObject();
 			case AnnoPackage.MARKING__VALUE:
 				return getValue();
-			case AnnoPackage.MARKING__LABEL:
-				return getLabel();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -294,9 +250,6 @@ public class MarkingImpl extends TextualAnnotationImpl implements Marking {
 			case AnnoPackage.MARKING__VALUE:
 				setValue((Integer)newValue);
 				return;
-			case AnnoPackage.MARKING__LABEL:
-				setLabel((String)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -318,9 +271,6 @@ public class MarkingImpl extends TextualAnnotationImpl implements Marking {
 			case AnnoPackage.MARKING__VALUE:
 				setValue(VALUE_EDEFAULT);
 				return;
-			case AnnoPackage.MARKING__LABEL:
-				setLabel(LABEL_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -339,8 +289,6 @@ public class MarkingImpl extends TextualAnnotationImpl implements Marking {
 				return object != null;
 			case AnnoPackage.MARKING__VALUE:
 				return value != VALUE_EDEFAULT;
-			case AnnoPackage.MARKING__LABEL:
-				return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -401,8 +349,6 @@ public class MarkingImpl extends TextualAnnotationImpl implements Marking {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (Value: ");
 		result.append(value);
-		result.append(", Label: ");
-		result.append(label);
 		result.append(')');
 		return result.toString();
 	}

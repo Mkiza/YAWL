@@ -168,15 +168,6 @@ public class AnnoPackageImpl extends EPackageImpl implements AnnoPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getMarking_Label() {
-		return (EAttribute)markingEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getEnabledTransition() {
 		return enabledTransitionEClass;
 	}
@@ -234,7 +225,6 @@ public class AnnoPackageImpl extends EPackageImpl implements AnnoPackage {
 
 		markingEClass = createEClass(MARKING);
 		createEAttribute(markingEClass, MARKING__VALUE);
-		createEAttribute(markingEClass, MARKING__LABEL);
 
 		enabledTransitionEClass = createEClass(ENABLED_TRANSITION);
 		createEReference(enabledTransitionEClass, ENABLED_TRANSITION__IN_ARCS);
@@ -285,7 +275,6 @@ public class AnnoPackageImpl extends EPackageImpl implements AnnoPackage {
 
 		initEClass(markingEClass, Marking.class, "Marking", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMarking_Value(), ecorePackage.getEInt(), "Value", "1", 0, 1, Marking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMarking_Label(), ecorePackage.getEString(), "Label", "", 0, 1, Marking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(enabledTransitionEClass, EnabledTransition.class, "EnabledTransition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEnabledTransition_InArcs(), this.getSelectArc(), this.getSelectArc_TargetTransition(), "InArcs", null, 0, -1, EnabledTransition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

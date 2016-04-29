@@ -160,22 +160,13 @@ public interface AnnoPackage extends EPackage {
 	int MARKING__VALUE = NetannotationsPackage.TEXTUAL_ANNOTATION_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Label</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MARKING__LABEL = NetannotationsPackage.TEXTUAL_ANNOTATION_FEATURE_COUNT + 3;
-
-	/**
 	 * The number of structural features of the '<em>Marking</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MARKING_FEATURE_COUNT = NetannotationsPackage.TEXTUAL_ANNOTATION_FEATURE_COUNT + 4;
+	int MARKING_FEATURE_COUNT = NetannotationsPackage.TEXTUAL_ANNOTATION_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link Anno.impl.EnabledTransitionImpl <em>Enabled Transition</em>}' class.
@@ -297,17 +288,6 @@ public interface AnnoPackage extends EPackage {
 	EAttribute getMarking_Value();
 
 	/**
-	 * Returns the meta object for the attribute '{@link Anno.Marking#getLabel <em>Label</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Label</em>'.
-	 * @see Anno.Marking#getLabel()
-	 * @see #getMarking()
-	 * @generated
-	 */
-	EAttribute getMarking_Label();
-
-	/**
 	 * Returns the meta object for class '{@link Anno.EnabledTransition <em>Enabled Transition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -413,14 +393,6 @@ public interface AnnoPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute MARKING__VALUE = eINSTANCE.getMarking_Value();
-
-		/**
-		 * The meta object literal for the '<em><b>Label</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute MARKING__LABEL = eINSTANCE.getMarking_Label();
 
 		/**
 		 * The meta object literal for the '{@link Anno.impl.EnabledTransitionImpl <em>Enabled Transition</em>}' class.
