@@ -7,8 +7,8 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Transition" eSuperTypes="../../org.pnml.tools.epnk/model/PNMLCoreModel.ecore#//Transition">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//TransitionType"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="splitType" eType="#//TransitionType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="joinType" eType="#//TransitionType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TransitionType" eSuperTypes="../../org.pnml.tools.epnk/model/PNMLCoreModel.ecore#//Attribute">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="#//TransitionTypes"/>
@@ -36,5 +36,6 @@
     <eLiterals name="AND"/>
     <eLiterals name="XOR" value="2"/>
     <eLiterals name="OR" value="1"/>
+    <eLiterals name="normal" value="3"/>
   </eClassifiers>
 </ecore:EPackage>

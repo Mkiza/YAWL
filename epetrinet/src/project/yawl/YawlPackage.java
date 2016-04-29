@@ -242,13 +242,22 @@ public interface YawlPackage extends EPackage {
 	int TRANSITION__IN = PnmlcoremodelPackage.TRANSITION__IN;
 
 	/**
-	 * The feature id for the '<em><b>Type</b></em>' containment reference.
+	 * The feature id for the '<em><b>Split Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSITION__TYPE = PnmlcoremodelPackage.TRANSITION_FEATURE_COUNT + 0;
+	int TRANSITION__SPLIT_TYPE = PnmlcoremodelPackage.TRANSITION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Join Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSITION__JOIN_TYPE = PnmlcoremodelPackage.TRANSITION_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Transition</em>' class.
@@ -257,7 +266,7 @@ public interface YawlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSITION_FEATURE_COUNT = PnmlcoremodelPackage.TRANSITION_FEATURE_COUNT + 1;
+	int TRANSITION_FEATURE_COUNT = PnmlcoremodelPackage.TRANSITION_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link project.yawl.impl.TransitionTypeImpl <em>Transition Type</em>}' class.
@@ -588,15 +597,26 @@ public interface YawlPackage extends EPackage {
 	EClass getTransition();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link project.yawl.Transition#getType <em>Type</em>}'.
+	 * Returns the meta object for the reference '{@link project.yawl.Transition#getSplitType <em>Split Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Type</em>'.
-	 * @see project.yawl.Transition#getType()
+	 * @return the meta object for the reference '<em>Split Type</em>'.
+	 * @see project.yawl.Transition#getSplitType()
 	 * @see #getTransition()
 	 * @generated
 	 */
-	EReference getTransition_Type();
+	EReference getTransition_SplitType();
+
+	/**
+	 * Returns the meta object for the reference '{@link project.yawl.Transition#getJoinType <em>Join Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Join Type</em>'.
+	 * @see project.yawl.Transition#getJoinType()
+	 * @see #getTransition()
+	 * @generated
+	 */
+	EReference getTransition_JoinType();
 
 	/**
 	 * Returns the meta object for class '{@link project.yawl.TransitionType <em>Transition Type</em>}'.
@@ -773,12 +793,20 @@ public interface YawlPackage extends EPackage {
 		EClass TRANSITION = eINSTANCE.getTransition();
 
 		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Split Type</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference TRANSITION__TYPE = eINSTANCE.getTransition_Type();
+		EReference TRANSITION__SPLIT_TYPE = eINSTANCE.getTransition_SplitType();
+
+		/**
+		 * The meta object literal for the '<em><b>Join Type</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TRANSITION__JOIN_TYPE = eINSTANCE.getTransition_JoinType();
 
 		/**
 		 * The meta object literal for the '{@link project.yawl.impl.TransitionTypeImpl <em>Transition Type</em>}' class.

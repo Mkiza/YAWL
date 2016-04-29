@@ -206,8 +206,17 @@ public class YawlPackageImpl extends EPackageImpl implements YawlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTransition_Type() {
+	public EReference getTransition_SplitType() {
 		return (EReference)transitionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTransition_JoinType() {
+		return (EReference)transitionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -343,7 +352,8 @@ public class YawlPackageImpl extends EPackageImpl implements YawlPackage {
 		createEReference(placeEClass, PLACE__TYPE);
 
 		transitionEClass = createEClass(TRANSITION);
-		createEReference(transitionEClass, TRANSITION__TYPE);
+		createEReference(transitionEClass, TRANSITION__SPLIT_TYPE);
+		createEReference(transitionEClass, TRANSITION__JOIN_TYPE);
 
 		transitionTypeEClass = createEClass(TRANSITION_TYPE);
 		createEAttribute(transitionTypeEClass, TRANSITION_TYPE__TEXT);
@@ -409,7 +419,8 @@ public class YawlPackageImpl extends EPackageImpl implements YawlPackage {
 		initEReference(getPlace_Type(), this.getPlaceType(), null, "type", null, 0, 1, Place.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(transitionEClass, Transition.class, "Transition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTransition_Type(), this.getTransitionType(), null, "type", null, 0, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTransition_SplitType(), this.getTransitionType(), null, "splitType", null, 0, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTransition_JoinType(), this.getTransitionType(), null, "joinType", null, 0, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(transitionTypeEClass, TransitionType.class, "TransitionType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTransitionType_Text(), this.getTransitionTypes(), "text", null, 0, 1, TransitionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -437,6 +448,7 @@ public class YawlPackageImpl extends EPackageImpl implements YawlPackage {
 		addEEnumLiteral(transitionTypesEEnum, TransitionTypes.AND);
 		addEEnumLiteral(transitionTypesEEnum, TransitionTypes.XOR);
 		addEEnumLiteral(transitionTypesEEnum, TransitionTypes.OR);
+		addEEnumLiteral(transitionTypesEEnum, TransitionTypes.NORMAL);
 
 		// Create resource
 		createResource(eNS_URI);

@@ -13,14 +13,6 @@
             class="Anno.AnnoPackage"
             genModel="model/Anno.genmodel"/>
    </extension>
-    <extension
-   id="123.456.789.012"
-   name="YAWL Nets"
-   point="org.pnml.tools.epnk.pntd">
-   <type
-      class="project.yawl.impl.YAWLNetImpl"
-      description="Text explaining what this net type is" />
-</extension>
 
 
  <!-- TODO: change the id to a proper one (unqique) -->

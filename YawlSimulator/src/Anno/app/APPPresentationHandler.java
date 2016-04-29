@@ -3,11 +3,13 @@ package Anno.app;
 import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.gef.editparts.AbstractGraphicalEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.ConnectionNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 
 import org.pnml.tools.epnk.annotations.netannotations.ObjectAnnotation;
 import org.pnml.tools.epnk.applications.ui.IPresentationHandler;
 import org.pnml.tools.epnk.applications.ui.figures.EllipseOverlay;
+import org.pnml.tools.epnk.applications.ui.figures.PolylineOverlay;
 import org.pnml.tools.epnk.applications.ui.figures.RectangleOverlay;
 import org.pnml.tools.epnk.pnmlcoremodel.Transition;
 import org.pnml.tools.epnk.pntypes.ptnet.Place;
@@ -40,11 +42,11 @@ public class APPPresentationHandler implements IPresentationHandler {
 		} else if (annotation instanceof SelectArc) {
 			SelectArc ArcAnnotation = (SelectArc) annotation;
 			if (editPart instanceof GraphicalEditPart) {
-				GraphicalEditPart graphicalEditPart = (GraphicalEditPart) editPart;
+				ConnectionNodeEditPart CNEP = (ConnectionNodeEditPart) editPart;
 				// IFigure figure = graphicalEditPart.getFigure();
-				java.lang.Object modelObject = graphicalEditPart.resolveSemanticElement();
+				java.lang.Object modelObject = CNEP.resolveSemanticElement();
 				if (modelObject instanceof Place) {
-					EllipseOverlay overlay = new EllipseOverlay(graphicalEditPart);
+					PolylineOverlay overlay = new PolylineOverlay(CNEP);
 					if (!ArcAnnotation.isSelected()) {
 						overlay.setForegroundColor(ColorConstants.lightGray);
 						overlay.setBackgroundColor(ColorConstants.lightGray);

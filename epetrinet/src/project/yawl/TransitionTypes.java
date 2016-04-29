@@ -42,7 +42,15 @@ public enum TransitionTypes implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	OR(1, "OR", "OR");
+	OR(1, "OR", "OR"), /**
+	 * The '<em><b>Normal</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #NORMAL_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	NORMAL(3, "normal", "normal");
 
 	/**
 	 * The '<em><b>AND</b></em>' literal value.
@@ -90,6 +98,21 @@ public enum TransitionTypes implements Enumerator {
 	public static final int OR_VALUE = 1;
 
 	/**
+	 * The '<em><b>Normal</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Normal</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #NORMAL
+	 * @model name="normal"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int NORMAL_VALUE = 3;
+
+	/**
 	 * An array of all the '<em><b>Transition Types</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -100,6 +123,7 @@ public enum TransitionTypes implements Enumerator {
 			AND,
 			XOR,
 			OR,
+			NORMAL,
 		};
 
 	/**
@@ -159,6 +183,7 @@ public enum TransitionTypes implements Enumerator {
 			case AND_VALUE: return AND;
 			case XOR_VALUE: return XOR;
 			case OR_VALUE: return OR;
+			case NORMAL_VALUE: return NORMAL;
 		}
 		return null;
 	}
