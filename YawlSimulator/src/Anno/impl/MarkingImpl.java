@@ -352,11 +352,14 @@ public class MarkingImpl extends TextualAnnotationImpl implements Marking {
 		result.append(')');
 		return result.toString();
 	}
-
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
 	@Override
 	public EAttribute getAnnotitationAttribute() {
-		// TODO Auto-generated method stub
-		return null;
+		return AnnoPackage.eINSTANCE.getMarking_Value();
 	}
 
 } //MarkingImpl
