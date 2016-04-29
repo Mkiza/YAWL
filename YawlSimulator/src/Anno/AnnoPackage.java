@@ -4,6 +4,7 @@ package Anno;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -215,13 +216,32 @@ public interface AnnoPackage extends EPackage {
 	int ENABLED_TRANSITION__OUT_ARCS = NetannotationsPackage.OBJECT_ANNOTATION_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENABLED_TRANSITION__MODE = NetannotationsPackage.OBJECT_ANNOTATION_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Enabled Transition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENABLED_TRANSITION_FEATURE_COUNT = NetannotationsPackage.OBJECT_ANNOTATION_FEATURE_COUNT + 2;
+	int ENABLED_TRANSITION_FEATURE_COUNT = NetannotationsPackage.OBJECT_ANNOTATION_FEATURE_COUNT + 3;
+
+	/**
+	 * The meta object id for the '{@link Anno.Mode <em>Mode</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see Anno.Mode
+	 * @see Anno.impl.AnnoPackageImpl#getMode()
+	 * @generated
+	 */
+	int MODE = 3;
 
 	/**
 	 * Returns the meta object for class '{@link Anno.SelectArc <em>Select Arc</em>}'.
@@ -318,6 +338,27 @@ public interface AnnoPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getEnabledTransition_OutArcs();
+
+	/**
+	 * Returns the meta object for the attribute '{@link Anno.EnabledTransition#getMode <em>Mode</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Mode</em>'.
+	 * @see Anno.EnabledTransition#getMode()
+	 * @see #getEnabledTransition()
+	 * @generated
+	 */
+	EAttribute getEnabledTransition_Mode();
+
+	/**
+	 * Returns the meta object for enum '{@link Anno.Mode <em>Mode</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Mode</em>'.
+	 * @see Anno.Mode
+	 * @generated
+	 */
+	EEnum getMode();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -419,6 +460,24 @@ public interface AnnoPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ENABLED_TRANSITION__OUT_ARCS = eINSTANCE.getEnabledTransition_OutArcs();
+
+		/**
+		 * The meta object literal for the '<em><b>Mode</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ENABLED_TRANSITION__MODE = eINSTANCE.getEnabledTransition_Mode();
+
+		/**
+		 * The meta object literal for the '{@link Anno.Mode <em>Mode</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see Anno.Mode
+		 * @see Anno.impl.AnnoPackageImpl#getMode()
+		 * @generated
+		 */
+		EEnum MODE = eINSTANCE.getMode();
 
 	}
 

@@ -17,6 +17,7 @@ import org.pnml.tools.epnk.annotations.netannotations.ObjectAnnotation;
  * <ul>
  *   <li>{@link Anno.EnabledTransition#getInArcs <em>In Arcs</em>}</li>
  *   <li>{@link Anno.EnabledTransition#getOutArcs <em>Out Arcs</em>}</li>
+ *   <li>{@link Anno.EnabledTransition#getMode <em>Mode</em>}</li>
  * </ul>
  *
  * @see Anno.AnnoPackage#getEnabledTransition()
@@ -59,5 +60,34 @@ public interface EnabledTransition extends ObjectAnnotation {
 	 * @generated
 	 */
 	EList<SelectArc> getOutArcs();
+
+	/**
+	 * Returns the value of the '<em><b>Mode</b></em>' attribute.
+	 * The literals are from the enumeration {@link Anno.Mode}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Mode</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Mode</em>' attribute.
+	 * @see Anno.Mode
+	 * @see #setMode(Mode)
+	 * @see Anno.AnnoPackage#getEnabledTransition_Mode()
+	 * @model
+	 * @generated
+	 */
+	Mode getMode();
+
+	/**
+	 * Sets the value of the '{@link Anno.EnabledTransition#getMode <em>Mode</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Mode</em>' attribute.
+	 * @see Anno.Mode
+	 * @see #getMode()
+	 * @generated
+	 */
+	void setMode(Mode value);
 
 } // EnabledTransition

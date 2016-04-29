@@ -4,10 +4,12 @@ package Anno.impl;
 
 import Anno.AnnoPackage;
 import Anno.EnabledTransition;
+import Anno.Mode;
 import Anno.SelectArc;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -15,6 +17,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -30,6 +33,7 @@ import org.pnml.tools.epnk.annotations.netannotations.impl.ObjectAnnotationImpl;
  * <ul>
  *   <li>{@link Anno.impl.EnabledTransitionImpl#getInArcs <em>In Arcs</em>}</li>
  *   <li>{@link Anno.impl.EnabledTransitionImpl#getOutArcs <em>Out Arcs</em>}</li>
+ *   <li>{@link Anno.impl.EnabledTransitionImpl#getMode <em>Mode</em>}</li>
  * </ul>
  *
  * @generated
@@ -54,6 +58,26 @@ public class EnabledTransitionImpl extends ObjectAnnotationImpl implements Enabl
 	 * @ordered
 	 */
 	protected EList<SelectArc> outArcs;
+
+	/**
+	 * The default value of the '{@link #getMode() <em>Mode</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMode()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Mode MODE_EDEFAULT = Mode.FIRED;
+
+	/**
+	 * The cached value of the '{@link #getMode() <em>Mode</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMode()
+	 * @generated
+	 * @ordered
+	 */
+	protected Mode mode = MODE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -103,6 +127,27 @@ public class EnabledTransitionImpl extends ObjectAnnotationImpl implements Enabl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Mode getMode() {
+		return mode;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMode(Mode newMode) {
+		Mode oldMode = mode;
+		mode = newMode == null ? MODE_EDEFAULT : newMode;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AnnoPackage.ENABLED_TRANSITION__MODE, oldMode, mode));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -143,6 +188,8 @@ public class EnabledTransitionImpl extends ObjectAnnotationImpl implements Enabl
 				return getInArcs();
 			case AnnoPackage.ENABLED_TRANSITION__OUT_ARCS:
 				return getOutArcs();
+			case AnnoPackage.ENABLED_TRANSITION__MODE:
+				return getMode();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -164,6 +211,9 @@ public class EnabledTransitionImpl extends ObjectAnnotationImpl implements Enabl
 				getOutArcs().clear();
 				getOutArcs().addAll((Collection<? extends SelectArc>)newValue);
 				return;
+			case AnnoPackage.ENABLED_TRANSITION__MODE:
+				setMode((Mode)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -182,6 +232,9 @@ public class EnabledTransitionImpl extends ObjectAnnotationImpl implements Enabl
 			case AnnoPackage.ENABLED_TRANSITION__OUT_ARCS:
 				getOutArcs().clear();
 				return;
+			case AnnoPackage.ENABLED_TRANSITION__MODE:
+				setMode(MODE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -198,8 +251,26 @@ public class EnabledTransitionImpl extends ObjectAnnotationImpl implements Enabl
 				return inArcs != null && !inArcs.isEmpty();
 			case AnnoPackage.ENABLED_TRANSITION__OUT_ARCS:
 				return outArcs != null && !outArcs.isEmpty();
+			case AnnoPackage.ENABLED_TRANSITION__MODE:
+				return mode != MODE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (Mode: ");
+		result.append(mode);
+		result.append(')');
+		return result.toString();
 	}
 
 } //EnabledTransitionImpl

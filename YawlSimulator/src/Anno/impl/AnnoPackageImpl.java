@@ -6,10 +6,12 @@ import Anno.AnnoFactory;
 import Anno.AnnoPackage;
 import Anno.EnabledTransition;
 import Anno.Marking;
+import Anno.Mode;
 import Anno.SelectArc;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -44,6 +46,13 @@ public class AnnoPackageImpl extends EPackageImpl implements AnnoPackage {
 	 * @generated
 	 */
 	private EClass enabledTransitionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum modeEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -195,6 +204,24 @@ public class AnnoPackageImpl extends EPackageImpl implements AnnoPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getEnabledTransition_Mode() {
+		return (EAttribute)enabledTransitionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getMode() {
+		return modeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public AnnoFactory getAnnoFactory() {
 		return (AnnoFactory)getEFactoryInstance();
 	}
@@ -229,6 +256,10 @@ public class AnnoPackageImpl extends EPackageImpl implements AnnoPackage {
 		enabledTransitionEClass = createEClass(ENABLED_TRANSITION);
 		createEReference(enabledTransitionEClass, ENABLED_TRANSITION__IN_ARCS);
 		createEReference(enabledTransitionEClass, ENABLED_TRANSITION__OUT_ARCS);
+		createEAttribute(enabledTransitionEClass, ENABLED_TRANSITION__MODE);
+
+		// Create enums
+		modeEEnum = createEEnum(MODE);
 	}
 
 	/**
@@ -279,6 +310,12 @@ public class AnnoPackageImpl extends EPackageImpl implements AnnoPackage {
 		initEClass(enabledTransitionEClass, EnabledTransition.class, "EnabledTransition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEnabledTransition_InArcs(), this.getSelectArc(), this.getSelectArc_TargetTransition(), "InArcs", null, 0, -1, EnabledTransition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEnabledTransition_OutArcs(), this.getSelectArc(), this.getSelectArc_SourceTransition(), "OutArcs", null, 0, -1, EnabledTransition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEnabledTransition_Mode(), this.getMode(), "Mode", null, 0, 1, EnabledTransition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		// Initialize enums and add enum literals
+		initEEnum(modeEEnum, Mode.class, "Mode");
+		addEEnumLiteral(modeEEnum, Mode.FIRED);
+		addEEnumLiteral(modeEEnum, Mode.ENABLED);
 
 		// Create resource
 		createResource(eNS_URI);

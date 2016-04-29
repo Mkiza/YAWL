@@ -22,11 +22,24 @@ import Anno.AnnoFactory;
 import Anno.EnabledTransition;
 import Anno.Marking;
 import Anno.SelectArc;
+import Anno.Mode;
 
 
 public class App extends ApplicationWithUIManager {
 
 	private FlatAccess flataccess;
+	
+	public App(PetriNet petrinet) {
+		super(petrinet);
+		// TODO Auto-generated constructor stub
+		
+		getNetAnnotations().setName("name");
+		ApplicationUIManager manager = this.getPresentationManager();
+		manager.addPresentationHandler(new APPPresentationHandler());
+		 manager.addActionHandler(new EnabledTransitionHandler(this));
+		 manager.addActionHandler(new APPActionHandler(this));
+		 
+	}
 	
 	public FlatAccess getFlataccess() {
 		if(flataccess==null){
@@ -174,6 +187,7 @@ public class App extends ApplicationWithUIManager {
 					for(org.pnml.tools.epnk.pnmlcoremodel.Arc a: transition.getIn()){
 						SelectArc SA = AnnoFactory.eINSTANCE.createSelectArc();
 						SA.setObject(a); 
+						transitionAnnotation.setMode(Mode.ENABLED);
 						SA.setTargetTransition(transitionAnnotation);
 						
 						if(i==0)
@@ -243,17 +257,7 @@ public class App extends ApplicationWithUIManager {
 	}
 
 
-	public App(PetriNet petrinet) {
-		super(petrinet);
-		// TODO Auto-generated constructor stub
-		
-		getNetAnnotations().setName("name");
-		ApplicationUIManager manager = this.getPresentationManager();
-		manager.addPresentationHandler(new APPPresentationHandler());
-		 manager.addActionHandler(new EnabledTransitionHandler(this));
-		 manager.addActionHandler(new APPActionHandler(this));
-		 
-	}
+	
 	
 	
 

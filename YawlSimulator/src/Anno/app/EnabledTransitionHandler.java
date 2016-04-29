@@ -18,6 +18,7 @@ import org.pnml.tools.epnk.pntypes.ptnet.Place;
 import Anno.AnnoFactory;
 import Anno.EnabledTransition;
 import Anno.SelectArc;
+import Anno.Mode;
 
 
 public class EnabledTransitionHandler implements IActionHandler {
@@ -48,14 +49,14 @@ public class EnabledTransitionHandler implements IActionHandler {
 					netAnnotation.setNet(application.getPetrinet());
 					List<ObjectAnnotation> clearPlaceAnnotations = new ArrayList<ObjectAnnotation>();
 					for (ObjectAnnotation objectAnnotation: current.getObjectAnnotations()) {
-						if (objectAnnotation != transitionAnnotation && objectAnnotation instanceof EnabledTransition ) {
-					
+							if (objectAnnotation != transitionAnnotation && objectAnnotation instanceof EnabledTransition ) {
+								((EnabledTransition) objectAnnotation).setMode(Mode.ENABLED);
 						} else if (objectAnnotation instanceof SelectArc) {
 							clearPlaceAnnotations.add(objectAnnotation);
 						}
 					}
 					current.getObjectAnnotations().removeAll(clearPlaceAnnotations);
-				
+					transitionAnnotation.setMode(Mode.FIRED);
 					for (Arc arc: flatNet.getOut(transition)) {
 						Object object2 = arc.getTarget();
 						if (object2 instanceof PlaceNode) {

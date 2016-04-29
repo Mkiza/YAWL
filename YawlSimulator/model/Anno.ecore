@@ -8,6 +8,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="TargetTransition" eType="#//EnabledTransition"
         eOpposite="#//EnabledTransition/InArcs"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Mode">
+    <eLiterals name="fired" value="1"/>
+    <eLiterals name="enabled"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Marking" eSuperTypes="../../org.pnml.tools.epnk.annotations/model/NetAnnotations.ecore#//TextualAnnotation ../../org.pnml.tools.epnk.annotations/model/NetAnnotations.ecore#//ObjectAnnotation">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         defaultValueLiteral="1"/>
@@ -17,5 +21,6 @@
         eType="#//SelectArc" eOpposite="#//SelectArc/TargetTransition"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="OutArcs" upperBound="-1"
         eType="#//SelectArc" eOpposite="#//SelectArc/SourceTransition"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Mode" eType="#//Mode"/>
   </eClassifiers>
 </ecore:EPackage>

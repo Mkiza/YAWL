@@ -7,8 +7,10 @@ import org.eclipse.emf.ecore.EClass;
 import org.pnml.tools.epnk.gmf.extensions.graphics.GraphicalExtension;
 import org.pnml.tools.epnk.gmf.extensions.graphics.figures.ArcFigure;
 import org.pnml.tools.epnk.gmf.extensions.graphics.figures.PlaceFigure;
+import org.pnml.tools.epnk.gmf.extensions.graphics.figures.TransitionFigure;
 import org.pnml.tools.epnk.pnmlcoremodel.Arc;
 import org.pnml.tools.epnk.pnmlcoremodel.Place;
+import org.pnml.tools.epnk.pnmlcoremodel.Transition;
 
 import project.yawl.YawlPackage;
 
@@ -27,6 +29,7 @@ public class YAWLGraphics extends GraphicalExtension {
 		if (netType.equals(YawlPackage.eINSTANCE.getYAWLNet())) {
 			list.add(YawlPackage.eINSTANCE.getArc());
 			list.add(YawlPackage.eINSTANCE.getPlace());
+			list.add(YawlPackage.eINSTANCE.getTransition());
 		}
 		return list;}
 
@@ -41,6 +44,14 @@ public class YAWLGraphics extends GraphicalExtension {
 	public PlaceFigure createPlaceFigure(Place place) {
 		if (place instanceof project.yawl.Place) {
 			return new Places((project.yawl.Place) place);
+		}
+		return null;
+	}
+	
+	@Override
+	public TransitionFigure createTransitionFigure(Transition transition) {
+		if (transition instanceof project.yawl.Transition) {
+			return new TransitionGraphics((project.yawl.Transition) transition);
 		}
 		return null;
 	}

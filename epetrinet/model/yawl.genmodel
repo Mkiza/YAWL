@@ -20,6 +20,7 @@
       <genEnumLiterals ecoreEnumLiteral="yawl.ecore#//TransitionTypes/AND"/>
       <genEnumLiterals ecoreEnumLiteral="yawl.ecore#//TransitionTypes/XOR"/>
       <genEnumLiterals ecoreEnumLiteral="yawl.ecore#//TransitionTypes/OR"/>
+      <genEnumLiterals ecoreEnumLiteral="yawl.ecore#//TransitionTypes/normal"/>
     </genEnums>
     <genClasses ecoreClass="yawl.ecore#//YAWLNet"/>
     <genClasses ecoreClass="yawl.ecore#//Place">

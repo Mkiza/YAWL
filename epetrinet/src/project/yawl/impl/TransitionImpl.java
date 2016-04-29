@@ -3,6 +3,7 @@
 package project.yawl.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
@@ -27,7 +28,7 @@ import project.yawl.YawlPackage;
  */
 public class TransitionImpl extends org.pnml.tools.epnk.pnmlcoremodel.impl.TransitionImpl implements Transition {
 	/**
-	 * The cached value of the '{@link #getSplitType() <em>Split Type</em>}' reference.
+	 * The cached value of the '{@link #getSplitType() <em>Split Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getSplitType()
@@ -36,7 +37,7 @@ public class TransitionImpl extends org.pnml.tools.epnk.pnmlcoremodel.impl.Trans
 	 */
 	protected TransitionType splitType;
 	/**
-	 * The cached value of the '{@link #getJoinType() <em>Join Type</em>}' reference.
+	 * The cached value of the '{@link #getJoinType() <em>Join Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getJoinType()
@@ -69,14 +70,6 @@ public class TransitionImpl extends org.pnml.tools.epnk.pnmlcoremodel.impl.Trans
 	 * @generated
 	 */
 	public TransitionType getSplitType() {
-		if (splitType != null && splitType.eIsProxy()) {
-			InternalEObject oldSplitType = (InternalEObject)splitType;
-			splitType = (TransitionType)eResolveProxy(oldSplitType);
-			if (splitType != oldSplitType) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, YawlPackage.TRANSITION__SPLIT_TYPE, oldSplitType, splitType));
-			}
-		}
 		return splitType;
 	}
 
@@ -85,8 +78,14 @@ public class TransitionImpl extends org.pnml.tools.epnk.pnmlcoremodel.impl.Trans
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TransitionType basicGetSplitType() {
-		return splitType;
+	public NotificationChain basicSetSplitType(TransitionType newSplitType, NotificationChain msgs) {
+		TransitionType oldSplitType = splitType;
+		splitType = newSplitType;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, YawlPackage.TRANSITION__SPLIT_TYPE, oldSplitType, newSplitType);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -95,10 +94,17 @@ public class TransitionImpl extends org.pnml.tools.epnk.pnmlcoremodel.impl.Trans
 	 * @generated
 	 */
 	public void setSplitType(TransitionType newSplitType) {
-		TransitionType oldSplitType = splitType;
-		splitType = newSplitType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, YawlPackage.TRANSITION__SPLIT_TYPE, oldSplitType, splitType));
+		if (newSplitType != splitType) {
+			NotificationChain msgs = null;
+			if (splitType != null)
+				msgs = ((InternalEObject)splitType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - YawlPackage.TRANSITION__SPLIT_TYPE, null, msgs);
+			if (newSplitType != null)
+				msgs = ((InternalEObject)newSplitType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - YawlPackage.TRANSITION__SPLIT_TYPE, null, msgs);
+			msgs = basicSetSplitType(newSplitType, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, YawlPackage.TRANSITION__SPLIT_TYPE, newSplitType, newSplitType));
 	}
 
 	/**
@@ -107,14 +113,6 @@ public class TransitionImpl extends org.pnml.tools.epnk.pnmlcoremodel.impl.Trans
 	 * @generated
 	 */
 	public TransitionType getJoinType() {
-		if (joinType != null && joinType.eIsProxy()) {
-			InternalEObject oldJoinType = (InternalEObject)joinType;
-			joinType = (TransitionType)eResolveProxy(oldJoinType);
-			if (joinType != oldJoinType) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, YawlPackage.TRANSITION__JOIN_TYPE, oldJoinType, joinType));
-			}
-		}
 		return joinType;
 	}
 
@@ -123,8 +121,14 @@ public class TransitionImpl extends org.pnml.tools.epnk.pnmlcoremodel.impl.Trans
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TransitionType basicGetJoinType() {
-		return joinType;
+	public NotificationChain basicSetJoinType(TransitionType newJoinType, NotificationChain msgs) {
+		TransitionType oldJoinType = joinType;
+		joinType = newJoinType;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, YawlPackage.TRANSITION__JOIN_TYPE, oldJoinType, newJoinType);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -133,10 +137,33 @@ public class TransitionImpl extends org.pnml.tools.epnk.pnmlcoremodel.impl.Trans
 	 * @generated
 	 */
 	public void setJoinType(TransitionType newJoinType) {
-		TransitionType oldJoinType = joinType;
-		joinType = newJoinType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, YawlPackage.TRANSITION__JOIN_TYPE, oldJoinType, joinType));
+		if (newJoinType != joinType) {
+			NotificationChain msgs = null;
+			if (joinType != null)
+				msgs = ((InternalEObject)joinType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - YawlPackage.TRANSITION__JOIN_TYPE, null, msgs);
+			if (newJoinType != null)
+				msgs = ((InternalEObject)newJoinType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - YawlPackage.TRANSITION__JOIN_TYPE, null, msgs);
+			msgs = basicSetJoinType(newJoinType, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, YawlPackage.TRANSITION__JOIN_TYPE, newJoinType, newJoinType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case YawlPackage.TRANSITION__SPLIT_TYPE:
+				return basicSetSplitType(null, msgs);
+			case YawlPackage.TRANSITION__JOIN_TYPE:
+				return basicSetJoinType(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -148,11 +175,9 @@ public class TransitionImpl extends org.pnml.tools.epnk.pnmlcoremodel.impl.Trans
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case YawlPackage.TRANSITION__SPLIT_TYPE:
-				if (resolve) return getSplitType();
-				return basicGetSplitType();
+				return getSplitType();
 			case YawlPackage.TRANSITION__JOIN_TYPE:
-				if (resolve) return getJoinType();
-				return basicGetJoinType();
+				return getJoinType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}

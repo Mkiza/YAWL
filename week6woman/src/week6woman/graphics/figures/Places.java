@@ -35,7 +35,9 @@ public class Places extends PlaceFigure {
 		
 
 		Type m = null;
-		
+		graphics.pushState();
+		graphics.setBackgroundColor(ColorConstants.black);
+		graphics.setLineWidth(1);
 
 		if (place instanceof Place) {
 			m = getPlaceTypes((Place) place);
@@ -56,13 +58,13 @@ public class Places extends PlaceFigure {
 			
 		} else if (m == type.END) {
 			graphics.drawRectangle(rectangle.x/2,rectangle.y/2,12,12);
-			graphics.setBackgroundColor(ColorConstants.black);
 			
 		} else if (m == type.START) {
 			graphics.drawRectangle(cx,cy,12,12);
-			graphics.setBackgroundColor(ColorConstants.black);
 			
 		}
+		
+		graphics.popState();
 	}
 
 	private Type getPlaceTypes(Place place) {
