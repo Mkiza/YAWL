@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated Anno -->
+      <package
+            uri="http://:Anno"
+            class="Anno.AnnoPackage"
+            genModel="model/Anno.genmodel"/>
+   </extension>
+    <extension
+   id="123.456.789.012"
+   name="YAWL Nets"
+   point="org.pnml.tools.epnk.pntd">
+   <type
+      class="project.yawl.impl.YAWLNetImpl"
+      description="Text explaining what this net type is" />
+</extension>
+
+
+ <!-- TODO: change the id to a proper one (unqique) -->
+   <extension
+         id="Yawl.simulator"
+         name="YAWL Simulator"
+         point="org.pnml.tools.epnk.applications.applicationfactory">
+      <!-- TODO: change the class attribute to the fully quantified name
+                 of the Java class of your application factory -->
+      <applicationfactory
+            class="Anno.app.YAWLSimulatorFactory"
+            description="A simple YAWL simulator for tutorial 8 of the MBSE course">
+      </applicationfactory>
+   </extension>
+
+
+</plugin>

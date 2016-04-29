@@ -1,0 +1,89 @@
+/**
+ */
+package Anno;
+
+import org.eclipse.emf.ecore.EAttribute;
+import org.pnml.tools.epnk.annotations.netannotations.ObjectAnnotation;
+import org.pnml.tools.epnk.annotations.netannotations.TextualAnnotation;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Marking</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link Anno.Marking#getValue <em>Value</em>}</li>
+ *   <li>{@link Anno.Marking#getLabel <em>Label</em>}</li>
+ * </ul>
+ *
+ * @see Anno.AnnoPackage#getMarking()
+ * @model
+ * @generated
+ */
+public interface Marking extends TextualAnnotation, ObjectAnnotation {
+	/**
+	 * Returns the value of the '<em><b>Value</b></em>' attribute.
+	 * The default value is <code>"1"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Value</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Value</em>' attribute.
+	 * @see #setValue(int)
+	 * @see Anno.AnnoPackage#getMarking_Value()
+	 * @model default="1"
+	 * @generated
+	 */
+	int getValue();
+
+	/**
+	 * Sets the value of the '{@link Anno.Marking#getValue <em>Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Value</em>' attribute.
+	 * @see #getValue()
+	 * @generated
+	 */
+	void setValue(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Label</b></em>' attribute.
+	 * The default value is <code>""</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Label</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Label</em>' attribute.
+	 * @see #setLabel(String)
+	 * @see Anno.AnnoPackage#getMarking_Label()
+	 * @model default=""
+	 * @generated
+	 */
+	String getLabel();
+	
+	EAttribute getAnnotitationAttribute();
+
+	@Override
+	default EAttribute getAnnotationAttribute() {
+		// TODO Auto-generated method stub
+	 return AnnoPackage.eINSTANCE.getMarking_Value();	
+	}
+
+	/**
+	 * Sets the value of the '{@link Anno.Marking#getLabel <em>Label</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Label</em>' attribute.
+	 * @see #getLabel()
+	 * @generated
+	 */
+	void setLabel(String value);
+
+} // Marking
