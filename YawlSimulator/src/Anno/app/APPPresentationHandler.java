@@ -16,6 +16,7 @@ import org.pnml.tools.epnk.pntypes.ptnet.Place;
 
 import Anno.EnabledTransition;
 import Anno.SelectArc;
+import Anno.Mode;
 
 
 public class APPPresentationHandler implements IPresentationHandler {
@@ -32,7 +33,7 @@ public class APPPresentationHandler implements IPresentationHandler {
 				java.lang.Object modelObject = graphicalEditPart.resolveSemanticElement();
 				if (modelObject instanceof Transition) {
 					RectangleOverlay overlay = new RectangleOverlay(graphicalEditPart);
-				
+					if (activationAnnotation.getMode().equals(Mode.ENABLED)) {
 						overlay.setForegroundColor(ColorConstants.blue);
 						overlay.setBackgroundColor(ColorConstants.blue);
 					
@@ -56,7 +57,8 @@ public class APPPresentationHandler implements IPresentationHandler {
 			}
 			
 		}
-		return null;
+		
 	}
+		return null;
 
-}
+	}}

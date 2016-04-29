@@ -23,52 +23,52 @@ package project.yawl;
 public interface Transition extends org.pnml.tools.epnk.pnmlcoremodel.Transition {
 
 	/**
-	 * Returns the value of the '<em><b>Split Type</b></em>' reference.
+	 * Returns the value of the '<em><b>Split Type</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Split Type</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Split Type</em>' reference.
+	 * @return the value of the '<em>Split Type</em>' containment reference.
 	 * @see #setSplitType(TransitionType)
 	 * @see project.yawl.YawlPackage#getTransition_SplitType()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	TransitionType getSplitType();
 
 	/**
-	 * Sets the value of the '{@link project.yawl.Transition#getSplitType <em>Split Type</em>}' reference.
+	 * Sets the value of the '{@link project.yawl.Transition#getSplitType <em>Split Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Split Type</em>' reference.
+	 * @param value the new value of the '<em>Split Type</em>' containment reference.
 	 * @see #getSplitType()
 	 * @generated
 	 */
 	void setSplitType(TransitionType value);
 
 	/**
-	 * Returns the value of the '<em><b>Join Type</b></em>' reference.
+	 * Returns the value of the '<em><b>Join Type</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Join Type</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Join Type</em>' reference.
+	 * @return the value of the '<em>Join Type</em>' containment reference.
 	 * @see #setJoinType(TransitionType)
 	 * @see project.yawl.YawlPackage#getTransition_JoinType()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	TransitionType getJoinType();
 
 	/**
-	 * Sets the value of the '{@link project.yawl.Transition#getJoinType <em>Join Type</em>}' reference.
+	 * Sets the value of the '{@link project.yawl.Transition#getJoinType <em>Join Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Join Type</em>' reference.
+	 * @param value the new value of the '<em>Join Type</em>' containment reference.
 	 * @see #getJoinType()
 	 * @generated
 	 */

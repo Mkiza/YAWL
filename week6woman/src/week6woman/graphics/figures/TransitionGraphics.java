@@ -1,5 +1,6 @@
 package week6woman.graphics.figures;
 
+import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.pnml.tools.epnk.gmf.extensions.graphics.figures.TransitionFigure;
@@ -33,6 +34,7 @@ public class TransitionGraphics extends TransitionFigure {
 		splitType = getSplitType();
 		JoinType oldJoinType = joinType;
 		joinType = getJoinType();
+		System.out.println("UPDATE");
 		if (splitType != oldSplitType || joinType != oldJoinType) {
 			this.repaint();
 		}
@@ -41,9 +43,16 @@ public class TransitionGraphics extends TransitionFigure {
 	@Override
 	protected void fillShape(Graphics graphics) {
 		super.fillShape(graphics);
+		graphics.pushState();
 		Rectangle rectangle = this.getClientArea();
+		
+		graphics.clipRect(rectangle);
+		graphics.setBackgroundColor(ColorConstants.black);
+		graphics.setLineWidth(1);
 
 		if (joinType == JoinType.AND) {
+			
+			System.out.println("AND");
 			int x1 = rectangle.x;
 			int y1 = rectangle.y;
 			int x2 = rectangle.x;
@@ -56,6 +65,7 @@ public class TransitionGraphics extends TransitionFigure {
 			graphics.drawLine(x3, y1, x3, y2);
 			
 		} else if (joinType == JoinType.OR) {
+			System.out.println("OR");
 			int x1 = rectangle.x + rectangle.width / 6;
 			int y1 = rectangle.y;
 			int x2 = rectangle.x;
@@ -65,12 +75,14 @@ public class TransitionGraphics extends TransitionFigure {
 			int x4 = rectangle.x + rectangle.width / 6;
 			int y4 = rectangle.y + rectangle.height;
 			graphics.drawLine(x1, y1, x2, y2);
+		
 			graphics.drawLine(x2, y2, x4, y4);
 			graphics.drawLine(x4, y4, x3, y3);
 			graphics.drawLine(x3, y3, x1, y1);
 			graphics.drawLine(x3, y1, x3, y4);	
 
 		} else if (joinType == JoinType.XOR) {
+			System.out.println("XOR");
 			int x1 = rectangle.x;
 			int y1 = rectangle.y + rectangle.height / 2;
 			int x2 = rectangle.x + rectangle.width / 3;
@@ -84,6 +96,7 @@ public class TransitionGraphics extends TransitionFigure {
 		}
 		
 		if (splitType == SplitType.AND) {
+			System.out.println("AND");
 			int x1 = rectangle.x + rectangle.width;
 			int y1 = rectangle.y;
 			int x2 = rectangle.x + rectangle.width;
@@ -96,6 +109,7 @@ public class TransitionGraphics extends TransitionFigure {
 			graphics.drawLine(x3, y1, x3, y2);
 
 		} else if (splitType == SplitType.OR) {
+			System.out.println("OR");
 			int x1 = rectangle.x + rectangle.width * 5 / 6;
 			int y1 = rectangle.y;
 			int x2 = rectangle.x + rectangle.width;
@@ -111,6 +125,7 @@ public class TransitionGraphics extends TransitionFigure {
 			graphics.drawLine(x3, y1, x3, y4);
 
 		} else if (splitType == SplitType.XOR) {
+			System.out.println("XOR");
 			int x1 = rectangle.x + rectangle.width * 2 / 3;
 			int y1 = rectangle.y;
 			int x2 = rectangle.x + rectangle.width * 2 / 3;
@@ -122,6 +137,7 @@ public class TransitionGraphics extends TransitionFigure {
 			graphics.drawLine(x1, y1, x2, y2);
 			
 		}
+		graphics.popState();
 	}
 
 	private JoinType getJoinType() {
