@@ -64,6 +64,7 @@ public class YawlFactoryImpl extends EFactoryImpl implements YawlFactory {
 			case YawlPackage.ARC: return createArc();
 			case YawlPackage.PLACE_TYPE: return createPlaceType();
 			case YawlPackage.ARC_TYPE: return createArcType();
+			case YawlPackage.MARKING: return createMarking();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -175,6 +176,16 @@ public class YawlFactoryImpl extends EFactoryImpl implements YawlFactory {
 	public ArcType createArcType() {
 		ArcTypeImpl arcType = new ArcTypeImpl();
 		return arcType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Marking createMarking() {
+		MarkingImpl marking = new MarkingImpl();
+		return marking;
 	}
 
 	/**

@@ -85,6 +85,15 @@ public interface YawlFactory extends EFactory {
 	ArcType createArcType();
 
 	/**
+	 * Returns a new object of class '<em>Marking</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Marking</em>'.
+	 * @generated
+	 */
+	Marking createMarking();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

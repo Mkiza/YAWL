@@ -79,7 +79,7 @@ public class App extends ApplicationWithUIManager {
 	Map<Place, Integer> computeInitialMarking(FlatAccess flatNet) {
 		Map<Place,Integer> marking = new HashMap<Place,Integer>();
 		for (org.pnml.tools.epnk.pnmlcoremodel.Place place: flatNet.getPlaces()) {
-			if (place instanceof Place) {
+			if (place instanceof project.yawl.Place) {
 				Place ptPlace = (Place) place;
 				PTMarking ptMarking = ptPlace.getInitialMarking();
 				if (ptMarking != null && ptMarking.getText() != null) {

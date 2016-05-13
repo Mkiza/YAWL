@@ -104,6 +104,10 @@ public class YawlAdapterFactory extends AdapterFactoryImpl {
 				return createArcTypeAdapter();
 			}
 			@Override
+			public Adapter caseMarking(Marking object) {
+				return createMarkingAdapter();
+			}
+			@Override
 			public Adapter casePetriNetType(PetriNetType object) {
 				return createPetriNetTypeAdapter();
 			}
@@ -262,6 +266,20 @@ public class YawlAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createArcTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link project.yawl.Marking <em>Marking</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see project.yawl.Marking
+	 * @generated
+	 */
+	public Adapter createMarkingAdapter() {
 		return null;
 	}
 

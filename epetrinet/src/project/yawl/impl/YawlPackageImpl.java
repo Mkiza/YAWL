@@ -9,11 +9,13 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
 import org.pnml.tools.epnk.pnmlcoremodel.PnmlcoremodelPackage;
 
 import project.yawl.Arc;
 import project.yawl.ArcType;
 import project.yawl.ArcTypes;
+import project.yawl.Marking;
 import project.yawl.Place;
 import project.yawl.PlaceType;
 import project.yawl.PlaceTypes;
@@ -85,6 +87,13 @@ public class YawlPackageImpl extends EPackageImpl implements YawlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass markingEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum arcTypesEEnum = null;
 
 	/**
@@ -149,6 +158,7 @@ public class YawlPackageImpl extends EPackageImpl implements YawlPackage {
 
 		// Initialize simple dependencies
 		PnmlcoremodelPackage.eINSTANCE.eClass();
+		XMLTypePackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theYawlPackage.createPackageContents();
@@ -190,6 +200,15 @@ public class YawlPackageImpl extends EPackageImpl implements YawlPackage {
 	 */
 	public EReference getPlace_Type() {
 		return (EReference)placeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPlace_Marking() {
+		return (EReference)placeEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -296,6 +315,24 @@ public class YawlPackageImpl extends EPackageImpl implements YawlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getMarking() {
+		return markingEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMarking_Text() {
+		return (EAttribute)markingEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getArcTypes() {
 		return arcTypesEEnum;
 	}
@@ -350,6 +387,7 @@ public class YawlPackageImpl extends EPackageImpl implements YawlPackage {
 
 		placeEClass = createEClass(PLACE);
 		createEReference(placeEClass, PLACE__TYPE);
+		createEReference(placeEClass, PLACE__MARKING);
 
 		transitionEClass = createEClass(TRANSITION);
 		createEReference(transitionEClass, TRANSITION__SPLIT_TYPE);
@@ -366,6 +404,9 @@ public class YawlPackageImpl extends EPackageImpl implements YawlPackage {
 
 		arcTypeEClass = createEClass(ARC_TYPE);
 		createEAttribute(arcTypeEClass, ARC_TYPE__TEXT);
+
+		markingEClass = createEClass(MARKING);
+		createEAttribute(markingEClass, MARKING__TEXT);
 
 		// Create enums
 		arcTypesEEnum = createEEnum(ARC_TYPES);
@@ -398,6 +439,7 @@ public class YawlPackageImpl extends EPackageImpl implements YawlPackage {
 
 		// Obtain other dependent packages
 		PnmlcoremodelPackage thePnmlcoremodelPackage = (PnmlcoremodelPackage)EPackage.Registry.INSTANCE.getEPackage(PnmlcoremodelPackage.eNS_URI);
+		XMLTypePackage theXMLTypePackage = (XMLTypePackage)EPackage.Registry.INSTANCE.getEPackage(XMLTypePackage.eNS_URI);
 
 		// Create type parameters
 
@@ -411,12 +453,14 @@ public class YawlPackageImpl extends EPackageImpl implements YawlPackage {
 		arcEClass.getESuperTypes().add(thePnmlcoremodelPackage.getArc());
 		placeTypeEClass.getESuperTypes().add(thePnmlcoremodelPackage.getAttribute());
 		arcTypeEClass.getESuperTypes().add(thePnmlcoremodelPackage.getAttribute());
+		markingEClass.getESuperTypes().add(thePnmlcoremodelPackage.getAttribute());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(yawlNetEClass, YAWLNet.class, "YAWLNet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(placeEClass, Place.class, "Place", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPlace_Type(), this.getPlaceType(), null, "type", null, 0, 1, Place.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPlace_Marking(), this.getMarking(), null, "marking", null, 0, 1, Place.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(transitionEClass, Transition.class, "Transition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTransition_SplitType(), this.getTransitionType(), null, "splitType", null, 0, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -433,6 +477,9 @@ public class YawlPackageImpl extends EPackageImpl implements YawlPackage {
 
 		initEClass(arcTypeEClass, ArcType.class, "ArcType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getArcType_Text(), this.getArcTypes(), "text", null, 0, 1, ArcType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(markingEClass, Marking.class, "Marking", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getMarking_Text(), theXMLTypePackage.getNonNegativeInteger(), "text", null, 0, 1, Marking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(arcTypesEEnum, ArcTypes.class, "ArcTypes");
