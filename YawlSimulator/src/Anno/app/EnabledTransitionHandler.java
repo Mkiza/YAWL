@@ -10,10 +10,9 @@ import org.pnml.tools.epnk.annotations.netannotations.NetAnnotations;
 import org.pnml.tools.epnk.annotations.netannotations.ObjectAnnotation;
 import org.pnml.tools.epnk.applications.ui.IActionHandler;
 import org.pnml.tools.epnk.helpers.FlatAccess;
-import org.pnml.tools.epnk.pnmlcoremodel.Arc;
 import org.pnml.tools.epnk.pnmlcoremodel.PlaceNode;
-import org.pnml.tools.epnk.pnmlcoremodel.Transition;
-import org.pnml.tools.epnk.pntypes.ptnet.Place;
+import project.yawl.Transition;
+import project.yawl.Arc;
 
 import Anno.AnnoFactory;
 import Anno.EnabledTransition;
@@ -42,9 +41,9 @@ public class EnabledTransitionHandler implements IActionHandler {
 			if (object instanceof Transition && annotation instanceof EnabledTransition) {
 				Transition transition = (Transition) object;
 				EnabledTransition transitionAnnotation = ((EnabledTransition) annotation);
-				Map<Place,Integer> marking1 = application.computeMarking();
+				Map<project.yawl.Place,Integer> marking1 = application.computeMarking();
 				if (application.enabled(flatNet, marking1, transition)) {
-					Map<Place,Integer> marking2 = application.fireTransition(flatNet, marking1, transition);
+					Map<project.yawl.Place,Integer> marking2 = application.fireTransition(flatNet, marking1, transition);
 					NetAnnotation netAnnotation = application.computeAnnotation(flatNet, marking2);
 					netAnnotation.setNet(application.getPetrinet());
 					List<ObjectAnnotation> clearPlaceAnnotations = new ArrayList<ObjectAnnotation>();
@@ -57,7 +56,7 @@ public class EnabledTransitionHandler implements IActionHandler {
 					}
 					current.getObjectAnnotations().removeAll(clearPlaceAnnotations);
 					transitionAnnotation.setMode(Mode.FIRED);
-					for (Arc arc: flatNet.getOut(transition)) {
+					for (org.pnml.tools.epnk.pnmlcoremodel.Arc arc:  flatNet.getOut(transition)) {
 						Object object2 = arc.getTarget();
 						if (object2 instanceof PlaceNode) {
 							PlaceNode target = flatNet.resolve((PlaceNode) object2);

@@ -5,7 +5,7 @@ import org.pnml.tools.epnk.applications.ApplicationWithUIManager;
 import org.pnml.tools.epnk.pnmlcoremodel.PetriNet;
 
 // TODO chage this to the Path of your YAWL type
-
+import project.yawl.YAWLNet;
 
 public class YAWLSimulatorFactory extends ApplicationFactory {
 
@@ -22,7 +22,7 @@ public class YAWLSimulatorFactory extends ApplicationFactory {
 	@Override
 	public boolean isApplicable(PetriNet net) {
 		// TODO change YAWLNet to the class representing your YAWL type
-		return net.getType() instanceof project.yawl.YAWLNet;
+		return net.getType() instanceof YAWLNet;
 	}
 
 	@Override

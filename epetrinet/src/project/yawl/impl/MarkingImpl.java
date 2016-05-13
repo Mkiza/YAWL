@@ -2,8 +2,6 @@
  */
 package project.yawl.impl;
 
-import java.math.BigInteger;
-
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -37,7 +35,7 @@ public class MarkingImpl extends AttributeImpl implements Marking {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final BigInteger TEXT_EDEFAULT = null;
+	protected static final Integer TEXT_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getText() <em>Text</em>}' attribute.
@@ -47,7 +45,7 @@ public class MarkingImpl extends AttributeImpl implements Marking {
 	 * @generated
 	 * @ordered
 	 */
-	protected BigInteger text = TEXT_EDEFAULT;
+	protected Integer text = TEXT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -73,7 +71,7 @@ public class MarkingImpl extends AttributeImpl implements Marking {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BigInteger getText() {
+	public Integer getText() {
 		return text;
 	}
 
@@ -82,8 +80,8 @@ public class MarkingImpl extends AttributeImpl implements Marking {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setText(BigInteger newText) {
-		BigInteger oldText = text;
+	public void setText(Integer newText) {
+		Integer oldText = text;
 		text = newText;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, YawlPackage.MARKING__TEXT, oldText, text));
@@ -112,7 +110,7 @@ public class MarkingImpl extends AttributeImpl implements Marking {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case YawlPackage.MARKING__TEXT:
-				setText((BigInteger)newValue);
+				setText((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

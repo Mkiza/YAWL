@@ -3,6 +3,7 @@
 package project.yawl;
 
 
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Place</b></em>'.
@@ -72,5 +73,7 @@ public interface Place extends org.pnml.tools.epnk.pnmlcoremodel.Place {
 	 * @generated
 	 */
 	void setMarking(Marking value);
+
+	Marking getInitialMarking();
 
 } // Place

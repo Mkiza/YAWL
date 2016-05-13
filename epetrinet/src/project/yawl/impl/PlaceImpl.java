@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import project.yawl.Marking;
+
 import project.yawl.Place;
 import project.yawl.PlaceType;
 import project.yawl.YawlPackage;
@@ -237,6 +238,12 @@ public class PlaceImpl extends org.pnml.tools.epnk.pnmlcoremodel.impl.PlaceImpl 
 				return marking != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	@Override
+	public Marking getInitialMarking() {
+		// TODO Auto-generated method stub
+		return marking;
 	}
 
 } //PlaceImpl

@@ -53,14 +53,17 @@ public class Places extends PlaceFigure {
 		// of places; they could be derived from the actual size of
 		// the place.
 		if (m == type.NORMAL){
+			graphics.popState();
 			
 			return;
 			
 		} else if (m == type.END) {
 			graphics.drawRectangle(rectangle.x/2,rectangle.y/2,12,12);
+			graphics.popState();
 			
 		} else if (m == type.START) {
 			graphics.drawRectangle(cx,cy,12,12);
+			graphics.popState();
 			
 		}
 		

@@ -43,6 +43,6 @@
     <eLiterals name="normal" value="3"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Marking" eSuperTypes="../../org.pnml.tools.epnk/model/PNMLCoreModel.ecore#//Attribute">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//NonNegativeInteger"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//IntObject"/>
   </eClassifiers>
 </ecore:EPackage>

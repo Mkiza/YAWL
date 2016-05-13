@@ -11,9 +11,9 @@ import org.pnml.tools.epnk.applications.ui.IPresentationHandler;
 import org.pnml.tools.epnk.applications.ui.figures.EllipseOverlay;
 import org.pnml.tools.epnk.applications.ui.figures.PolylineOverlay;
 import org.pnml.tools.epnk.applications.ui.figures.RectangleOverlay;
-import org.pnml.tools.epnk.pnmlcoremodel.Transition;
-import org.pnml.tools.epnk.pntypes.ptnet.Place;
 
+import project.yawl.Place;
+import project.yawl.Transition;
 import Anno.EnabledTransition;
 import Anno.SelectArc;
 import Anno.Mode;

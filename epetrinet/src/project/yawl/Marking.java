@@ -2,8 +2,6 @@
  */
 package project.yawl;
 
-import java.math.BigInteger;
-
 import org.pnml.tools.epnk.pnmlcoremodel.Attribute;
 
 /**
@@ -32,12 +30,12 @@ public interface Marking extends Attribute {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Text</em>' attribute.
-	 * @see #setText(BigInteger)
+	 * @see #setText(Integer)
 	 * @see project.yawl.YawlPackage#getMarking_Text()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.NonNegativeInteger"
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.IntObject"
 	 * @generated
 	 */
-	BigInteger getText();
+	Integer getText();
 
 	/**
 	 * Sets the value of the '{@link project.yawl.Marking#getText <em>Text</em>}' attribute.
@@ -47,6 +45,6 @@ public interface Marking extends Attribute {
 	 * @see #getText()
 	 * @generated
 	 */
-	void setText(BigInteger value);
+	void setText(Integer value);
 
 } // Marking

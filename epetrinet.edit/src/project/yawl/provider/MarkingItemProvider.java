@@ -3,8 +3,6 @@
 package project.yawl.provider;
 
 
-import java.math.BigInteger;
-
 import java.util.Collection;
 import java.util.List;
 
@@ -97,7 +95,7 @@ public class MarkingItemProvider extends AttributeItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		BigInteger labelValue = ((Marking)object).getText();
+		Integer labelValue = ((Marking)object).getText();
 		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Marking_type") :

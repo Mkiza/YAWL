@@ -1,5 +1,6 @@
 package Anno.app;
 
+import java.math.BigInteger;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,16 +13,19 @@ import org.pnml.tools.epnk.helpers.FlatAccess;
 import org.pnml.tools.epnk.pnmlcoremodel.Node;
 import org.pnml.tools.epnk.pnmlcoremodel.PetriNet;
 import org.pnml.tools.epnk.pnmlcoremodel.PlaceNode;
-import org.pnml.tools.epnk.pnmlcoremodel.Transition;
-import org.pnml.tools.epnk.pntypes.ptnet.Arc;
+import project.yawl.Transition;
+import project.yawl.Arc;
+import project.yawl.ArcType;
+
 import org.pnml.tools.epnk.pntypes.ptnet.PTArcAnnotation;
-import org.pnml.tools.epnk.pntypes.ptnet.PTMarking;
-import org.pnml.tools.epnk.pntypes.ptnet.Place;
+
+
 
 import Anno.AnnoFactory;
 import Anno.EnabledTransition;
 import Anno.Marking;
 import Anno.SelectArc;
+import project.yawl.Place;
 import Anno.Mode;
 
 
@@ -68,7 +72,7 @@ public class App extends ApplicationWithUIManager {
 		this.getNetAnnotations().setCurrent(netannotation);
 		
 		FlatAccess flatNet = new FlatAccess(this.getPetrinet());
-		Map<Place,Integer> initialMarking = computeInitialMarking(flatNet);
+		Map<project.yawl.Place,Integer> initialMarking = computeInitialMarking(flatNet);
 		NetAnnotation initialAnnotation = computeAnnotation(flatNet, initialMarking);
 		initialAnnotation.setNet(this.getPetrinet());
 		
@@ -76,26 +80,26 @@ public class App extends ApplicationWithUIManager {
 		this.getNetAnnotations().setCurrent(initialAnnotation);
 	}
 	
-	Map<Place, Integer> computeInitialMarking(FlatAccess flatNet) {
-		Map<Place,Integer> marking = new HashMap<Place,Integer>();
+	Map<project.yawl.Place, Integer> computeInitialMarking(FlatAccess flatNet) {
+		Map<project.yawl.Place,Integer> marking = new HashMap<project.yawl.Place,Integer>();
 		for (org.pnml.tools.epnk.pnmlcoremodel.Place place: flatNet.getPlaces()) {
 			if (place instanceof project.yawl.Place) {
-				Place ptPlace = (Place) place;
-				PTMarking ptMarking = ptPlace.getInitialMarking();
-				if (ptMarking != null && ptMarking.getText() != null) {
-					marking.put(ptPlace,ptMarking.getText().getValue());
+				project.yawl.Place ptPlace = (project.yawl.Place) place;
+				project.yawl.Marking Marking = ptPlace.getInitialMarking();
+				if (Marking != null && Marking.getText() != null) {
+					marking.put(ptPlace,0);
 				} 
 			}
 		}
 		return marking;
 	}
-	Map<Place, Integer> computeMarking() {
-		Map<Place,Integer> marking = new HashMap<Place,Integer>();
+	Map<project.yawl.Place, Integer> computeMarking() {
+		Map<project.yawl.Place,Integer> marking = new HashMap<project.yawl.Place,Integer>();
 		for (ObjectAnnotation annotation: this.getNetAnnotations().getCurrent().getObjectAnnotations()) {
 			if (annotation instanceof Marking) {
 				Marking markingAnnotation = (Marking) annotation;
 				Object object = markingAnnotation.getObject();
-				if (object instanceof Place && markingAnnotation.getValue() > 0) {
+				if (object instanceof project.yawl.Place && markingAnnotation.getValue() > 0) {
 					Place ptPlace = (Place) object;
 					marking.put(ptPlace, markingAnnotation.getValue());
 				}
@@ -113,7 +117,7 @@ public class App extends ApplicationWithUIManager {
 		for (Object arc: flatNet.getIn(transition)) {
 			if (arc instanceof Arc) {
 				Arc ptArc = (Arc) arc;
-				PTArcAnnotation ptArcAnnotation = ptArc.getInscription();
+				ArcType ptArcAnnotation = ptArc.getType();
 				Object source  = ptArc.getSource();
 				if (source instanceof PlaceNode) {
 					source = flatNet.resolve((PlaceNode) source);
@@ -136,7 +140,7 @@ public class App extends ApplicationWithUIManager {
 		for (Object arc: flatNet.getOut(transition)) {
 			if (arc instanceof Arc) {
 				Arc ptArc = (Arc) arc;
-				PTArcAnnotation ptArcAnnotation = ptArc.getInscription();
+				ArcType ptArcAnnotation = ptArc.getType();
 				Object target  = ptArc.getTarget();
 				if (target instanceof PlaceNode) {
 					target = flatNet.resolve((PlaceNode) target);
@@ -162,7 +166,7 @@ public class App extends ApplicationWithUIManager {
 	NetAnnotation computeAnnotation(FlatAccess flatNet, Map<Place, Integer> marking) {
 		NetAnnotation annotation = NetannotationsFactory.eINSTANCE.createNetAnnotation();
 		for (Place place: marking.keySet()) {
-			int value = marking.get(place);
+			Integer value = marking.get(place);
 			if (value > 0) {
 				Marking markingAnnotation = AnnoFactory.eINSTANCE.createMarking();
 				markingAnnotation.setValue(value);
@@ -227,7 +231,7 @@ public class App extends ApplicationWithUIManager {
 		for (Object arc: flatNet.getIn(transition)) {
 			if (arc instanceof Arc) {
 				Arc ptArc = (Arc) arc;
-				PTArcAnnotation ptArcAnnotation = ptArc.getInscription();
+				ArcType ptArcAnnotation = ptArc.getType();
 				int available = 0;
 				Object source = ptArc.getSource();
 				if (source instanceof PlaceNode) {
