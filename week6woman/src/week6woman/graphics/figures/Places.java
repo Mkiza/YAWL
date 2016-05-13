@@ -2,6 +2,7 @@ package week6woman.graphics.figures;
 
 import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.Graphics;
+import org.eclipse.draw2d.Polygon;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.pnml.tools.epnk.gmf.extensions.graphics.figures.PlaceFigure;
 import project.yawl.PlaceType;
@@ -43,8 +44,8 @@ public class Places extends PlaceFigure {
 			m = getPlaceTypes((Place) place);
 		}
 
-		int cx = rectangle.x + rectangle.width / 2;
-		int cy = rectangle.y + rectangle.height / 2;
+		int cx = rectangle.x + rectangle.width / 4;
+		int cy = rectangle.y + rectangle.height / 4;
 		
 		
 		
@@ -58,10 +59,17 @@ public class Places extends PlaceFigure {
 			return;
 			
 		} else if (m == type.END) {
-			graphics.drawRectangle(rectangle.x/2,rectangle.y/2,12,12);
+			graphics.setBackgroundColor(ColorConstants.red);
+			graphics.fillRectangle(cx,cy,12,12);
 			
 		} else if (m == type.START) {
-			graphics.drawRectangle(cx,cy,12,12);
+			graphics.setBackgroundColor(ColorConstants.green);
+			int[] points = new int[6];
+			points[0]=cx; points[1]=(int) (rectangle.y + rectangle.height * 0.33); points[2]=cx;
+			points[3]=(int) (rectangle.y + rectangle.height * 0.66); points[4]=(int) (rectangle.x + rectangle.width*0.66); points[5]=(int) (rectangle.y + rectangle.height *0.5);
+			
+			graphics.fillPolygon(points);
+			
 			
 		}
 		
