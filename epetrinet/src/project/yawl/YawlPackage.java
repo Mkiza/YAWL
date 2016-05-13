@@ -160,22 +160,13 @@ public interface YawlPackage extends EPackage {
 	int PLACE__TYPE = PnmlcoremodelPackage.PLACE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Marking</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PLACE__MARKING = PnmlcoremodelPackage.PLACE_FEATURE_COUNT + 1;
-
-	/**
 	 * The number of structural features of the '<em>Place</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PLACE_FEATURE_COUNT = PnmlcoremodelPackage.PLACE_FEATURE_COUNT + 2;
+	int PLACE_FEATURE_COUNT = PnmlcoremodelPackage.PLACE_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link project.yawl.impl.TransitionImpl <em>Transition</em>}' class.
@@ -534,61 +525,6 @@ public interface YawlPackage extends EPackage {
 	int ARC_TYPE_FEATURE_COUNT = PnmlcoremodelPackage.ATTRIBUTE_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link project.yawl.impl.MarkingImpl <em>Marking</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see project.yawl.impl.MarkingImpl
-	 * @see project.yawl.impl.YawlPackageImpl#getMarking()
-	 * @generated
-	 */
-	int MARKING = 7;
-
-	/**
-	 * The feature id for the '<em><b>Toolspecific</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MARKING__TOOLSPECIFIC = PnmlcoremodelPackage.ATTRIBUTE__TOOLSPECIFIC;
-
-	/**
-	 * The feature id for the '<em><b>Graphics</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MARKING__GRAPHICS = PnmlcoremodelPackage.ATTRIBUTE__GRAPHICS;
-
-	/**
-	 * The feature id for the '<em><b>Unknown</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MARKING__UNKNOWN = PnmlcoremodelPackage.ATTRIBUTE__UNKNOWN;
-
-	/**
-	 * The feature id for the '<em><b>Text</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MARKING__TEXT = PnmlcoremodelPackage.ATTRIBUTE_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Marking</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MARKING_FEATURE_COUNT = PnmlcoremodelPackage.ATTRIBUTE_FEATURE_COUNT + 1;
-
-	/**
 	 * The meta object id for the '{@link project.yawl.ArcTypes <em>Arc Types</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -596,7 +532,7 @@ public interface YawlPackage extends EPackage {
 	 * @see project.yawl.impl.YawlPackageImpl#getArcTypes()
 	 * @generated
 	 */
-	int ARC_TYPES = 8;
+	int ARC_TYPES = 7;
 
 	/**
 	 * The meta object id for the '{@link project.yawl.PlaceTypes <em>Place Types</em>}' enum.
@@ -606,7 +542,7 @@ public interface YawlPackage extends EPackage {
 	 * @see project.yawl.impl.YawlPackageImpl#getPlaceTypes()
 	 * @generated
 	 */
-	int PLACE_TYPES = 9;
+	int PLACE_TYPES = 8;
 
 	/**
 	 * The meta object id for the '{@link project.yawl.TransitionTypes <em>Transition Types</em>}' enum.
@@ -616,7 +552,7 @@ public interface YawlPackage extends EPackage {
 	 * @see project.yawl.impl.YawlPackageImpl#getTransitionTypes()
 	 * @generated
 	 */
-	int TRANSITION_TYPES = 10;
+	int TRANSITION_TYPES = 9;
 
 
 	/**
@@ -649,17 +585,6 @@ public interface YawlPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getPlace_Type();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link project.yawl.Place#getMarking <em>Marking</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Marking</em>'.
-	 * @see project.yawl.Place#getMarking()
-	 * @see #getPlace()
-	 * @generated
-	 */
-	EReference getPlace_Marking();
 
 	/**
 	 * Returns the meta object for class '{@link project.yawl.Transition <em>Transition</em>}'.
@@ -778,27 +703,6 @@ public interface YawlPackage extends EPackage {
 	EAttribute getArcType_Text();
 
 	/**
-	 * Returns the meta object for class '{@link project.yawl.Marking <em>Marking</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Marking</em>'.
-	 * @see project.yawl.Marking
-	 * @generated
-	 */
-	EClass getMarking();
-
-	/**
-	 * Returns the meta object for the attribute '{@link project.yawl.Marking#getText <em>Text</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Text</em>'.
-	 * @see project.yawl.Marking#getText()
-	 * @see #getMarking()
-	 * @generated
-	 */
-	EAttribute getMarking_Text();
-
-	/**
 	 * Returns the meta object for enum '{@link project.yawl.ArcTypes <em>Arc Types</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -877,14 +781,6 @@ public interface YawlPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PLACE__TYPE = eINSTANCE.getPlace_Type();
-
-		/**
-		 * The meta object literal for the '<em><b>Marking</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PLACE__MARKING = eINSTANCE.getPlace_Marking();
 
 		/**
 		 * The meta object literal for the '{@link project.yawl.impl.TransitionImpl <em>Transition</em>}' class.
@@ -983,24 +879,6 @@ public interface YawlPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ARC_TYPE__TEXT = eINSTANCE.getArcType_Text();
-
-		/**
-		 * The meta object literal for the '{@link project.yawl.impl.MarkingImpl <em>Marking</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see project.yawl.impl.MarkingImpl
-		 * @see project.yawl.impl.YawlPackageImpl#getMarking()
-		 * @generated
-		 */
-		EClass MARKING = eINSTANCE.getMarking();
-
-		/**
-		 * The meta object literal for the '<em><b>Text</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute MARKING__TEXT = eINSTANCE.getMarking_Text();
 
 		/**
 		 * The meta object literal for the '{@link project.yawl.ArcTypes <em>Arc Types</em>}' enum.

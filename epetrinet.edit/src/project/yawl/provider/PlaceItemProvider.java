@@ -64,7 +64,6 @@ public class PlaceItemProvider extends org.pnml.tools.epnk.pnmlcoremodel.provide
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(YawlPackage.Literals.PLACE__TYPE);
-			childrenFeatures.add(YawlPackage.Literals.PLACE__MARKING);
 		}
 		return childrenFeatures;
 	}
@@ -121,7 +120,6 @@ public class PlaceItemProvider extends org.pnml.tools.epnk.pnmlcoremodel.provide
 
 		switch (notification.getFeatureID(Place.class)) {
 			case YawlPackage.PLACE__TYPE:
-			case YawlPackage.PLACE__MARKING:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -143,11 +141,6 @@ public class PlaceItemProvider extends org.pnml.tools.epnk.pnmlcoremodel.provide
 			(createChildParameter
 				(YawlPackage.Literals.PLACE__TYPE,
 				 YawlFactory.eINSTANCE.createPlaceType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(YawlPackage.Literals.PLACE__MARKING,
-				 YawlFactory.eINSTANCE.createMarking()));
 	}
 
 	/**

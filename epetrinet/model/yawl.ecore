@@ -5,8 +5,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="Place" eSuperTypes="../../org.pnml.tools.epnk/model/PNMLCoreModel.ecore#//Place">
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//PlaceType"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="marking" eType="#//Marking"
-        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Transition" eSuperTypes="../../org.pnml.tools.epnk/model/PNMLCoreModel.ecore#//Transition">
     <eStructuralFeatures xsi:type="ecore:EReference" name="splitType" eType="#//TransitionType"
@@ -41,8 +39,5 @@
     <eLiterals name="XOR" value="2"/>
     <eLiterals name="OR" value="1"/>
     <eLiterals name="normal" value="3"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Marking" eSuperTypes="../../org.pnml.tools.epnk/model/PNMLCoreModel.ecore#//Attribute">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//IntObject"/>
   </eClassifiers>
 </ecore:EPackage>

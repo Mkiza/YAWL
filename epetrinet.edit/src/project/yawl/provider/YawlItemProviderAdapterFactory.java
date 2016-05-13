@@ -233,29 +233,6 @@ public class YawlItemProviderAdapterFactory extends YawlAdapterFactory implement
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link project.yawl.Marking} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected MarkingItemProvider markingItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link project.yawl.Marking}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createMarkingAdapter() {
-		if (markingItemProvider == null) {
-			markingItemProvider = new MarkingItemProvider(this);
-		}
-
-		return markingItemProvider;
-	}
-
-	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -361,7 +338,6 @@ public class YawlItemProviderAdapterFactory extends YawlAdapterFactory implement
 		if (arcItemProvider != null) arcItemProvider.dispose();
 		if (placeTypeItemProvider != null) placeTypeItemProvider.dispose();
 		if (arcTypeItemProvider != null) arcTypeItemProvider.dispose();
-		if (markingItemProvider != null) markingItemProvider.dispose();
 	}
 
 }

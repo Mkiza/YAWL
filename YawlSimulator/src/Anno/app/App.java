@@ -26,6 +26,7 @@ import Anno.EnabledTransition;
 import Anno.Marking;
 import Anno.SelectArc;
 import project.yawl.Place;
+import project.yawl.PlaceTypes;
 import Anno.Mode;
 
 
@@ -83,11 +84,10 @@ public class App extends ApplicationWithUIManager {
 	Map<project.yawl.Place, Integer> computeInitialMarking(FlatAccess flatNet) {
 		Map<project.yawl.Place,Integer> marking = new HashMap<project.yawl.Place,Integer>();
 		for (org.pnml.tools.epnk.pnmlcoremodel.Place place: flatNet.getPlaces()) {
-			if (place instanceof project.yawl.Place) {
-				project.yawl.Place ptPlace = (project.yawl.Place) place;
-				project.yawl.Marking Marking = ptPlace.getInitialMarking();
-				if (Marking != null && Marking.getText() != null) {
-					marking.put(ptPlace,0);
+			if (place instanceof Place) {
+				Place ptPlace = (Place) place;
+				if (ptPlace.getType() != null && ptPlace.getType().getText().equals(PlaceTypes.START)) {
+					marking.put(ptPlace,1);
 				} 
 			}
 		}
@@ -99,7 +99,7 @@ public class App extends ApplicationWithUIManager {
 			if (annotation instanceof Marking) {
 				Marking markingAnnotation = (Marking) annotation;
 				Object object = markingAnnotation.getObject();
-				if (object instanceof project.yawl.Place && markingAnnotation.getValue() > 0) {
+				if (object instanceof Place && markingAnnotation.getValue() > 0) {
 					Place ptPlace = (Place) object;
 					marking.put(ptPlace, markingAnnotation.getValue());
 				}
