@@ -50,12 +50,8 @@ public interface Marking extends TextualAnnotation, ObjectAnnotation {
 	 */
 	void setValue(int value);
 
-	EAttribute getAnnotitationAttribute();
+	EAttribute getAnnotationAttribute();
 
-	@Override
-	default EAttribute getAnnotationAttribute() {
-		// TODO Auto-generated method stub
-	 return AnnoPackage.eINSTANCE.getMarking_Value();	
-	}
+	
 
 } // Marking

@@ -358,7 +358,7 @@ public class MarkingImpl extends TextualAnnotationImpl implements Marking {
 	 * @generated NOT
 	 */
 	@Override
-	public EAttribute getAnnotitationAttribute() {
+	public EAttribute getAnnotationAttribute() {
 		return AnnoPackage.eINSTANCE.getMarking_Value();
 	}
 
