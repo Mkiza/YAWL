@@ -93,6 +93,8 @@ public class TransitionGraphics extends TransitionFigure {
 			graphics.drawLine(x3, y3, x2, y2);
 			graphics.drawLine(x1, y1, x2, y2);
 
+		} else if (joinType == JoinType.NORMAL) {
+			
 		}
 		
 		if (splitType == SplitType.AND) {

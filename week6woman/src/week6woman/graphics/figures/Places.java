@@ -60,13 +60,13 @@ public class Places extends PlaceFigure {
 			
 		} else if (m == type.END) {
 			graphics.setBackgroundColor(ColorConstants.red);
-			graphics.fillRectangle(cx,cy,12,12);
+			graphics.fillRectangle(cx,cy,20,20);
 			
 		} else if (m == type.START) {
 			graphics.setBackgroundColor(ColorConstants.green);
 			int[] points = new int[6];
-			points[0]=cx; points[1]=(int) (rectangle.y + rectangle.height * 0.33); points[2]=cx;
-			points[3]=(int) (rectangle.y + rectangle.height * 0.66); points[4]=(int) (rectangle.x + rectangle.width*0.66); points[5]=(int) (rectangle.y + rectangle.height *0.5);
+			points[0]=cx; points[1]=(int) (rectangle.y + rectangle.height * 0.25); points[2]=cx;
+			points[3]=(int) (rectangle.y + rectangle.height * 0.75); points[4]=(int) (rectangle.x + rectangle.width*0.75); points[5]=(int) (rectangle.y + rectangle.height *0.5);
 			
 			graphics.fillPolygon(points);
 			

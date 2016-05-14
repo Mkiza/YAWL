@@ -8,6 +8,8 @@ import org.eclipse.emf.validation.AbstractModelConstraint;
 import org.eclipse.emf.validation.IValidationContext;
 import org.pnml.tools.epnk.pnmlcoremodel.PetriNet;
 
+import project.yawl.Place;
+import project.yawl.PlaceTypes;
 import project.yawl.YAWLNet;
 
 // imports missing
@@ -34,6 +36,15 @@ public class StartEndConditions extends AbstractModelConstraint {
 				while (iterator.hasNext()) {
 					EObject content = iterator.next();
 
+					if(content instanceof Place){
+						Place place = (Place) content;
+						if(place.getType() != null && place.getType().getText().equals(PlaceTypes.START)){
+							startCount++;
+						}else if(place.getType() != null && place.getType().getText().equals(PlaceTypes.END)){
+							endCount++;
+						}
+					}
+					
 					// TODO count number of places that are start places
 					//      and number of places that are end places
 
