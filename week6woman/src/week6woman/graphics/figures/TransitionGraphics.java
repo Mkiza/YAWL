@@ -151,8 +151,10 @@ public class TransitionGraphics extends TransitionFigure {
 					return JoinType.AND;
 				} else if (transitiontype.getText().getValue() == TransitionTypes.OR_VALUE) {
 					return JoinType.OR;
-				} else {
+				} else if (transitiontype.getText().getValue() == TransitionTypes.XOR_VALUE) {
 					return JoinType.XOR;
+				} else {
+					return JoinType.NORMAL;
 				}
 			}
 			return JoinType.NORMAL;
@@ -169,8 +171,10 @@ public class TransitionGraphics extends TransitionFigure {
 					return SplitType.AND;
 				} else if (transitiontype.getText().getValue() == TransitionTypes.OR_VALUE) {
 					return SplitType.OR;
-				} else {
+				} else if (transitiontype.getText().getValue() == TransitionTypes.XOR_VALUE) {
 					return SplitType.XOR;
+				} else {
+					return SplitType.NORMAL;
 				}
 			}
 			return SplitType.NORMAL;
