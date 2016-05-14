@@ -23,6 +23,7 @@ import Anno.Marking;
 import Anno.SelectArc;
 import project.yawl.Place;
 import project.yawl.PlaceTypes;
+import project.yawl.TransitionTypes;
 import Anno.Mode;
 
 public class App extends ApplicationWithUIManager {
@@ -223,6 +224,101 @@ public class App extends ApplicationWithUIManager {
 							}
 						}
 						
+					} else {
+						for (Object arc : flatNet.getOut(transition)) {
+							if (arc instanceof Arc) {
+								Arc yawlArc = (Arc) arc;
+								SelectArc arcAnnotation = AnnoFactory.eINSTANCE
+										.createSelectArc();
+								arcAnnotation.setSelected(true);
+								arcAnnotation.setObject(yawlArc);
+								arcAnnotation.setSourceTransition(transitionAnnotation);
+								annotation.getObjectAnnotations().add(arcAnnotation);
+							}
+						}
+					}
+
+					if (joinType == TransitionTypes.OR_VALUE) {
+						for (Object arc : flatNet.getIn(transition)) {
+							if (arc instanceof Arc) {
+								Arc yawlArc = (Arc) arc;
+								Object source = yawlArc.getSource();
+								if (source instanceof PlaceNode) {
+									source = flatNet.resolve((PlaceNode) source);
+									if (source instanceof Place) {
+										Place place = (Place) source;
+										if (marking.containsKey(place) && marking.get(place) > 0) {
+											SelectArc arcAnnotation = AnnoFactory.eINSTANCE
+													.createSelectArc();
+											arcAnnotation.setSelected(true);
+											arcAnnotation.setObject(yawlArc);
+											arcAnnotation.setTargetTransition(transitionAnnotation);
+											annotation.getObjectAnnotations().add(arcAnnotation);
+										}
+									}
+								}
+							}
+						}
+					} else if (joinType == TransitionTypes.AND_VALUE) {
+						for (Object arc : flatNet.getIn(transition)) {
+							if (arc instanceof Arc) {
+								Arc yawlArc = (Arc) arc;
+								SelectArc arcAnnotation = AnnoFactory.eINSTANCE
+										.createSelectArc();
+								arcAnnotation.setSelected(true);
+								arcAnnotation.setObject(yawlArc);
+								arcAnnotation.setTargetTransition(transitionAnnotation);
+								annotation.getObjectAnnotations().add(arcAnnotation);
+
+							}
+						}
+
+					} else if (joinType == TransitionTypes.XOR_VALUE) {
+
+						boolean selected = false;
+						for (Object arc : flatNet.getIn(transition)) {
+							if (arc instanceof Arc) {
+								Arc yawlArc = (Arc) arc;
+								Object source = yawlArc.getSource();
+								if (source instanceof PlaceNode) {
+									source = flatNet.resolve((PlaceNode) source);
+									if (source instanceof Place) {
+										Place place = (Place) source;
+										if (marking.containsKey(place) && marking.get(place) > 0) {
+											if (!selected) {
+												SelectArc arcAnnotation = AnnoFactory.eINSTANCE
+														.createSelectArc();
+												arcAnnotation.setSelected(true);
+												arcAnnotation.setObject(yawlArc);
+												arcAnnotation.setTargetTransition(transitionAnnotation);
+												annotation.getObjectAnnotations().add(arcAnnotation);
+												selected = true;
+											} else {
+												SelectArc arcAnnotation = AnnoFactory.eINSTANCE
+														.createSelectArc();
+												arcAnnotation.setSelected(false);
+												arcAnnotation.setObject(yawlArc);
+												arcAnnotation.setTargetTransition(transitionAnnotation);
+												annotation.getObjectAnnotations().add(arcAnnotation);
+											}
+										}
+									}
+								}
+							}
+						}
+					} else {
+						for (Object arc : flatNet.getIn(transition)) {
+							if (arc instanceof Arc) {
+								Arc yawlArc = (Arc) arc;
+								SelectArc arcAnnotation = AnnoFactory.eINSTANCE
+										.createSelectArc();
+								arcAnnotation.setSelected(true);
+								arcAnnotation.setObject(yawlArc);
+								arcAnnotation.setTargetTransition(transitionAnnotation);
+								annotation.getObjectAnnotations().add(arcAnnotation);
+							}
+						}
+
 					}
 					
 					for(org.pnml.tools.epnk.pnmlcoremodel.Arc a: transition.getIn()){
