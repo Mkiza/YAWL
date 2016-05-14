@@ -5,8 +5,6 @@ import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.Polygon;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.pnml.tools.epnk.gmf.extensions.graphics.figures.PlaceFigure;
-
-
 import project.yawl.PlaceType;
 import project.yawl.Place;
 import project.yawl.PlaceTypes;
@@ -28,7 +26,7 @@ public class Places extends PlaceFigure {
 		NORMAL, START, END
 	}
 
-	
+	private Type type;
 	
 	@Override
 	protected void fillShape(Graphics graphics) {
@@ -55,16 +53,16 @@ public class Places extends PlaceFigure {
 		// eki: the token size and positions are tuned to the default size
 		// of places; they could be derived from the actual size of
 		// the place.
-		if (m == Type.NORMAL){
+		if (m == type.NORMAL){
 			graphics.popState();
 			
 			return;
 			
-		} else if (m == Type.END) {
+		} else if (m == type.END) {
 			graphics.setBackgroundColor(ColorConstants.red);
 			graphics.fillRectangle(cx,cy,20,20);
 			
-		} else if (m == Type.START) {
+		} else if (m == type.START) {
 			graphics.setBackgroundColor(ColorConstants.green);
 			int[] points = new int[6];
 			points[0]=cx; points[1]=(int) (rectangle.y + rectangle.height * 0.25); points[2]=cx;
@@ -84,15 +82,15 @@ public class Places extends PlaceFigure {
 			if (pt != null) {
 				switch (pt.getText().getValue()) {
 				case PlaceTypes.END_VALUE:
-					return Type.END;
+					return type.END;
 				case PlaceTypes.START_VALUE:
 					return Type.START;
 
 				}
-			}return Type.NORMAL;
+			}
 		}
 
-		return Type.NORMAL;
+		return type.NORMAL;
 	}
 
 }
