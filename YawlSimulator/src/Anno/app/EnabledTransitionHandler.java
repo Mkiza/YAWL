@@ -1,6 +1,7 @@
 package Anno.app;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -43,7 +44,22 @@ public class EnabledTransitionHandler implements IActionHandler {
 				EnabledTransition transitionAnnotation = ((EnabledTransition) annotation);
 				Map<project.yawl.Place,Integer> marking1 = application.computeMarking();
 				if (application.enabled(flatNet, marking1, transition)) {
-					Map<project.yawl.Place,Integer> marking2 = application.fireTransition(flatNet, marking1, transition);
+					Map<Arc, Boolean> selectedInArcs = new HashMap<Arc, Boolean>();
+					Map<Arc, Boolean> selectedOutArcs = new HashMap<Arc, Boolean>();
+					for (SelectArc arcAnnotation : transitionAnnotation.getInArcs()) {
+						Arc yawlArc = (Arc) arcAnnotation.getObject();
+						selectedInArcs.put(yawlArc, arcAnnotation.isSelected());	
+					}
+					for (SelectArc arcAnnotation : transitionAnnotation.getOutArcs()) {
+						Arc yawlArc = (Arc) arcAnnotation.getObject();
+						selectedOutArcs.put(yawlArc, arcAnnotation.isSelected());
+					}
+					
+					SelectArcs.getInstance().setIn(selectedInArcs);
+					SelectArcs.getInstance().setOut(selectedOutArcs);
+					
+					
+					Map<project.yawl.Place,Integer> marking2 = application.fireTransition(flatNet, marking1, transition, selectedOutArcs);
 					NetAnnotation netAnnotation = application.computeAnnotation(flatNet, marking2);
 					netAnnotation.setNet(application.getPetrinet());
 					List<ObjectAnnotation> clearPlaceAnnotations = new ArrayList<ObjectAnnotation>();

@@ -104,12 +104,14 @@ public class App extends ApplicationWithUIManager {
 		return marking;
 	}
 	
-	Map<Place, Integer> fireTransition(FlatAccess flatNet, Map<Place, Integer> marking1, Transition transition) {
+	Map<Place, Integer> fireTransition(FlatAccess flatNet, Map<Place, Integer> marking1, Transition transition, Map<Arc, Boolean> selectedOutArcs) {
 		Map<Place,Integer> marking2 = new HashMap<Place, Integer>();
 		for (Place place: marking1.keySet()) {
 			marking2.put(place, marking1.put(place, marking1.get(place)));
 		}
-		
+		if(!isReadyToFire(transition, selectedOutArcs)){
+			return marking2;
+		}
 		for (Object arc: flatNet.getIn(transition)) {
 			if (arc instanceof Arc) {
 				Arc ptArc = (Arc) arc;
@@ -133,33 +135,99 @@ public class App extends ApplicationWithUIManager {
 			}
 		}
 		
-		for (Object arc: flatNet.getOut(transition)) {
-			if (arc instanceof Arc) {
-				Arc ptArc = (Arc) arc;
-				ArcType ptArcAnnotation = ptArc.getType();
-				Object target  = ptArc.getTarget();
-				if (target instanceof PlaceNode) {
-					target = flatNet.resolve((PlaceNode) target);
-					if (target instanceof Place) {
-						Place place = (Place) target;
-						int available = 0;
-						if (marking1.containsKey(place)) {
-							available = marking1.get(place);
+		int splitType ;
+		if(((Transition) transition).getSplitType() != null){
+			splitType = ((Transition) transition).getSplitType().getText().getValue();
+		}else {
+			splitType = TransitionTypes.NORMAL_VALUE;
+		}
+	
+		int joinType = ((Transition) transition).getJoinType().getText().getValue();
+
+		if (splitType == project.yawl.TransitionTypes.NORMAL_VALUE || splitType == project.yawl.TransitionTypes.AND_VALUE) {
+			for (Object arc : flatNet.getOut(transition)) {
+				if (arc instanceof Arc) {
+					Arc ptArc = (Arc) arc;
+					ArcType ptArcAnnotation = ptArc.getType();
+					Object target = ptArc.getTarget();
+					if (target instanceof PlaceNode) {
+						target = flatNet.resolve((PlaceNode) target);
+						if (target instanceof Place) {
+							Place place = (Place) target;
+							int available = 0;
+							if (marking1.containsKey(place)) {
+								available = marking1.get(place);
+							}
+							int provided = 1;
+							if (ptArcAnnotation != null) {
+								provided = ptArcAnnotation.getText().getValue();
+							}
+							marking2.put(place, available + provided);
 						}
-						int provided = 1; 
-						if (ptArcAnnotation != null) {
-							provided = ptArcAnnotation.getText().getValue();
-						}
-						marking2.put(place, available+provided);
 					}
 				}
 			}
 		}
+		
+		if (splitType == TransitionTypes.XOR_VALUE) {
+			for (Object arc : flatNet.getOut(transition)) {
+				if (arc instanceof Arc) {
+					Arc ptArc = (Arc) arc;
+					Arc yawlArc = (Arc) arc;
+					if (selectedOutArcs.containsKey(yawlArc) && selectedOutArcs.get(yawlArc)) {
+						Object target = yawlArc.getTarget();
+						if (target instanceof PlaceNode) {
+							target = flatNet.resolve((PlaceNode) target);
+							if (target instanceof Place) {
+								Place place = (Place) target;
+								int available = 0;
+								if (marking1.containsKey(place)) {
+									available = marking1.get(place);
+								}
+								int provided = 1;
+								marking2.put(place, available + provided);
+							}
+						}
+					}
+					
+					
+				}
+			}
+		}
+		
+		if (splitType == TransitionTypes.OR_VALUE) {
+			for (Object arc : flatNet.getOut(transition)) {
+				if (arc instanceof Arc) {
+					Arc ptArc = (Arc) arc;
+					Arc yawlArc = (Arc) arc;
+					if ((selectedOutArcs.containsKey(yawlArc) && selectedOutArcs.get(yawlArc))) {
+						Object target = yawlArc.getTarget();
+						if (target instanceof PlaceNode) {
+							target = flatNet.resolve((PlaceNode) target);
+							if (target instanceof Place) {
+								Place place = (Place) target;
+								int available = 0;
+								if (marking1.containsKey(place)) {
+									available = marking1.get(place);
+								}
+								int provided = 1;
+								marking2.put(place, available + provided);
+							}
+						}
+					}
+					
+					
+				}
+			}
+		}
+		
+		
 
 		return marking2;
 	}
 	
 	NetAnnotation computeAnnotation(FlatAccess flatNet, Map<Place, Integer> marking) {
+		System.out.println("computeAnno");
 		NetAnnotation annotation = NetannotationsFactory.eINSTANCE.createNetAnnotation();
 		for (Place place: marking.keySet()) {
 			Integer value = marking.get(place);
@@ -269,12 +337,9 @@ public class App extends ApplicationWithUIManager {
 								arcAnnotation.setObject(yawlArc);
 								arcAnnotation.setTargetTransition(transitionAnnotation);
 								annotation.getObjectAnnotations().add(arcAnnotation);
-
 							}
 						}
-
 					} else if (joinType == TransitionTypes.XOR_VALUE) {
-
 						boolean selected = false;
 						for (Object arc : flatNet.getIn(transition)) {
 							if (arc instanceof Arc) {
@@ -326,8 +391,6 @@ public class App extends ApplicationWithUIManager {
 						SA.setObject(a); 
 						transitionAnnotation.setMode(Mode.ENABLED);
 						SA.setTargetTransition(transitionAnnotation);
-						
-						if(i==0)
 							SA.setSelected(true);
 						
 						i++;
@@ -338,8 +401,6 @@ public class App extends ApplicationWithUIManager {
 						SelectArc SA = AnnoFactory.eINSTANCE.createSelectArc();
 						SA.setObject(a); 
 						SA.setSourceTransition(transitionAnnotation);
-						
-						if(t==0)
 							SA.setSelected(true);
 						
 						t++;
@@ -357,10 +418,53 @@ public class App extends ApplicationWithUIManager {
 		}
 		return annotation;
 	}
+	
+	boolean check(Transition transition, int splitType,Map<Arc, Boolean> selectedOutArcs ){
+		
+		if(splitType == TransitionTypes.XOR_VALUE){
+			int count = 0;
+			for (Object arc : transition.getOut()) {
+				if (arc instanceof Arc) {
+					Arc yawlArc = (Arc) arc;
+					if (selectedOutArcs.containsKey(yawlArc) && selectedOutArcs.get(yawlArc)) {
+						count++;
+					}
+				}
+			}
+			System.out.println(count);
+			if(count== 1){
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	boolean isReadyToFire(Transition transition, Map<Arc, Boolean> selectedOutArcs){
+		int splitType;
+		if(((Transition) transition).getSplitType() != null){
+			splitType = ((Transition) transition).getSplitType().getText().getValue();
+		}else {
+			splitType = TransitionTypes.NORMAL_VALUE;
+		}
+		
+		if(check(transition, splitType, selectedOutArcs)){
+			return true;
+		}
+		return false;
+		
+	}
 
 	boolean enabled(FlatAccess flatNet, Map<Place, Integer> marking, Transition transition) {
 		// TODO this does not work yet if there is more than one arc between the same
 		//      place and the same transition!
+		int splitType;
+		if(((Transition) transition).getSplitType() != null){
+			splitType = ((Transition) transition).getSplitType().getText().getValue();
+		}else {
+			splitType = TransitionTypes.NORMAL_VALUE;
+		}
+		
+//		if(check(transition, splitType)){
 		for (Object arc: flatNet.getIn(transition)) {
 			if (arc instanceof Arc) {
 				Arc ptArc = (Arc) arc;
@@ -380,6 +484,7 @@ public class App extends ApplicationWithUIManager {
 						if (available < needed) {
 							return false;
 						}
+						
 					} else {
 						return false;
 					}
@@ -390,7 +495,11 @@ public class App extends ApplicationWithUIManager {
 				return false;
 			}
 		}
+//		}else {
+//			return false;
+//		}
 		return true;
+		
 	}
 
 

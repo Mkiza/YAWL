@@ -34,7 +34,6 @@ public class APPPresentationHandler implements IPresentationHandler {
 				if (modelObject instanceof Arc) {
 					PolylineOverlay overlay = new PolylineOverlay(CNEP);
 					if (!ArcAnnotation.isSelected()) {
-						System.out.println("last if");
 						overlay.setForegroundColor(ColorConstants.black);
 					} 
 					return overlay;

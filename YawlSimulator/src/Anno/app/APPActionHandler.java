@@ -1,5 +1,6 @@
 package Anno.app;
 
+import org.eclipse.core.internal.localstore.IsSynchronizedVisitor;
 import org.eclipse.draw2d.MouseEvent;
 import org.pnml.tools.epnk.annotations.netannotations.ObjectAnnotation;
 import org.pnml.tools.epnk.applications.ui.IActionHandler;
@@ -74,6 +75,7 @@ public class APPActionHandler implements IActionHandler {
 		if (annotation instanceof SelectArc) {
 			SelectArc placeAnnotation = (SelectArc) annotation;
 			placeAnnotation.setSelected(!placeAnnotation.isSelected());
+			System.out.println(placeAnnotation.isSelected());
 			application.update();
 			return true; 
 		}
