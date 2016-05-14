@@ -14,7 +14,8 @@ public class Arcs extends ArcFigure {
 
 	public Arcs(Arc arc) {
 		super(arc);
-		// TODO Auto-generated constructor stub
+		type = getType();
+		setGraphics();
 	}
 	
 	private enum Type {
@@ -25,7 +26,7 @@ public class Arcs extends ArcFigure {
 	
 	@Override
 	public void update() {
-		System.out.println("LINESOLID");
+		
 		Type oldType = type;
 		type = getType();
 		if (oldType != type) {
@@ -38,12 +39,12 @@ public class Arcs extends ArcFigure {
 		RotatableDecoration targetDecorator = null;
 
 		if (type == Type.NORMAL) {
-			this.setLineStyle(SWT.LINE_SOLID);
-			System.out.println("LINESOLID");
+			this.setLineStyle(SWT.LINE_SOLID);	
+			
 			
 		} else if (type == Type.RESET) {
 			this.setLineStyle(SWT.LINE_DASH);
-			System.out.println("DASH");
+			
 			
 		} 
 		targetDecorator = new ReisigsArrowHeadDecoration();
@@ -60,7 +61,7 @@ public class Arcs extends ArcFigure {
 				case ArcTypes.RESET_VALUE:
 					return Type.RESET;
 				}
-			} 
+			}return Type.NORMAL; 
 		}
 		return Type.NORMAL;
 	}

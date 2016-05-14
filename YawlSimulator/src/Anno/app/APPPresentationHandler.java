@@ -12,6 +12,7 @@ import org.pnml.tools.epnk.applications.ui.figures.EllipseOverlay;
 import org.pnml.tools.epnk.applications.ui.figures.PolylineOverlay;
 import org.pnml.tools.epnk.applications.ui.figures.RectangleOverlay;
 
+import project.yawl.Arc;
 import project.yawl.Place;
 import project.yawl.Transition;
 import Anno.EnabledTransition;
@@ -24,34 +25,36 @@ public class APPPresentationHandler implements IPresentationHandler {
 	@Override
 	public IFigure handle(ObjectAnnotation annotation,
 			AbstractGraphicalEditPart editPart) {
-		if (annotation instanceof EnabledTransition) {
-			EnabledTransition activationAnnotation =
-					(EnabledTransition) annotation;
-			if (editPart instanceof GraphicalEditPart) {
-				GraphicalEditPart graphicalEditPart = (GraphicalEditPart) editPart;
-				// IFigure figure = graphicalEditPart.getFigure();
-				java.lang.Object modelObject = graphicalEditPart.resolveSemanticElement();
-				if (modelObject instanceof Transition) {
-					RectangleOverlay overlay = new RectangleOverlay(graphicalEditPart);
-					if (activationAnnotation.getMode().equals(Mode.ENABLED)) {
-						overlay.setForegroundColor(ColorConstants.blue);
-						overlay.setBackgroundColor(ColorConstants.blue);
-					}
-					return overlay;
-				}
-			}
-		} else if (annotation instanceof SelectArc) {
+//		if (annotation instanceof EnabledTransition) {
+//			EnabledTransition activationAnnotation =
+//					(EnabledTransition) annotation;
+//			if (editPart instanceof GraphicalEditPart) {
+//				GraphicalEditPart graphicalEditPart = (GraphicalEditPart) editPart;
+//				// IFigure figure = graphicalEditPart.getFigure();
+//				java.lang.Object modelObject = graphicalEditPart.resolveSemanticElement();
+//				if (modelObject instanceof Transition) {
+//					RectangleOverlay overlay = new RectangleOverlay(graphicalEditPart);
+//					if (activationAnnotation.getMode().equals(Mode.ENABLED)) {
+//						overlay.setForegroundColor(ColorConstants.blue);
+//						overlay.setBackgroundColor(ColorConstants.blue);
+//					
+//					return overlay;
+//				}
+//			}
+//		} else 
+		if (annotation instanceof SelectArc) {
 			SelectArc ArcAnnotation = (SelectArc) annotation;
-			if (editPart instanceof GraphicalEditPart) {
-				GraphicalEditPart graphicalEditPart = (GraphicalEditPart) editPart;
+			if (editPart instanceof ConnectionNodeEditPart) {
+				ConnectionNodeEditPart CNEP = (ConnectionNodeEditPart) editPart;
 				// IFigure figure = graphicalEditPart.getFigure();
-				java.lang.Object modelObject = graphicalEditPart.resolveSemanticElement();
-				if (modelObject instanceof Place) {
-					EllipseOverlay overlay = new EllipseOverlay(graphicalEditPart);
-					if (ArcAnnotation.isSelected()) {
-						overlay.setForegroundColor(ColorConstants.blue);
-						overlay.setBackgroundColor(ColorConstants.blue);
-					}
+				java.lang.Object modelObject = CNEP.resolveSemanticElement();
+				if (modelObject instanceof Arc) {
+					PolylineOverlay overlay = new PolylineOverlay(CNEP);
+					if (!ArcAnnotation.isSelected()) {
+						overlay.setForegroundColor(ColorConstants.red);
+						
+						
+					} 
 					return overlay;
 				}
 			}

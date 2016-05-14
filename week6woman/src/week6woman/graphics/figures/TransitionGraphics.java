@@ -173,7 +173,10 @@ public class TransitionGraphics extends TransitionFigure {
 					return SplitType.OR;
 				} else if (transitiontype.getText().getValue() == TransitionTypes.XOR_VALUE) {
 					return SplitType.XOR;
-				} else {
+				} else if(transitiontype.getText().getValue() == TransitionTypes.XOR_VALUE) {
+					return SplitType.NORMAL;
+				}  
+				 else {
 					return SplitType.NORMAL;
 				}
 			}
