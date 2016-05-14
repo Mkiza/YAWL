@@ -36,21 +36,21 @@ public class APPPresentationHandler implements IPresentationHandler {
 					if (activationAnnotation.getMode().equals(Mode.ENABLED)) {
 						overlay.setForegroundColor(ColorConstants.blue);
 						overlay.setBackgroundColor(ColorConstants.blue);
-					
+					}
 					return overlay;
 				}
 			}
 		} else if (annotation instanceof SelectArc) {
 			SelectArc ArcAnnotation = (SelectArc) annotation;
 			if (editPart instanceof GraphicalEditPart) {
-				ConnectionNodeEditPart CNEP = (ConnectionNodeEditPart) editPart;
+				GraphicalEditPart graphicalEditPart = (GraphicalEditPart) editPart;
 				// IFigure figure = graphicalEditPart.getFigure();
-				java.lang.Object modelObject = CNEP.resolveSemanticElement();
+				java.lang.Object modelObject = graphicalEditPart.resolveSemanticElement();
 				if (modelObject instanceof Place) {
-					PolylineOverlay overlay = new PolylineOverlay(CNEP);
-					if (!ArcAnnotation.isSelected()) {
-						overlay.setForegroundColor(ColorConstants.lightGray);
-						overlay.setBackgroundColor(ColorConstants.lightGray);
+					EllipseOverlay overlay = new EllipseOverlay(graphicalEditPart);
+					if (ArcAnnotation.isSelected()) {
+						overlay.setForegroundColor(ColorConstants.blue);
+						overlay.setBackgroundColor(ColorConstants.blue);
 					}
 					return overlay;
 				}
@@ -58,7 +58,7 @@ public class APPPresentationHandler implements IPresentationHandler {
 			
 		}
 		
-	}
+	
 		return null;
 
 	}}

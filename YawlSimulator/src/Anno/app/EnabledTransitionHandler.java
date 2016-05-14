@@ -1,6 +1,7 @@
 package Anno.app;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -10,10 +11,10 @@ import org.pnml.tools.epnk.annotations.netannotations.NetAnnotations;
 import org.pnml.tools.epnk.annotations.netannotations.ObjectAnnotation;
 import org.pnml.tools.epnk.applications.ui.IActionHandler;
 import org.pnml.tools.epnk.helpers.FlatAccess;
-import org.pnml.tools.epnk.pnmlcoremodel.PlaceNode;
+
 import project.yawl.Transition;
 import project.yawl.Arc;
-
+import project.yawl.Place;
 import Anno.AnnoFactory;
 import Anno.EnabledTransition;
 import Anno.SelectArc;
@@ -41,36 +42,55 @@ public class EnabledTransitionHandler implements IActionHandler {
 			if (object instanceof Transition && annotation instanceof EnabledTransition) {
 				Transition transition = (Transition) object;
 				EnabledTransition transitionAnnotation = ((EnabledTransition) annotation);
-				Map<project.yawl.Place,Integer> marking1 = application.computeMarking();
+				Map<Place,Integer> marking1 = application.computeMarking();
 				if (application.enabled(flatNet, marking1, transition)) {
-					Map<project.yawl.Place,Integer> marking2 = application.fireTransition(flatNet, marking1, transition);
+					
+					
+					Map<Arc, Boolean> selectedInArcs = new HashMap<Arc, Boolean>();
+					Map<Arc, Boolean> selectedOutArcs = new HashMap<Arc, Boolean>();
+					for (SelectArc arcAnnotation : transitionAnnotation.getInArcs()) {
+						Arc yawlArc = (Arc) arcAnnotation.getObject();
+						selectedInArcs.put(yawlArc, arcAnnotation.isSelected());	
+					}
+					for (SelectArc arcAnnotation : transitionAnnotation.getOutArcs()) {
+						Arc yawlArc = (Arc) arcAnnotation.getObject();
+						selectedOutArcs.put(yawlArc, arcAnnotation.isSelected());
+					}
+//					Map<Place,Integer> marking2 = application.fireTransition(flatNet, marking1, transition);
+//					NetAnnotation netAnnotation = application.computeAnnotation(flatNet, marking2);
+					Map<Place, Integer> marking2 = application.fireTransition(flatNet, marking1, transition,
+							selectedInArcs, selectedOutArcs);
 					NetAnnotation netAnnotation = application.computeAnnotation(flatNet, marking2);
 					netAnnotation.setNet(application.getPetrinet());
-					List<ObjectAnnotation> clearPlaceAnnotations = new ArrayList<ObjectAnnotation>();
-					for (ObjectAnnotation objectAnnotation: current.getObjectAnnotations()) {
-							if (objectAnnotation != transitionAnnotation && objectAnnotation instanceof EnabledTransition ) {
-								((EnabledTransition) objectAnnotation).setMode(Mode.ENABLED);
-						} else if (objectAnnotation instanceof SelectArc) {
-							clearPlaceAnnotations.add(objectAnnotation);
-						}
-					}
-					current.getObjectAnnotations().removeAll(clearPlaceAnnotations);
-					transitionAnnotation.setMode(Mode.FIRED);
-					for (org.pnml.tools.epnk.pnmlcoremodel.Arc arc:  flatNet.getOut(transition)) {
-						Object object2 = arc.getTarget();
-						if (object2 instanceof PlaceNode) {
-							PlaceNode target = flatNet.resolve((PlaceNode) object2);
-							if (target != null) {
-								SelectArc placeAnnotation = AnnoFactory.eINSTANCE.createSelectArc();
-								placeAnnotation.setObject(target);
-								placeAnnotation.setSelected(true);
-								current.getObjectAnnotations().add(placeAnnotation);
-							}
-						}
-					}
-					
 					application.deleteNetAnnotationAfterCurrent();
 					application.addNetAnnotationAsCurrent(netAnnotation);
+			
+//					netAnnotation.setNet(application.getPetrinet());
+//					List<ObjectAnnotation> clearPlaceAnnotations = new ArrayList<ObjectAnnotation>();
+//					for (ObjectAnnotation objectAnnotation: current.getObjectAnnotations()) {
+//							if (objectAnnotation != transitionAnnotation && objectAnnotation instanceof EnabledTransition ) {
+//								((EnabledTransition) objectAnnotation).setMode(Mode.ENABLED);
+//						} else if (objectAnnotation instanceof SelectArc) {
+//							clearPlaceAnnotations.add(objectAnnotation);
+//						}
+//					}
+//					current.getObjectAnnotations().removeAll(clearPlaceAnnotations);
+//					transitionAnnotation.setMode(Mode.FIRED);
+//					for (org.pnml.tools.epnk.pnmlcoremodel.Arc arc:  flatNet.getOut(transition)) {
+//						Object object2 = arc.getTarget();
+//						if (object2 instanceof PlaceNode) {
+//							PlaceNode target = flatNet.resolve((PlaceNode) object2);
+//							if (target != null) {
+//								SelectArc placeAnnotation = AnnoFactory.eINSTANCE.createSelectArc();
+//								placeAnnotation.setObject(target);
+//								placeAnnotation.setSelected(true);
+//								current.getObjectAnnotations().add(placeAnnotation);
+//							}
+//						}
+//					}
+//					
+//					application.deleteNetAnnotationAfterCurrent();
+//					application.addNetAnnotationAsCurrent(netAnnotation);
 					return true;
 				}
 			}
