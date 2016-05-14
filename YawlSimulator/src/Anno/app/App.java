@@ -420,7 +420,6 @@ public class App extends ApplicationWithUIManager {
 	}
 	
 	boolean check(Transition transition, int splitType,Map<Arc, Boolean> selectedOutArcs ){
-		
 		if(splitType == TransitionTypes.XOR_VALUE){
 			int count = 0;
 			for (Object arc : transition.getOut()) {
