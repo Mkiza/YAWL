@@ -75,7 +75,6 @@ public class APPActionHandler implements IActionHandler {
 		if (annotation instanceof SelectArc) {
 			SelectArc placeAnnotation = (SelectArc) annotation;
 			placeAnnotation.setSelected(!placeAnnotation.isSelected());
-			System.out.println(placeAnnotation.isSelected());
 			application.update();
 			return true; 
 		}
