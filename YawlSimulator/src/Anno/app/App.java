@@ -16,11 +16,7 @@ import org.pnml.tools.epnk.pnmlcoremodel.PlaceNode;
 import project.yawl.Transition;
 import project.yawl.Arc;
 import project.yawl.ArcType;
-
 import org.pnml.tools.epnk.pntypes.ptnet.PTArcAnnotation;
-
-
-
 import Anno.AnnoFactory;
 import Anno.EnabledTransition;
 import Anno.Marking;
@@ -28,7 +24,6 @@ import Anno.SelectArc;
 import project.yawl.Place;
 import project.yawl.PlaceTypes;
 import Anno.Mode;
-
 
 public class App extends ApplicationWithUIManager {
 
@@ -187,6 +182,48 @@ public class App extends ApplicationWithUIManager {
 					EnabledTransition transitionAnnotation =
 							AnnoFactory.eINSTANCE.createEnabledTransition();
 					int i = 0;
+					
+					int splitType = ((Transition) transition).getSplitType().getText().getValue();
+					int joinType = ((Transition) transition).getJoinType().getText().getValue();
+
+					if (splitType == project.yawl.TransitionTypes.OR_VALUE || splitType == project.yawl.TransitionTypes.AND_VALUE) {
+						for (Object arc : flatNet.getOut(transition)) {
+							if (arc instanceof Arc) {
+								Arc yawlArc = (Arc) arc;
+								SelectArc arcAnnotation = AnnoFactory.eINSTANCE
+										.createSelectArc();
+								arcAnnotation.setSelected(true);
+								arcAnnotation.setObject(yawlArc);
+								arcAnnotation.setSourceTransition(transitionAnnotation);
+								annotation.getObjectAnnotations().add(arcAnnotation);
+							}
+						}
+					}else if (splitType == project.yawl.TransitionTypes.XOR_VALUE) {
+						boolean selected = false;
+						for (Object arc : flatNet.getOut(transition)) {
+							if (arc instanceof Arc) {
+								Arc yawlArc = (Arc) arc;
+
+								if (!selected) {
+									SelectArc arcAnnotation = AnnoFactory.eINSTANCE
+											.createSelectArc();
+									arcAnnotation.setSelected(true);
+									arcAnnotation.setObject(yawlArc);
+									arcAnnotation.setSourceTransition(transitionAnnotation);
+									annotation.getObjectAnnotations().add(arcAnnotation);
+									selected = true;
+								} else {
+									SelectArc arcAnnotation = AnnoFactory.eINSTANCE
+											.createSelectArc();
+									arcAnnotation.setSelected(false);
+									arcAnnotation.setObject(yawlArc);
+									arcAnnotation.setSourceTransition(transitionAnnotation);
+									annotation.getObjectAnnotations().add(arcAnnotation);
+								}
+							}
+						}
+						
+					}
 					
 					for(org.pnml.tools.epnk.pnmlcoremodel.Arc a: transition.getIn()){
 						SelectArc SA = AnnoFactory.eINSTANCE.createSelectArc();
