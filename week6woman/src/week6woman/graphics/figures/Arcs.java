@@ -26,7 +26,7 @@ public class Arcs extends ArcFigure {
 	
 	@Override
 	public void update() {
-		System.out.println("LINESOLID");
+		
 		Type oldType = type;
 		type = getType();
 		if (oldType != type) {
@@ -39,11 +39,11 @@ public class Arcs extends ArcFigure {
 		RotatableDecoration targetDecorator = null;
 
 		if (type == Type.NORMAL) {
-			
+			this.setLineStyle(SWT.LINE_SOLID);	
 			
 			
 		} else if (type == Type.RESET) {
-			
+			this.setLineStyle(SWT.LINE_DASH);
 			
 			
 		} 
