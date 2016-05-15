@@ -364,6 +364,7 @@ public class App extends ApplicationWithUIManager {
 					if (selectedArcs.containsKey(ptArc) && selectedArcs.get(ptArc)) {
 						count++;
 					}
+					
 				}
 				
 			}
