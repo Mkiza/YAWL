@@ -346,7 +346,14 @@ public class App extends ApplicationWithUIManager {
 
 	boolean check(EList<org.pnml.tools.epnk.pnmlcoremodel.Arc> eList, int type, Map<Arc, Boolean> selectedArcs) {
 		if (type == TransitionTypes.NORMAL_VALUE) {
-			return true;
+			for (Object arc : eList) {
+				if (arc instanceof Arc) {
+					Arc ptArc = (Arc) arc;
+					if (selectedArcs.containsKey(ptArc) && selectedArcs.get(ptArc)) {
+						return true;
+					}
+				}
+			}
 		}
 
 		if (type == TransitionTypes.XOR_VALUE) {
