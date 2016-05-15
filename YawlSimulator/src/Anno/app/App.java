@@ -365,6 +365,7 @@ public class App extends ApplicationWithUIManager {
 						count++;
 					}
 				}
+				
 			}
 			System.out.println(count + "XOR");
 			if (count >= 1) {
