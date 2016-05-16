@@ -34,7 +34,6 @@ public class TransitionGraphics extends TransitionFigure {
 		splitType = getSplitType();
 		JoinType oldJoinType = joinType;
 		joinType = getJoinType();
-		System.out.println("UPDATE");
 		if (splitType != oldSplitType || joinType != oldJoinType) {
 			this.repaint();
 		}
@@ -90,9 +89,7 @@ public class TransitionGraphics extends TransitionFigure {
 			graphics.drawLine(x3, y3, x2, y2);
 			graphics.drawLine(x1, y1, x2, y2);
 
-		} else if (joinType == JoinType.NORMAL) {
-			
-		}
+		} 
 		
 		if (splitType == SplitType.AND) {
 			int x1 = rectangle.x + rectangle.width;
