@@ -100,11 +100,11 @@ public class App extends ApplicationWithUIManager {
 				}
 			}
 		}
+		
 		return marking;
 	}
 
-	Map<Place, Integer> fireTransition(FlatAccess flatNet, Map<Place, Integer> marking1, Transition transition,
-			Map<Arc, Boolean> selectedOutArcs, Map<Arc, Boolean> selectedInArcs) {
+	Map<Place, Integer> fireTransition(FlatAccess flatNet, Map<Place, Integer> marking1, Transition transition, Map<Arc, Boolean> selectedOutArcs, Map<Arc, Boolean> selectedInArcs) {
 		Map<Place, Integer> marking2 = new HashMap<Place, Integer>();
 		for (Place place : marking1.keySet()) {
 			marking2.put(place, marking1.put(place, marking1.get(place)));
@@ -112,7 +112,6 @@ public class App extends ApplicationWithUIManager {
 		if (!isReadyToFire(flatNet, transition, selectedOutArcs, selectedInArcs)) {
 			return null;
 		}
-		System.out.println("ID: " + transition.getId());
 		for (Object arc : flatNet.getIn(transition)) {
 			if (arc instanceof Arc) {
 				Arc ptArc = (Arc) arc;
@@ -161,7 +160,7 @@ public class App extends ApplicationWithUIManager {
 
 			}
 		}
-
+		
 		return marking2;
 	}
 
@@ -314,29 +313,10 @@ public class App extends ApplicationWithUIManager {
 
 					}
 
-					// for(org.pnml.tools.epnk.pnmlcoremodel.Arc a:
-					// transition.getIn()){
-					// SelectArc SA = AnnoFactory.eINSTANCE.createSelectArc();
-					// SA.setObject(a);
-					// transitionAnnotation.setMode(Mode.ENABLED);
-					// SA.setTargetTransition(transitionAnnotation);
-					//
-					//
-					// }
-					//
-					// for(org.pnml.tools.epnk.pnmlcoremodel.Arc a:
-					// transition.getOut()){
-					// SelectArc SA = AnnoFactory.eINSTANCE.createSelectArc();
-					// SA.setObject(a);
-					// SA.setSourceTransition(transitionAnnotation);
-					//
-					//
-					// }
+				
 					transitionAnnotation.setMode(Mode.ENABLED);
 					transitionAnnotation.setObject(transition);
 
-					// Lav korrekt
-					// transitionAnnotation.setSelected(Selected.False);
 					annotation.getObjectAnnotations().add(transitionAnnotation);
 				}
 			}
@@ -428,30 +408,21 @@ public class App extends ApplicationWithUIManager {
 	}
 
 	boolean enabled(FlatAccess flatNet, Map<Place, Integer> marking, Transition transition) {
+		
 		int count = 0;
 		int arcs = 0;
 		for (Object arc: flatNet.getIn(transition)) {
 			if (arc instanceof Arc) {
 				Arc ptArc = (Arc) arc;
-//				ArcType ptArcAnnotation = ptArc.getType();
-//				int available = 0;
 				Object source = ptArc.getSource();
 				if (source instanceof PlaceNode) {
 					source = flatNet.resolve((PlaceNode) source);
 					if (source instanceof Place) {
 						Place place = (Place) source;
 						arcs++;
-						if (marking.containsKey(place)) {
-//							available = marking.get(source);
+						if (marking.containsKey(place) && marking.get(place)>0) {
 							count++;
 						}
-//						int needed = 1; 
-//						if (ptArcAnnotation != null) {
-//							needed = ptArcAnnotation.getText().getValue();
-//						}
-//						if (available < needed) {
-//							return false;
-//						}
 						
 					} else {
 						return false;

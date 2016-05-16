@@ -29,7 +29,6 @@ public class APPPresentationHandler implements IPresentationHandler {
 			SelectArc ArcAnnotation = (SelectArc) annotation;
 			if (editPart instanceof ConnectionNodeEditPart) {
 				ConnectionNodeEditPart CNEP = (ConnectionNodeEditPart) editPart;
-				// IFigure figure = graphicalEditPart.getFigure();
 				java.lang.Object modelObject = CNEP.resolveSemanticElement();
 				if (modelObject instanceof Arc) {
 					PolylineOverlay overlay = new PolylineOverlay(CNEP);
@@ -46,7 +45,6 @@ public class APPPresentationHandler implements IPresentationHandler {
 					(EnabledTransition) annotation;
 			if (editPart instanceof GraphicalEditPart) {
 				GraphicalEditPart graphicalEditPart = (GraphicalEditPart) editPart;
-				// IFigure figure = graphicalEditPart.getFigure();
 				java.lang.Object modelObject = graphicalEditPart.resolveSemanticElement();
 				if (modelObject instanceof Transition) {
 					RectangleOverlay overlay = new RectangleOverlay(graphicalEditPart);

@@ -43,7 +43,6 @@ public class EnabledTransitionHandler implements IActionHandler {
 				Transition transition = (Transition) object;
 				EnabledTransition transitionAnnotation = ((EnabledTransition) annotation);
 				Map<project.yawl.Place,Integer> marking1 = application.computeMarking();
-				if (application.enabled(flatNet, marking1, transition)) {
 					Map<Arc, Boolean> selectedInArcs = new HashMap<Arc, Boolean>();
 					Map<Arc, Boolean> selectedOutArcs = new HashMap<Arc, Boolean>();
 					for (SelectArc arcAnnotation : transitionAnnotation.getInArcs()) {
@@ -58,45 +57,18 @@ public class EnabledTransitionHandler implements IActionHandler {
 					
 					Map<project.yawl.Place,Integer> marking2 = application.fireTransition(flatNet, marking1, transition, selectedOutArcs, selectedInArcs);
 					NetAnnotation netAnnotation;
-					
 					if(marking2!=null){
 						netAnnotation = application.computeAnnotation(flatNet, marking2);
 					}else{
 						netAnnotation = application.computeAnnotation(flatNet, marking1);
 					}
 					
-					netAnnotation.setNet(application.getPetrinet());
-					List<ObjectAnnotation> clearPlaceAnnotations = new ArrayList<ObjectAnnotation>();
-					for (ObjectAnnotation objectAnnotation: current.getObjectAnnotations()) {
-							if (objectAnnotation != transitionAnnotation && objectAnnotation instanceof EnabledTransition ) {
-								((EnabledTransition) objectAnnotation).setMode(Mode.ENABLED);
-						} else if (objectAnnotation instanceof SelectArc) {
-							clearPlaceAnnotations.add(objectAnnotation);
-						}
-					}
-					current.getObjectAnnotations().removeAll(clearPlaceAnnotations);
-					transitionAnnotation.setMode(Mode.FIRED);
-					for (org.pnml.tools.epnk.pnmlcoremodel.Arc arc:  flatNet.getOut(transition)) {
-						Object object2 = arc.getTarget();
-						if (object2 instanceof PlaceNode) {
-							PlaceNode target = flatNet.resolve((PlaceNode) object2);
-							if (target != null) {
-								SelectArc placeAnnotation = AnnoFactory.eINSTANCE.createSelectArc();
-								placeAnnotation.setObject(target);
-								placeAnnotation.setSelected(true);
-								current.getObjectAnnotations().add(placeAnnotation);
-							}
-						}
-					}
-					
+
 					application.deleteNetAnnotationAfterCurrent();
 					application.addNetAnnotationAsCurrent(netAnnotation);
 					return true;
-				}
 			}
 		}
-		// this should not happen (or only when the net is changed while simulating);
-		// could do something to fix this here-
 		return false;
 	}
 
