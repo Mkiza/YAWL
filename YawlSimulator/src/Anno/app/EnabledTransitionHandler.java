@@ -57,7 +57,14 @@ public class EnabledTransitionHandler implements IActionHandler {
 					
 					
 					Map<project.yawl.Place,Integer> marking2 = application.fireTransition(flatNet, marking1, transition, selectedOutArcs, selectedInArcs);
-					NetAnnotation netAnnotation = application.computeAnnotation(flatNet, marking2);
+					NetAnnotation netAnnotation;
+					
+					if(marking2!=null){
+						netAnnotation = application.computeAnnotation(flatNet, marking2);
+					}else{
+						netAnnotation = application.computeAnnotation(flatNet, marking1);
+					}
+					
 					netAnnotation.setNet(application.getPetrinet());
 					List<ObjectAnnotation> clearPlaceAnnotations = new ArrayList<ObjectAnnotation>();
 					for (ObjectAnnotation objectAnnotation: current.getObjectAnnotations()) {
