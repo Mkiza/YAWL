@@ -1,4 +1,4 @@
-package week6woman.graphics.figures;
+package graphics.figures;
 
 import org.eclipse.draw2d.RotatableDecoration;
 import org.eclipse.swt.SWT;

@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Week6woman
-Bundle-SymbolicName: week6woman;singleton:=true
+Bundle-SymbolicName: YawlGraphics;singleton:=true
 Bundle-Version: 1.0.0.qualifier
-Bundle-Activator: week6woman.Activator
+Bundle-Activator: graphics.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  epetrinet;bundle-version="0.1.0",

@@ -1,4 +1,4 @@
-package week6woman.graphics.figures;
+package graphics.figures;
 
 import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.Graphics;

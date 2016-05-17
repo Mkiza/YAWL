@@ -1,4 +1,4 @@
-package week6woman.graphics.figures;
+package graphics.figures;
 
 import java.util.ArrayList;
 import java.util.List;

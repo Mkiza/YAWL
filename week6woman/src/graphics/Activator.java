@@ -1,4 +1,4 @@
-package week6woman;
+package graphics;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;

@@ -17,7 +17,7 @@
     name="YAWL net graphical extensions"
     point="org.pnml.tools.epnk.diagram.graphics">
   <graphicsextension
-    class="week6woman.graphics.figures.YAWLGraphics"
+    class="graphics.figures.YAWLGraphics"
     description="Special graphics for ... signal event nets">
   </graphicsextension>
 </extension>
