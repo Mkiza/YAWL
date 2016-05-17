@@ -25,7 +25,6 @@ public class Arcs extends ArcFigure {
 	
 	@Override
 	public void update() {
-		System.out.println("LINESOLID");
 		Type oldType = type;
 		type = getType();
 		if (oldType != type) {
@@ -39,11 +38,9 @@ public class Arcs extends ArcFigure {
 
 		if (type == Type.NORMAL) {
 			this.setLineStyle(SWT.LINE_SOLID);
-			System.out.println("LINESOLID");
 			
 		} else if (type == Type.RESET) {
 			this.setLineStyle(SWT.LINE_DASH);
-			System.out.println("DASH");
 			
 		} 
 		targetDecorator = new ReisigsArrowHeadDecoration();
